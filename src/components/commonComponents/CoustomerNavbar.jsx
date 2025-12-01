@@ -82,7 +82,7 @@ const ModernNavbar = () => {
               )}
             </div>
               <Link
-                to="/about"
+                to="/contact"
                 className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
               >
                 Contact
