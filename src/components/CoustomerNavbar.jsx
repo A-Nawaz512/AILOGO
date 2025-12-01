@@ -11,7 +11,7 @@ const ModernNavbar = () => {
   const toggleServices = () => setServicesOpen(!servicesOpen);
 
   return (
-    <nav className="bg-gray-900 text-gray-100 shadow-lg sticky top-0 z-50">
+    <nav className="bg-[#202020] text-gray-100 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Brand */}
@@ -23,13 +23,13 @@ const ModernNavbar = () => {
           <div className="hidden md:flex items-center space-x-6">
             <Link
               to="/"
-              className="text-gray-100 hover:text-pink-400 font-medium transition-colors duration-300"
+              className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-gray-100 hover:text-pink-400 font-medium transition-colors duration-300"
+              className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
             >
               About
             </Link>
@@ -38,7 +38,7 @@ const ModernNavbar = () => {
             <div className="relative">
               <button
                 onClick={toggleServices}
-                className="flex items-center space-x-1 text-gray-100 hover:text-pink-400 font-medium transition-colors duration-300"
+                className="flex items-center space-x-1 text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
               >
                 <span>Services</span>
                 <svg
@@ -53,28 +53,28 @@ const ModernNavbar = () => {
                 </svg>
               </button>
               {servicesOpen && (
-                <div className="absolute mt-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-lg py-2 animate-fadeIn">
+                <div className="absolute mt-2 w-48 bg-gray-800 border border-[#202020] rounded-lg shadow-lg py-2 animate-fadeIn">
                   <Link
                     to="/services/rides"
-                    className="block px-4 py-2 text-gray-100 hover:bg-pink-900 rounded-md transition-colors duration-300"
+                    className="block px-4 py-2 text-gray-100 hover:bg-[#6F4918] rounded-md transition-colors duration-300"
                   >
                     Rides
                   </Link>
                   <Link
                     to="/services/deliveries"
-                    className="block px-4 py-2 text-gray-100 hover:bg-pink-900 rounded-md transition-colors duration-300"
+                    className="block px-4 py-2 text-gray-100 hover:bg-[#6F4918] rounded-md transition-colors duration-300"
                   >
                     Deliveries
                   </Link>
                   <Link
                     to="/services/rentals"
-                    className="block px-4 py-2 text-gray-100 hover:bg-pink-900 rounded-md transition-colors duration-300"
+                    className="block px-4 py-2 text-gray-100 hover:bg-[#6F4918] rounded-md transition-colors duration-300"
                   >
                     Rentals
                   </Link>
                   <Link
                     to="/services/apartments"
-                    className="block px-4 py-2 text-gray-100 hover:bg-pink-900 rounded-md transition-colors duration-300"
+                    className="block px-4 py-2 text-gray-100 hover:bg-[#6F4918] rounded-md transition-colors duration-300"
                   >
                     Apartments
                   </Link>
@@ -83,7 +83,7 @@ const ModernNavbar = () => {
             </div>
               <Link
                 to="/about"
-                className="text-gray-100 hover:text-pink-400 font-medium transition-colors duration-300"
+                className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
               >
                 Contact
               </Link>
@@ -91,13 +91,13 @@ const ModernNavbar = () => {
             {/* Buttons */}
             <Link
               to="/signup"
-              className="px-5 py-2 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+              className="px-5 py-2 bg-gradient-to-r from-[#6F4918] via-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
             >
               Sign Up
             </Link>
             <Link
               to="/login"
-              className="px-5 py-2 border border-pink-500 text-pink-400 rounded-lg hover:bg-gray-800 hover:text-pink-300 transition-all duration-300"
+              className="px-5 py-2 border-2 border-[#6F4918] text-white rounded-lg hover:bg-[#6F4918] transition-all duration-300"
             >
               Login
             </Link>
