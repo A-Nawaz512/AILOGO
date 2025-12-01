@@ -4,12 +4,13 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./components/commonComponents/CoustomerNavbar";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-
+import Footer from "./components/commonComponents/CoustomerFooter";
+import ContactPage from "./pages/ContactPage";
 const MainLayout = () => (
    <div className="lg:mx-auto lg:max-w-[1536px]">
       <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
    </div>
 );
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       children: [
          { path: "/", element: <HomePage /> },
          { path: "/about", element: <AboutPage /> },
+         { path: "/contact", element: <ContactPage /> },
       ],
    },
    // { path: "*", element: <PageNotFound /> },

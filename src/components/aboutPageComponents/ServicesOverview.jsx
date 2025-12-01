@@ -1,5 +1,6 @@
 // src/components/about/ServicesOverview.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 import {
    FaCar,
    FaKey,
@@ -7,12 +8,14 @@ import {
    FaBox,
    FaUtensils,
    FaWrench,
+   FaArrowRight,
 } from "react-icons/fa";
 
 const ServicesOverview = () => {
    const services = [
       {
-         icon: <FaCar />,
+         id: "rides",
+         icon: <FaCar className="text-[#6F4918] text-2xl" />,
          title: "VTC Transport",
          description:
             "Book rides with choice of driver gender, vehicle type, and destination",
@@ -22,10 +25,12 @@ const ServicesOverview = () => {
             "Inter/Intra-wilaya",
             "9% commission",
          ],
-         color: "from-blue-500 to-cyan-400",
+         path: "/services/rides",
+         buttonText: "Book a Ride",
       },
       {
-         icon: <FaKey />,
+         id: "vehicle-rental",
+         icon: <FaKey className="text-[#6F4918] text-2xl" />,
          title: "Vehicle Rental",
          description: "Rent cars and scooters with availability management",
          features: [
@@ -34,10 +39,12 @@ const ServicesOverview = () => {
             "Real-time availability",
             "5% commission",
          ],
-         color: "from-green-500 to-emerald-400",
+         path: "/services/rentals",
+         buttonText: "Rent Now",
       },
       {
-         icon: <FaHome />,
+         id: "apartment-rental",
+         icon: <FaHome className="text-[#6F4918] text-2xl" />,
          title: "Apartment Rental",
          description: "Find and rent apartments with integrated payment",
          features: [
@@ -46,10 +53,12 @@ const ServicesOverview = () => {
             "Direct booking",
             "5% commission",
          ],
-         color: "from-purple-500 to-pink-400",
+         path: "/services/apartments",
+         buttonText: "Find Apartments",
       },
       {
-         icon: <FaBox />,
+         id: "delivery",
+         icon: <FaBox className="text-[#6F4918] text-2xl" />,
          title: "Delivery & Courier",
          description: "Send packages with delivery confirmation",
          features: [
@@ -58,10 +67,12 @@ const ServicesOverview = () => {
             "Secure delivery",
             "5% commission",
          ],
-         color: "from-orange-500 to-yellow-400",
+         path: "/services/deliveries",
+         buttonText: "Send Package",
       },
       {
-         icon: <FaUtensils />,
+         id: "food-delivery",
+         icon: <FaUtensils className="text-[#6F4918] text-2xl" />,
          title: "Food Delivery",
          description: "Order food from local restaurants",
          features: [
@@ -70,10 +81,12 @@ const ServicesOverview = () => {
             "Order confirmation",
             "5% commission",
          ],
-         color: "from-red-500 to-pink-400",
+         path: "/services/food",
+         buttonText: "Order Food",
       },
       {
-         icon: <FaWrench />,
+         id: "roadside-assistance",
+         icon: <FaWrench className="text-[#6F4918] text-2xl" />,
          title: "Roadside Assistance",
          description: "Get help for vehicle breakdowns",
          features: [
@@ -82,13 +95,14 @@ const ServicesOverview = () => {
             "Quick response",
             "5% commission",
          ],
-         color: "from-gray-500 to-gray-400",
+         path: "/services/assistance",
+         buttonText: "Get Help",
       },
    ];
 
    return (
       <section className="py-20 px-6 lg:px-8 bg-gradient-to-b from-[#1a1a1a] to-[#202020]">
-         <div className="max-w-7xl mx-auto">
+         <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   <span className="text-gray-100">Our</span>{" "}
@@ -106,35 +120,50 @@ const ServicesOverview = () => {
                {services.map((service, index) => (
                   <div
                      key={index}
-                     className="bg-[#2a2a2a] rounded-xl border border-[#3a3a3a] p-6 hover:border-[#6F4918] transition-all duration-300 hover:-translate-y-2"
+                     className="bg-[#2a2a2a] rounded-xl border border-[#3a3a3a] p-6 hover:border-[#6F4918] transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
                   >
-                     <div
-                        className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${service.color} mb-6`}
-                     >
-                        <div className="text-white text-2xl">
-                           {service.icon}
-                        </div>
+                     <div>
+                        
+                           <div className="flex items-center justify-between pb-3 gap-3">
+                                                      <h3 className="text-xl font-bold text-gray-100">
+                              {service.title}
+                                                      </h3>
+                              {service.icon}
+                                 
+                           </div>
+                        <p className="text-gray-400 mb-4">
+                           {service.description}
+                        </p>
+                        <ul className="space-y-2 mb-6 grid md:grid-cols-2">
+                           {service.features.map((feature, idx) => (
+                              <li
+                                 key={idx}
+                                 className="flex items-center text-sm text-gray-300"
+                              >
+                                 <div className="w-1.5 h-1.5 bg-[#E2CF7D] rounded-full mr-2"></div>
+                                 {feature}
+                              </li>
+                           ))}
+                        </ul>
                      </div>
-                     <h3 className="text-xl font-bold text-gray-100 mb-3">
-                        {service.title}
-                     </h3>
-                     <p className="text-gray-400 mb-4">{service.description}</p>
-                     <ul className="space-y-2">
-                        {service.features.map((feature, idx) => (
-                           <li
-                              key={idx}
-                              className="flex items-center text-sm text-gray-300"
-                           >
-                              <div className="w-1.5 h-1.5 bg-[#E2CF7D] rounded-full mr-2"></div>
-                              {feature}
-                           </li>
-                        ))}
-                     </ul>
+
+                     {/* Explore Button */}
+                     <div className="mt-auto pt-4 border-t border-[#3a3a3a]">
+                        <Link
+                           to={service.path}
+                           className="flex items-center justify-between group"
+                        >
+                           <span className="text-[#E2CF7D] font-medium group-hover:text-white transition-colors duration-300">
+                              {service.buttonText}
+                           </span>
+                           <FaArrowRight className="text-[#E2CF7D] group-hover:translate-x-2 transition-transform duration-300" />
+                        </Link>
+                     </div>
                   </div>
                ))}
             </div>
 
-            {/* Features Banner */}
+            {/* Features Banner with CTA */}
             <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-[#202020] to-[#2a2a2a] border border-[#3a3a3a]">
                <div className="grid md:grid-cols-3 gap-8">
                   <div className="text-center">
@@ -159,6 +188,20 @@ const ServicesOverview = () => {
                      </div>
                      <p className="text-gray-400">3D tracking on MapLibre</p>
                   </div>
+               </div>
+
+               {/* Global Explore Button */}
+               <div className="text-center mt-10">
+                  <Link
+                     to="/services"
+                     className="inline-flex items-center px-8 py-2 md:py-4 bg-gradient-to-r from-[#6F4918] via-[#6F4918] to-[#E2CF7D] text-white rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  >
+                     <span>Explore All</span>
+                     <FaArrowRight className="ml-3 animate-pulse" />
+                  </Link>
+                  <p className="text-gray-400 text-sm mt-3">
+                     Access all 6 services from one dashboard
+                  </p>
                </div>
             </div>
          </div>
