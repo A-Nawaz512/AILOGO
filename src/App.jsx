@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ClientSignup from "./pages/SignUp";
 import ClientLogin from "./pages/Login";
+import Footer from "./components/commonComponents/CoustomerFooter";
 
 const MainLayout = () => (
    <div className="lg:mx-auto lg:max-w-[1536px]">
