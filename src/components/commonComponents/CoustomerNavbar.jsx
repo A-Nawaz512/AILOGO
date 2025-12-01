@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
+import logo from "../../assets/Logo (3).png";
 
 const ModernNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -11,12 +12,22 @@ const ModernNavbar = () => {
   const toggleServices = () => setServicesOpen(!servicesOpen);
 
   return (
-    <nav className="bg-[#202020] text-gray-100 shadow-lg sticky top-0 z-50">
+    <nav className="bg-[#000000] text-gray-100 py-2 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center ">
           {/* Brand */}
-          <Link to="/" className="text-3xl font-bold text-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
-            ALLOGO
+          <Link
+            to="/"
+            className="text-3xl flex items-center h-auto w-auto"
+          >
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-10 w-auto lg:h-12 lg:w-auto"
+            />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DEB74B] via-[#F1C27D] to-[#FFD700] text-3xl font-semibold font-mono">
+              AI LOGO
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -42,14 +53,20 @@ const ModernNavbar = () => {
               >
                 <span>Services</span>
                 <svg
-                  className={`w-4 h-4 ml-1 transform transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""
-                    }`}
+                  className={`w-4 h-4 ml-1 transform transition-transform duration-300 ${
+                    servicesOpen ? "rotate-180" : ""
+                  }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
               {servicesOpen && (
@@ -81,12 +98,12 @@ const ModernNavbar = () => {
                 </div>
               )}
             </div>
-              <Link
-                to="/contact"
-                className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
-              >
-                Contact
-              </Link>
+            <Link
+              to="/contact"
+              className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
+            >
+              Contact
+            </Link>
 
             {/* Buttons */}
             <Link
@@ -105,7 +122,10 @@ const ModernNavbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={toggleMobile} className="text-gray-100 hover:text-pink-400 focus:outline-none">
+            <button
+              onClick={toggleMobile}
+              className="text-gray-100 hover:text-pink-400 focus:outline-none"
+            >
               {mobileOpen ? <HiX size={28} /> : <HiMenu size={28} />}
             </button>
           </div>
@@ -115,10 +135,16 @@ const ModernNavbar = () => {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-gray-900 border-t border-gray-700 shadow-lg animate-fadeIn">
-          <Link to="/" className="block px-6 py-3 text-gray-100 hover:bg-gray-800 transition-colors duration-300">
+          <Link
+            to="/"
+            className="block px-6 py-3 text-gray-100 hover:bg-gray-800 transition-colors duration-300"
+          >
             Home
           </Link>
-          <Link to="/about" className="block px-6 py-3 text-gray-100 hover:bg-gray-800 transition-colors duration-300">
+          <Link
+            to="/about"
+            className="block px-6 py-3 text-gray-100 hover:bg-gray-800 transition-colors duration-300"
+          >
             About
           </Link>
           <button
