@@ -9,7 +9,7 @@ const OurStory = () => {
             <div className="text-center mb-16">
                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   <span className="text-[#2a2a2a]">Our</span>{" "}
-                  <span className="bg-[#6F4918] bg-clip-text text-transparent">
+                  <span className="text-white">
                      Story
                   </span>
                </h2>

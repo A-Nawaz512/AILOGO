@@ -23,7 +23,7 @@ const HeroSection = () => {
                      assistance services into one seamless 3D-powered ecosystem.
                   </p>
 
-                  <div className="grid grid-cols-3 gap-4 mb-8">
+                  <div className="grid md:grid-cols-3 gap-4 mb-8">
                      <div className="bg-[#2a2a2a] p-4 rounded-lg border border-[#3a3a3a] transform transition-transform duration-300 hover:scale-105">
                         <FaCar className="text-[#E2CF7D] text-2xl mb-2" />
                         <p className="text-gray-200 font-semibold">

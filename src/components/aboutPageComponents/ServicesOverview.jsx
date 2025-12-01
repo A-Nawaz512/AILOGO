@@ -134,7 +134,7 @@ const ServicesOverview = () => {
                         <p className="text-gray-400 mb-4">
                            {service.description}
                         </p>
-                        <ul className="space-y-2 mb-6 grid grid-cols-2">
+                        <ul className="space-y-2 mb-6 grid md:grid-cols-2">
                            {service.features.map((feature, idx) => (
                               <li
                                  key={idx}
@@ -194,9 +194,9 @@ const ServicesOverview = () => {
                <div className="text-center mt-10">
                   <Link
                      to="/services"
-                     className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#6F4918] via-[#6F4918] to-[#E2CF7D] text-white rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                     className="inline-flex items-center px-8 py-2 md:py-4 bg-gradient-to-r from-[#6F4918] via-[#6F4918] to-[#E2CF7D] text-white rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   >
-                     <span>Explore All Services</span>
+                     <span>Explore All</span>
                      <FaArrowRight className="ml-3 animate-pulse" />
                   </Link>
                   <p className="text-gray-400 text-sm mt-3">
