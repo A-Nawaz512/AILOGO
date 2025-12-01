@@ -5,6 +5,7 @@ import Navbar from "./components/commonComponents/CoustomerNavbar";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import Footer from "./components/commonComponents/CoustomerFooter";
+import ContactPage from "./pages/ContactPage";
 const MainLayout = () => (
    <div className="lg:mx-auto lg:max-w-[1536px]">
       <Navbar />
