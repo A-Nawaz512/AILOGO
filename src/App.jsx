@@ -4,8 +4,10 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./components/commonComponents/CoustomerNavbar";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import ClientSignup from "./pages/SignUp";
+import ClientLogin from "./pages/Login";
 import Footer from "./components/commonComponents/CoustomerFooter";
-import ContactPage from "./pages/ContactPage";
+
 const MainLayout = () => (
    <div className="lg:mx-auto lg:max-w-[1536px]">
       <Navbar />
@@ -20,7 +22,11 @@ const router = createBrowserRouter([
       children: [
          { path: "/", element: <HomePage /> },
          { path: "/about", element: <AboutPage /> },
-         { path: "/contact", element: <ContactPage /> },
+         { path: "/signup", element: <ClientSignup /> },
+         { path: "/login", element: <ClientLogin /> },
+
+         
+
       ],
    },
    // { path: "*", element: <PageNotFound /> },

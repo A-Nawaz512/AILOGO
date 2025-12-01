@@ -54,11 +54,11 @@ const Technology = () => {
    ];
 
    return (
-      <section className="py-20 px-6 lg:px-8 bg-gradient-to-b from-[#202020] to-[#1a1a1a]">
+      <section className="py-20 px-6 lg:px-8 bg-white">
          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="text-gray-100">Our</span>{" "}
+                  <span className="text-[#202020]">Our</span>{" "}
                   <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
                      Technology
                   </span>
@@ -74,7 +74,7 @@ const Technology = () => {
                {techFeatures.map((feature, index) => (
                   <div
                      key={index}
-                     className="bg-[#2a2a2a] relative p-6 rounded-xl border border-[#3a3a3a] hover:border-[#6F4918] transition-all duration-300 hover:-translate-y-1"
+                     className="bg-[#2a2a2a] relative p-10 rounded-xl transition-all duration-300 hover:-translate-y-1"
                   >
                      <div className="flex items-start">
                         <div className="flex-shrink-0 mr-4 absolute top-0 -right-4">
@@ -95,7 +95,7 @@ const Technology = () => {
                               {feature.details.map((detail, idx) => (
                                  <span
                                     key={idx}
-                                    className="px-3 py-1 bg-[#1a1a1a] text-gray-300 text-sm rounded-full border border-[#3a3a3a]"
+                                    className="px-5 py-3 bg-[#1a1a1a] text-gray-300 text-sm rounded-full border border-[#3a3a3a]"
                                  >
                                     {detail}
                                  </span>
