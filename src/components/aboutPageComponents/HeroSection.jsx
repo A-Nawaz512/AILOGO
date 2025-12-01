@@ -4,12 +4,12 @@ import { FaMapMarkedAlt, FaCar, FaShieldAlt } from "react-icons/fa";
 
 const HeroSection = () => {
    return (
-      <section className="relative py-20 px-6 lg:px-8 overflow-hidden">
+      <section className="relative py-20 px-6 lg:px-8 overflow-hidden min-h-screen">
          {/* Background gradient */}
          <div className="absolute inset-0 bg-gradient-to-r from-[#202020] via-[#121212] to-[#202020]"></div>
 
-         <div className="max-w-7xl mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+         <div className="max-w-6xl mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
                <div className="animate-fadeIn">
                   <h1 className="text-5xl md:text-6xl font-bold mb-6">
                      <span className="text-gray-100">Revolutionizing</span>{" "}

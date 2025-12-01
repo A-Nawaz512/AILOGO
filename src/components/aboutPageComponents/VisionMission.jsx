@@ -5,19 +5,17 @@ import { FaEye, FaBullseye, FaStar } from "react-icons/fa";
 const VisionMission = () => {
    return (
       <section className="py-20 px-6 lg:px-8 bg-gradient-to-b from-[#1a1a1a] to-[#202020]">
-         <div className="max-w-7xl mx-auto">
+         <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12">
                {/* Vision */}
                <div>
-                  <div className="flex items-center mb-8">
-                     <div className="p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-lg mr-4">
-                        <FaEye className="text-white text-2xl" />
-                     </div>
+                  <div className="flex items-center justify-between mb-8">
                      <h2 className="text-3xl font-bold text-gray-100">
                         Our Vision
                      </h2>
+                        <FaEye className="text-white text-2xl" />
                   </div>
-                  <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                  <p className="text-gray-400 text-lg text-justify mb-6 leading-relaxed">
                      To become Algeria's leading multi-service platform,
                      revolutionizing how people access transportation, rentals,
                      and delivery services through innovative technology.
@@ -57,24 +55,22 @@ const VisionMission = () => {
 
                {/* Mission */}
                <div>
-                  <div className="flex items-center mb-8">
-                     <div className="p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-lg mr-4">
-                        <FaBullseye className="text-white text-2xl" />
-                     </div>
+                  <div className="flex items-center justify-between mb-8">
                      <h2 className="text-3xl font-bold text-gray-100">
                         Our Mission
                      </h2>
+                        <FaBullseye className="text-white text-2xl" />
                   </div>
-                  <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                  <p className="text-gray-400 text-lg mb-6 text-justify leading-relaxed">
                      To provide Algerians with a reliable, efficient, and
                      comprehensive service platform that simplifies daily life
-                     through technology.
+                     through technology and management
                   </p>
                   <div className="bg-[#2a2a2a] p-6 rounded-xl border border-[#3a3a3a] hover:border-[#6F4918] transition-all duration-300">
                      <h3 className="text-xl font-bold text-gray-100 mb-4">
                         Core Values
                      </h3>
-                     <div className="grid grid-cols-2 gap-4">
+                     <div className="space-y-3">
                         <div className="flex items-center space-x-3">
                            <FaStar className="text-[#E2CF7D]" />
                            <span className="text-gray-300">Innovation</span>
