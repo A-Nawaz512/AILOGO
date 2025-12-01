@@ -45,7 +45,8 @@ const CoustomerFooter = () => {
 
   return (
     <footer className="bg-black text-white relative overflow-hidden">
-      {/* LIGHT GOLD GRADIENT TOP BORDER */}
+
+      {/* GOLD TOP BORDER */}
       <div className="w-full h-1 bg-gradient-to-r from-[#734D1C] via-[#BCA25B] to-[#734D1C]"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 py-15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
@@ -70,14 +71,13 @@ const CoustomerFooter = () => {
             {companyLinks.map((link, index) => (
               <motion.li
                 key={index}
-                whileHover={{ x: 7 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
                 <a
                   href={link.href}
                   className="text-white/70 hover:text-[#BCA25B] transition-all duration-300 flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 bg-[#BCA25B] rounded-full"></span>
                   {link.name}
                 </a>
               </motion.li>
@@ -94,14 +94,13 @@ const CoustomerFooter = () => {
             {services.map((service, index) => (
               <motion.li
                 key={index}
-                whileHover={{ x: 7 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
                 <a
                   href={service.href}
-                  className="text-white/70 hover:text-[#BCA25B] transition-all duration-300 flex items-center gap-2"
+                  className="text-white/70 hover:text-[#BCA25B] transition-all duration-300"
                 >
-                  <span className="w-1 h-1 bg-[#BCA25B] rounded-full"></span>
                   {service.name}
                 </a>
               </motion.li>
@@ -115,6 +114,7 @@ const CoustomerFooter = () => {
             Contact
           </h3>
 
+          {/* Email */}
           <motion.a
             whileHover={{ scale: 1.05 }}
             href="mailto:support@allogo.dz"
@@ -126,6 +126,7 @@ const CoustomerFooter = () => {
             <span className="text-sm">support@allogo.dz</span>
           </motion.a>
 
+          {/* Phone */}
           <motion.a
             whileHover={{ scale: 1.05 }}
             href="tel:+213XX XXX XXXX"
@@ -137,6 +138,7 @@ const CoustomerFooter = () => {
             <span className="text-sm">+213 XX XXX XXXX</span>
           </motion.a>
 
+          {/* Location */}
           <div className="flex items-start space-x-3 text-white/80">
             <div className="p-2 bg-white/10 rounded-lg">
               <FaMapMarkerAlt className="text-white animate-pulse" />
