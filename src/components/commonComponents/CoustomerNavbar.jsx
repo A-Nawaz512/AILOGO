@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
-import logo from "../../assets/Logo (3).png";
+import logo from "../../assets/AIlogo.png";
 
 const ModernNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -20,11 +20,11 @@ const ModernNavbar = () => {
             <img
               src={logo}
               alt="Logo"
-              className="h-10 w-auto sm:h-12"
+              className="h-15 w-auto lg:h-15 lg:w-auto"
             />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DEB74B] via-[#F1C27D] to-[#FFD700] text-2xl sm:text-3xl font-serif">
-              AILOGO
-            </span>
+            {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DEB74B] via-[#F1C27D] to-[#FFD700] text-3xl font-semibold font-mono">
+              AI LOGO
+            </span> */}
           </Link>
 
           {/* DESKTOP MENU */}
