@@ -1,9 +1,1 @@
 @import "tailwindcss";
-
-body::-webkit-scrollbar{
-    background-color: black;
-}
-body::-webkit-scrollbar-thumb{
-    background: radial-gradient(black,goldenrod);
-    border-radius: 50%;
-}
