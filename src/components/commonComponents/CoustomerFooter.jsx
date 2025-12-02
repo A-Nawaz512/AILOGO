@@ -48,7 +48,7 @@ const CoustomerFooter = () => {
 
   return (
     <div className="bg-white">
-      <footer className="bg-black text-white relative overflow-hidden max-w-7xl mx-auto rounded-xl border border-2 border-[#CEAA36] mt-4 mb-3">
+      <footer className="bg-black text-white relative overflow-hidden max-w-7xl mx-auto rounded-xl border-t-5 border-[#CEAA36] mt-4 mb-3">
         {/* LIGHT GOLD GRADIENT TOP BORDER */}
         <div className="w-full bg-gradient-to-r from-[#734D1C] via-[#BCA25B] to-[#734D1C]"></div>
 
@@ -127,34 +127,34 @@ const CoustomerFooter = () => {
               transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
             >
               <div className="p-2 bg-white/10 rounded-lg">
-                <FaEnvelope className="text-white animate-pulse text-md" />
+                <FaEnvelope className="text-white animate-pulse text-md hover:text-[#BCA25B]" />
               </div>
               <span className="text-md">support@allogo.dz</span>
             </motion.a>
 
-           <motion.a
-  href="tel:+213XX XXX XXXX"
-  className="flex items-center space-x-3 text-white/80"
-  whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
-  transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
->
-  <div className="p-2 bg-white/10 rounded-lg">
-    <FaPhoneAlt className="text-white animate-pulse text-md" />
-  </div>
-  <span className="text-md">+213 XX XXX XXXX</span>
-</motion.a>
+            <motion.a
+              href="tel:+213XX XXX XXXX"
+              className="flex items-center space-x-3 text-white/80"
+              whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
+              transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
+            >
+              <div className="p-2 bg-white/10 rounded-lg">
+                <FaPhoneAlt className="text-white animate-pulse text-md" />
+              </div>
+              <span className="text-md">+213 XX XXX XXXX</span>
+            </motion.a>
 
 
-           <motion.div
-  className="flex items-start space-x-3 text-white/80 cursor-pointer"
-  whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
-  transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
->
-  <div className="p-2 bg-white/10 rounded-lg">
-    <FaMapMarkerAlt className="text-white animate-pulse text-md" />
-  </div>
-  <span className="text-md leading-relaxed">Algiers, Algeria</span>
-</motion.div>
+            <motion.div
+              className="flex items-start space-x-3 text-white/80 cursor-pointer"
+              whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
+              transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
+            >
+              <div className="p-2 bg-white/10 rounded-lg">
+                <FaMapMarkerAlt className="text-white animate-pulse text-md" />
+              </div>
+              <span className="text-md leading-relaxed">Algiers, Algeria</span>
+            </motion.div>
 
           </div>
         </div>
@@ -173,7 +173,7 @@ const CoustomerFooter = () => {
                   key={index}
                   href={social.href}
                   target="_blank"
-                  className="p-3 bg-white/5 rounded-xl hover:bg-[#CEAA36]/20 transition-all"
+                  className="p-3 bg-white/5 rounded-xl hover:bg-[#CEAA36]/20  transition-all"
                 >
                   <social.icon className="text-xl animate-pulse text-white hover:text-[#BCA25B]" />
                 </motion.a>
