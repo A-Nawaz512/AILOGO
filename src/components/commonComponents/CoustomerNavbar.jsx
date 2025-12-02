@@ -3,10 +3,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import logo from "../../assets/Logo (3).png";
-import { FaCaretDown } from "react-icons/fa";
-import { FaCaretUp } from "react-icons/fa";
-
-
 
 const ModernNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,11 +49,11 @@ const ModernNavbar = () => {
                 className="px-4 py-2 rounded flex items-center space-x-1 font-medium transition-all duration-300 hover:bg-[#6F4918]"
               >
                 <span>Services</span>
-                <span>{servicesOpen ? <FaCaretUp /> : <FaCaretDown />}</span>
+                <span>{servicesOpen ? "▲" : "▼"}</span>
               </button>
 
               {servicesOpen && (
-                <div className="absolute mt-2 w-52 py-6 bg-black border border-[#202020] rounded-lg shadow-lg animate-fadeIn">
+                <div className="absolute mt-2 w-64 md:w-52 bg-black border border-[#202020] rounded-lg shadow-lg animate-fadeIn">
                   {[
                     { label: "Rides", path: "/services/rides" },
                     { label: "Deliveries", path: "/services/deliveries" },
