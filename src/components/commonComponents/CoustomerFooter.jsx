@@ -28,12 +28,12 @@ const CoustomerFooter = () => {
   ];
 
   const services = [
-    { name: "VTC Rides", href: "/services" },
-    { name: "Vehicle Rental", href: "/services" },
-    { name: "Apartment Rental", href: "/services" },
-    { name: "Food Delivery", href: "/services" },
-    { name: "Courier / Delivery", href: "/services" },
-    { name: "Roadside Assistance", href: "/services" },
+    { name: "VTC Rides", href: "" },
+    { name: "Vehicle Rental", href: "" },
+    { name: "Apartment Rental", href: "" },
+    { name: "Food Delivery", href: "" },
+    { name: "Courier / Delivery", href: "" },
+    { name: "Roadside Assistance", href: "" },
   ];
 
   const socialLinks = [
@@ -53,7 +53,7 @@ const CoustomerFooter = () => {
         {/* Brand */}
         <div data-aos="fade-up" className="space-y-4">
           <h2 className="text-3xl font-bold text-[#BCA25B]">AlLOGO</h2>
-          <p className="text-white/80 text-sm leading-relaxed">
+          <p className="text-white/80 text-md leading-relaxed">
             All-in-one platform for Rides, Rentals, Food Delivery, Apartments & Roadside Assistance.
           </p>
           <p className="text-[#BCA25B] text-sm font-semibold animate-pulse">
@@ -62,99 +62,99 @@ const CoustomerFooter = () => {
         </div>
 
         {/* Quick Links */}
-        <div data-aos="fade-up" data-aos-delay="150">
+        <div data-aos="fade-right" data-aos-delay="150">
           <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#BCA25B] border-b border-[#BCA25B]/30 pb-2">
             Quick Links
           </h3>
           <ul className="space-y-3">
             {companyLinks.map((link, index) => (
-              <motion.li
-                key={index}
-                whileHover={{ x: 7 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                <a
+              <li key={index}>
+                <motion.a
                   href={link.href}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 250, damping: 15 }}
                   className="text-white/70 hover:text-[#BCA25B] transition-all duration-300 flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 bg-[#BCA25B] rounded-full"></span>
+                  <span className="w-2 h-2 bg-[#BCA25B] rounded-full animate-pulse"></span>
                   {link.name}
-                </a>
-              </motion.li>
+                </motion.a>
+              </li>
             ))}
           </ul>
         </div>
 
         {/* Services */}
-        <div data-aos="fade-up" data-aos-delay="300">
+        <div data-aos="fade-down" data-aos-delay="300">
           <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#BCA25B] border-b border-[#BCA25B]/30 pb-2">
             Services
           </h3>
           <ul className="space-y-3">
             {services.map((service, index) => (
-              <motion.li
-                key={index}
-                whileHover={{ x: 7 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                <a
+              <li key={index}>
+                <motion.a
                   href={service.href}
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 250, damping: 15 }}
                   className="text-white/70 hover:text-[#BCA25B] transition-all duration-300 flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 bg-[#BCA25B] rounded-full"></span>
+                  <span className="w-2 h-2 bg-[#BCA25B] rounded-full animate-pulse"></span>
                   {service.name}
-                </a>
-              </motion.li>
+                </motion.a>
+              </li>
             ))}
           </ul>
         </div>
 
         {/* Contact */}
-        <div data-aos="fade-up" data-aos-delay="450" className="space-y-4">
+        <div data-aos="fade-left" data-aos-delay="450" className="space-y-4">
           <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#BCA25B] border-b border-[#BCA25B]/30 pb-2">
             Contact
           </h3>
 
           <motion.a
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, x: 5 }}
+            transition={{ type: "spring", stiffness: 300 }}
             href="mailto:support@allogo.dz"
             className="flex items-center space-x-3 text-white/80 hover:text-[#BCA25B] transition-all"
           >
             <div className="p-2 bg-white/10 rounded-lg">
-              <FaEnvelope className="text-white animate-pulse" />
+              <FaEnvelope className="text-white animate-pulse text-md" />
             </div>
-            <span className="text-sm">support@allogo.dz</span>
+            <span className="text-md">support@allogo.dz</span>
           </motion.a>
 
           <motion.a
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, x: 5 }}
+            transition={{ type: "spring", stiffness: 300 }}
             href="tel:+213XX XXX XXXX"
             className="flex items-center space-x-3 text-white/80 hover:text-[#BCA25B] transition-all"
           >
             <div className="p-2 bg-white/10 rounded-lg">
-              <FaPhone className="text-white animate-pulse" />
+              <FaPhone className="text-white animate-pulse text-md" />
             </div>
-            <span className="text-sm">+213 XX XXX XXXX</span>
+            <span className="text-md">+213 XX XXX XXXX</span>
           </motion.a>
 
-          <div className="flex items-start space-x-3 text-white/80">
+          <motion.div
+            whileHover={{ scale: 1.05, x: 5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="flex items-start space-x-3 text-white/80 hover:text-[#BCA25B] transition-all cursor-pointer"
+          >
             <div className="p-2 bg-white/10 rounded-lg">
-              <FaMapMarkerAlt className="text-white animate-pulse" />
+              <FaMapMarkerAlt className="text-white animate-pulse text-md" />
             </div>
-            <span className="text-sm leading-relaxed">Algiers, Algeria</span>
-          </div>
+            <span className="text-md leading-relaxed">Algiers, Algeria</span>
+          </motion.div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-[#BCA25B]/20 py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-
-          <p className="text-white/60 text-sm">
-            © {currentYear} <span className="text-[#BCA25B] font-semibold">AlLOGO</span> — All Rights Reserved
+          <p className="text-white/60 text-md">
+            © {currentYear} <span className="text-[#BCA25B] font-semibold animate-pulse">AlLOGO</span> — All Rights Reserved
           </p>
 
-          {/* Social Icons */}
           <div className="flex space-x-4">
             {socialLinks.map((social, index) => (
               <motion.a

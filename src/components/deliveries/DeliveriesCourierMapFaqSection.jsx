@@ -26,7 +26,7 @@ export default function DeliveriesCourierMapFaqSection() {
 
   return (
     <section className="bg-gray-50 py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
+      <div className="mx-auto overflow-hidden max-w-6xl px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
         {/* ===== COURIER + MAP ROW ===== */}
         <div className="grid gap-10 md:gap-12 md:grid-cols-2 lg:grid-cols-[1.1fr_0.95fr] items-start">
           {/* LEFT: COURIERS */}

@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
-import logo from "../../assets/Logo (3).png";
+
+import { FaCaretDown } from "react-icons/fa";
+import { FaCaretUp } from "react-icons/fa";
 
 const ModernNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -11,101 +13,81 @@ const ModernNavbar = () => {
   const toggleMobile = () => setMobileOpen(!mobileOpen);
   const toggleServices = () => setServicesOpen(!servicesOpen);
 
+
+  
+
   return (
-    <nav className="bg-[#000000] text-gray-100 py-2 shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center ">
+    <nav className="bg-black text-gray-100 py-3 shadow-lg sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
           {/* Brand */}
-          <Link
-            to="/"
-            className="text-3xl flex items-center h-auto w-auto"
-          >
+          <Link to="/" className="flex items-center space-x-2">
             <img
-              src={logo}
+              src='/ailogo.png'
               alt="Logo"
-              className="h-10 w-auto lg:h-12 lg:w-auto"
+              className="h-10 w-auto lg:h-12 bg-black-400/20 shadow-sm shadow-[#755023] rounded-lg lg:w-auto"
             />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DEB74B] via-[#F1C27D] to-[#FFD700] text-3xl font-semibold font-mono">
-              AI LOGO
-            </span>
+           
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/"
-              className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
+              className="px-4 py-2 rounded font-medium transition-all duration-300 hover:bg-[#6F4918]"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
+              className="px-4 py-2 rounded font-medium transition-all duration-300 hover:bg-[#6F4918]"
             >
               About
             </Link>
 
-            {/* Services Dropdown */}
+            {/* SERVICES DROPDOWN */}
             <div className="relative">
               <button
                 onClick={toggleServices}
-                className="flex items-center space-x-1 text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
+                className="px-4 py-2 rounded flex items-center space-x-1 font-medium transition-all duration-300 hover:bg-[#6F4918]"
               >
                 <span>Services</span>
-                <svg
-                  className={`w-4 h-4 ml-1 transform transition-transform duration-300 ${
-                    servicesOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                <span>{servicesOpen ? <FaCaretUp /> : <FaCaretDown />}</span>
               </button>
+
               {servicesOpen && (
-                <div className="absolute mt-2 w-48 bg-gray-800 border border-[#202020] rounded-lg shadow-lg py-2 animate-fadeIn">
-                  <Link
-                    to="/services/rides"
-                    className="block px-4 py-2 text-gray-100 hover:bg-[#6F4918] rounded-md transition-colors duration-300"
-                  >
-                    Rides
-                  </Link>
-                  <Link
-                    to="/services/deliveries"
-                    className="block px-4 py-2 text-gray-100 hover:bg-[#6F4918] rounded-md transition-colors duration-300"
-                  >
-                    Deliveries
-                  </Link>
-                  <Link
-                    to="/services/rentals"
-                    className="block px-4 py-2 text-gray-100 hover:bg-[#6F4918] rounded-md transition-colors duration-300"
-                  >
-                    Rentals
-                  </Link>
-                  <Link
-                    to="/services/apartments"
-                    className="block px-4 py-2 text-gray-100 hover:bg-[#6F4918] rounded-md transition-colors duration-300"
-                  >
-                    Apartments
-                  </Link>
+                <div className="absolute py-4 mt-2 w-64 md:w-52 bg-black border border-[#202020] rounded-lg shadow-lg animate-fadeIn">
+                  {[
+                    { label: "VTC / Passenger transport", path: "/services/rides" },
+                    { label: "Delivery / Courier", path: "/services/deliveries" },
+                    { label: "Vehicle rental", path: "/services/rentals" },
+                    { label: "Apartment rental", path: "/services/apartments" },
+                    { label: "Food delivery", path: "/services/food-delivery" },
+                    { label: "Roadside assistance", path: "/services/roadside-assistance" },
+                  ].map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      onClick={()=>setServicesOpen(false)}
+                      className="block px-4 py-2 text-gray-100 rounded-md transition-all duration-300 hover:bg-[#6F4918]"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
+
             <Link
               to="/contact"
-              className="text-gray-100 hover:bg-[#6F4918] px-5 py-2 rounded font-medium transition-colors duration-300"
+              className="px-4 py-2 rounded font-medium transition-all duration-300 hover:bg-[#6F4918]"
             >
               Contact
             </Link>
+          </div>
 
-            {/* Buttons */}
+          {/* AUTH BUTTONS */}
+          <div className="hidden md:flex space-x-4">
             <Link
               to="/signup"
               className="px-5 py-2 bg-gradient-to-r from-[#6F4918] via-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
@@ -120,82 +102,70 @@ const ModernNavbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={toggleMobile}
-              className="text-gray-100 hover:text-pink-400 focus:outline-none"
-            >
-              {mobileOpen ? <HiX size={28} /> : <HiMenu size={28} />}
-            </button>
-          </div>
+          {/* MOBILE TOGGLE */}
+          <button
+            onClick={toggleMobile}
+            className="md:hidden text-gray-100 hover:text-[#FFD700] transition-all duration-300"
+          >
+            {mobileOpen ? <HiX size={32} /> : <HiMenu size={32} />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="md:hidden bg-gray-900 border-t border-gray-700 shadow-lg animate-fadeIn">
-          <Link
-            to="/"
-            className="block px-6 py-3 text-gray-100 hover:bg-gray-800 transition-colors duration-300"
-          >
+        <div className="md:hidden bg-black border-t border-[#202020] py-4 space-y-2 animate-fadeIn">
+          <Link to="/" className="block px-6 py-2 hover:bg-[#6F4918] transition-all duration-300 rounded">
             Home
           </Link>
-          <Link
-            to="/about"
-            className="block px-6 py-3 text-gray-100 hover:bg-gray-800 transition-colors duration-300"
-          >
+
+          <Link to="/about" className="block px-6 py-2 hover:bg-[#6F4918] transition-all duration-300 rounded">
             About
           </Link>
+
           <button
             onClick={toggleServices}
-            className="w-full flex justify-between items-center px-6 py-3 text-gray-100 hover:bg-gray-800 transition-colors duration-300"
+            className="w-full text-left px-6 py-2 flex justify-between items-center hover:bg-[#6F4918] transition-all duration-300 rounded"
           >
             Services
-            <span className="text-xl">{servicesOpen ? "-" : "+"}</span>
+            <span>{servicesOpen ? "▲" : "▼"}</span>
           </button>
+
           {servicesOpen && (
-            <div className="pl-6 bg-gray-800">
-              <Link
-                to="/services/rides"
-                className="block px-4 py-2 text-gray-100 hover:bg-pink-900 rounded-md transition-colors duration-300"
-              >
+            <div className="ml-6 space-y-2 animate-fadeIn">
+              <Link to="/services/rides" className="block px-6 py-2 hover:bg-[#6F4918] rounded">
                 Rides
               </Link>
-              <Link
-                to="/services/deliveries"
-                className="block px-4 py-2 text-gray-100 hover:bg-pink-900 rounded-md transition-colors duration-300"
-              >
+              <Link to="/services/deliveries" className="block px-6 py-2 hover:bg-[#6F4918] rounded">
                 Deliveries
               </Link>
-              <Link
-                to="/services/rentals"
-                className="block px-4 py-2 text-gray-100 hover:bg-pink-900 rounded-md transition-colors duration-300"
-              >
+              <Link to="/services/rentals" className="block px-6 py-2 hover:bg-[#6F4918] rounded">
                 Rentals
               </Link>
-              <Link
-                to="/services/apartments"
-                className="block px-4 py-2 text-gray-100 hover:bg-pink-900 rounded-md transition-colors duration-300"
-              >
+              <Link to="/services/apartments" className="block px-6 py-2 hover:bg-[#6F4918] rounded">
                 Apartments
               </Link>
             </div>
           )}
 
-          <Link
-            to="/signup"
-            className="block mx-6 mt-3 px-5 py-2 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white rounded-lg shadow-md text-center hover:shadow-xl transition-all duration-300"
-          >
-            Sign Up
+          <Link to="/contact" className="block px-6 py-2 hover:bg-[#6F4918] transition-all duration-300 rounded">
+            Contact
           </Link>
 
-          <Link
-            to="/login"
-            className="block mx-6 my-3 px-5 py-2 border border-pink-500 text-pink-400 rounded-lg text-center hover:bg-gray-800 hover:text-pink-300 transition-all duration-300"
-          >
-            Login
-          </Link>
+          <div className="px-6 space-y-3 pt-4">
+            <Link
+              to="/signup"
+              className="block text-center px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+            >
+              Sign Up
+            </Link>
+            <Link
+              to="/login"
+              className="block text-center px-5 py-2 border-2 border-[#6F4918] text-white rounded-lg hover:bg-[#6F4918] transition-all duration-300"
+            >
+              Login
+            </Link>
+          </div>
         </div>
       )}
     </nav>
