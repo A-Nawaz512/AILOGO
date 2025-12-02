@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import logo from "../../assets/AIlogo.png";
-import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa";
+import { FaCaretUp } from "react-icons/fa";
 
 const ModernNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,9 +24,7 @@ const ModernNavbar = () => {
               alt="Logo"
               className="h-15 w-auto lg:h-15 lg:w-auto"
             />
-            {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DEB74B] via-[#F1C27D] to-[#FFD700] text-3xl font-semibold font-mono">
-              AI LOGO
-            </span> */}
+           
           </Link>
 
           {/* DESKTOP MENU */}
@@ -54,12 +53,14 @@ const ModernNavbar = () => {
               </button>
 
               {servicesOpen && (
-                <div className="absolute mt-2 w-52 py-6 bg-black border border-[#202020] rounded-lg shadow-lg animate-fadeIn">
+                <div className="absolute py-4 mt-2 w-64 md:w-52 bg-black border border-[#202020] rounded-lg shadow-lg animate-fadeIn">
                   {[
-                    { label: "Rides", path: "/services/rides" },
-                    { label: "Deliveries", path: "/services/deliveries" },
-                    { label: "Rentals", path: "/services/rentals" },
-                    { label: "Apartments", path: "/services/apartments" },
+                    { label: "VTC / Passenger transport", path: "/services/rides" },
+                    { label: "Delivery / Courier", path: "/services/deliveries" },
+                    { label: "Vehicle rental", path: "/services/rentals" },
+                    { label: "Apartment rental", path: "/services/apartments" },
+                    { label: "Food delivery", path: "/services/food-delivery" },
+                    { label: "Roadside assistance", path: "/services/roadside-assistance" },
                   ].map((item) => (
                     <Link
                       key={item.path}
