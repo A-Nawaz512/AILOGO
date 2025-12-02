@@ -1,5 +1,6 @@
 import React from "react";
 import { Car, Home as HomeIcon, Bike, Truck, Utensils, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
 
 const services = [
   { title: "Ride Booking (VTC)", icon: Car },
@@ -12,41 +13,54 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <div className="bg-[#111] text-white py-10">
+    <div className="bg-white text-black min-h-screen flex flex-col justify-center py-16">
 
-      
-      <h2 className="text-center text-4xl font-bold mb-16">
+      {/* SECTION TITLE */}
+      <h2 className="text-center text-4xl font-extrabold mb-16 tracking-tight">
         Our{" "}
-        <span className="bg-gradient-to-r from-[#E4C46A] via-[#C9A227] to-[#9C7C1D] text-transparent bg-clip-text">
+        <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-transparent bg-clip-text">
           Services
         </span>
       </h2>
 
+      {/* SERVICES GRID */}
       <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
-
         {services.map((s, i) => (
-          <div
+          <motion.div
             key={i}
-            className="bg-[#1A1A1A] p-8 rounded-3xl text-center border border-[#C9A227]/40
-                       transform transition-all duration-500 hover:scale-[1.05]
-                       hover:border-[#E4C46A] hover:shadow-[0_0_20px_rgba(201,162,39,0.6)]"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: i * 0.12 }}
+            className="p-8 rounded-3xl text-center border border-[#6F4918]/30 bg-white
+              shadow-[0_0_20px_rgba(111,73,24,0.05)]
+              transition-all duration-500 transform hover:scale-[1.06]
+              hover:shadow-[0_0_35px_rgba(226,207,125,0.35)]
+              hover:border-[#E2CF7D]"
           >
-            <div className="flex justify-center mb-4">
-              <div className="p-4 rounded-full bg-gradient-to-br from-[#E4C46A] via-[#C9A227] to-[#9C7C1D] shadow-[0_0_18px_rgba(201,162,39,0.7)]">
-                <s.icon size={40} className="text-black font-bold" strokeWidth={2.5} />
+            {/* ICON CONTAINER */}
+            <div className="flex justify-center mb-6">
+              <div className="p-5 rounded-full 
+                bg-gradient-to-br from-[#6F4918] to-[#E2CF7D]
+                shadow-[0_0_20px_rgba(226,207,125,0.3)]
+                border border-white/20">
+                <s.icon size={42} className="text-white drop-shadow" strokeWidth={2.5} />
               </div>
             </div>
 
-            <h3 className="text-xl font-semibold text-[#E4C46A] mb-2">
+            {/* TITLE */}
+            <h3 className="text-xl font-semibold 
+              bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]
+              text-transparent bg-clip-text">
               {s.title}
             </h3>
 
-            <p className="text-gray-400 text-sm mt-2">
+            {/* DESCRIPTION */}
+            <p className="text-gray-600 text-sm mt-3 leading-relaxed">
               High-quality service with transparency and loyalty rewards.
             </p>
-          </div>
+          </motion.div>
         ))}
-
       </div>
     </div>
   );

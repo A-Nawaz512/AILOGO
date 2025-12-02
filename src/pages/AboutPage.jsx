@@ -9,7 +9,7 @@ import ContactCTA from "../components/aboutPageComponents/ContactCTA";
 
 const AboutPage = () => {
    return (
-      <div className="min-h-screen  overflow-x-hidden">
+      <div className="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#202020] overflow-x-hidden">
          <HeroSection />
          <OurStory />
          <ServicesOverview />
