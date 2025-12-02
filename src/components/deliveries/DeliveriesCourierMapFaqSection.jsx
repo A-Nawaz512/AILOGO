@@ -14,7 +14,6 @@ const DeliveryForCouriers = () => {
 
   return (
     <section className="relative w-full overflow-x-hidden bg-gradient-to-b from-white via-[#fefcf7] to-white  py-16 sm:py-20 lg:py-1 overflow-hidden">
-      {/* enhanced background */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_#E2CF7D15,_transparent_50%),radial-gradient(circle_at_70%_80%,_#6F491808,_transparent_50%)]" />
       
       {/* decorative elements */}
