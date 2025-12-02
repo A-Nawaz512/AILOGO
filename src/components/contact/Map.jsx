@@ -16,15 +16,15 @@ function Map() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-2xl font-bold text-white mb-2" data-aos="fade-up">
-            Find Us on the <span className="text-[#E2CF7D]">Map</span>
+            Find Us on the <span className="text-[#bfa842]">Map</span>
           </h3>
-          <p className="text-gray-400" data-aos="fade-up" data-aos-delay="100">
+          <p className="text-gray-900" data-aos="fade-up" data-aos-delay="100">
             Our services cover all major cities across Algeria
           </p>
         </div>
         <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#6F4918]/20 to-[#E2CF7D]/10 rounded-full border border-[#E2CF7D]/20">
-          <RiMapPinLine className="text-[#E2CF7D]" />
-          <span className="text-sm font-medium text-[#E2CF7D]">3D View Available</span>
+          <RiMapPinLine className="text-[#eacb43]" />
+          <span className="text-sm font-medium text-[#b79c24]">3D View Available</span>
         </div>
       </div>
 
@@ -108,8 +108,8 @@ function Map() {
         </div>
       </div>
 
-      <div className="mt-4 text-center text-sm text-gray-500">
-        Real-time 3D map visualization powered by MapLibre — Showing live vehicle, rental, and service availability
+      <div className="mt-4 text-center text-sm text-gray-900">
+        Real-time 3D map visualization powered by MapLibre  Showing live vehicle, rental, and service availability
       </div>
     </div>
   );

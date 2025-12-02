@@ -15,7 +15,6 @@ import {
 import { PiGreaterThanBold } from "react-icons/pi";
 import { FaPhoneAlt } from "react-icons/fa";
 
-
 const CoustomerFooter = () => {
   useEffect(() => {
     AOS.init({ duration: 1200, once: true });
@@ -53,16 +52,16 @@ const CoustomerFooter = () => {
         <div className="w-full bg-gradient-to-r from-[#734D1C] via-[#BCA25B] to-[#734D1C]"></div>
 
         <div className="relative px-8 py-15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
-
           {/* Brand */}
           <div data-aos="fade-up" className="space-y-4">
             <img
-              src='/ailogo.png'
+              src="/ailogo.png"
               alt="Logo"
               className="h-10 w-auto lg:h-18 w-18 bg-black-400/20 shadow-sm shadow-[#755023] rounded-lg"
             />
             <p className="text-white/80 text-md leading-relaxed">
-              All-in-one platform for Rides, Rentals, Food Delivery, Apartments & Roadside Assistance.
+              All-in-one platform for Rides, Rentals, Food Delivery, Apartments
+              & Roadside Assistance.
             </p>
             <p className="text-[#CEAA36] text-sm font-semibold animate-pulse">
               ★ Premium Services – 24/7 Available
@@ -83,7 +82,8 @@ const CoustomerFooter = () => {
                     whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
                     transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
                   >
-                    <PiGreaterThanBold className="text-[#BCA25B] text-[13px]" /> {/* ⭐ Arrow icon */}
+                    <PiGreaterThanBold className="text-[#BCA25B] text-[13px]" />{" "}
+                    {/* ⭐ Arrow icon */}
                     {link.name}
                   </motion.a>
                 </li>
@@ -105,7 +105,8 @@ const CoustomerFooter = () => {
                     whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
                     transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
                   >
-                    <PiGreaterThanBold className="text-[#BCA25B] text-[13px]" /> {/* ⭐ Arrow icon */}
+                    <PiGreaterThanBold className="text-[#BCA25B] text-[13px]" />{" "}
+                    {/* ⭐ Arrow icon */}
                     {service.name}
                   </motion.a>
                 </li>
@@ -113,49 +114,52 @@ const CoustomerFooter = () => {
             </ul>
           </div>
 
-
           {/* Contact */}
           <div data-aos="fade-left" data-aos-delay="450" className="space-y-4">
             <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#CEAA36] border-b border-[#CEAA36]/30 pb-2">
               Contact
             </h3>
 
+            {/* Email */}
             <motion.a
               href="mailto:support@allogo.dz"
-              className="flex items-center space-x-3 text-white/80"
+              className="group flex items-center space-x-3"
+              style={{ color: "rgba(255,255,255,0.8)" }} // default text color
               whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
-              transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div className="p-2 bg-white/10 rounded-lg">
-                <FaEnvelope className="text-white animate-pulse text-md" />
+                <FaEnvelope className="text-inherit animate-pulse text-md" />
               </div>
               <span className="text-md">support@allogo.dz</span>
             </motion.a>
 
-           <motion.a
-  href="tel:+213XX XXX XXXX"
-  className="flex items-center space-x-3 text-white/80"
-  whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
-  transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
->
-  <div className="p-2 bg-white/10 rounded-lg">
-    <FaPhoneAlt className="text-white animate-pulse text-md" />
-  </div>
-  <span className="text-md">+213 XX XXX XXXX</span>
-</motion.a>
+            {/* Phone */}
+            <motion.a
+              href="tel:+213XX XXX XXXX"
+              className="group flex items-center space-x-3"
+              style={{ color: "rgba(255,255,255,0.8)" }}
+              whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <div className="p-2 bg-white/10 rounded-lg">
+                <FaPhoneAlt className="text-inherit animate-pulse text-md" />
+              </div>
+              <span className="text-md">+213 XX XXX XXXX</span>
+            </motion.a>
 
-
-           <motion.div
-  className="flex items-start space-x-3 text-white/80 cursor-pointer"
-  whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }} // hover animation
-  transition={{ type: "spring", stiffness: 300, damping: 20 }} // smooth motion
->
-  <div className="p-2 bg-white/10 rounded-lg">
-    <FaMapMarkerAlt className="text-white animate-pulse text-md" />
-  </div>
-  <span className="text-md leading-relaxed">Algiers, Algeria</span>
-</motion.div>
-
+            {/* Location */}
+            <motion.div
+              className="group flex items-start space-x-3 cursor-pointer"
+              style={{ color: "rgba(255,255,255,0.8)" }}
+              whileHover={{ x: 5, scale: 1.05, color: "#BCA25B" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <div className="p-2 bg-white/10 rounded-lg">
+                <FaMapMarkerAlt className="text-inherit animate-pulse text-md" />
+              </div>
+              <span className="text-md leading-relaxed">Algiers, Algeria</span>
+            </motion.div>
           </div>
         </div>
 
@@ -163,19 +167,32 @@ const CoustomerFooter = () => {
         <div className="border-t border-[#CEAA36]/20 py-6">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/60 text-md">
-              © {currentYear} <span className="text-[#CEAA36] font-semibold animate-pulse">ALLOGO</span> — All Rights Reserved
+              © {currentYear}{" "}
+              <span className="text-[#CEAA36] font-semibold animate-pulse">
+                ALLOGO
+              </span>{" "}
+              — All Rights Reserved
             </p>
 
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <motion.a
-                  whileHover={{ scale: 1.2 }}
                   key={index}
                   href={social.href}
                   target="_blank"
-                  className="p-3 bg-white/5 rounded-xl hover:bg-[#CEAA36]/20 transition-all"
+                  className="p-3 rounded-xl"
+                  style={{
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    color: "#ffffff",
+                  }} // default bg & icon color
+                  whileHover={{
+                    scale: 1.2,
+                    color: "#BCA25B",
+                    backgroundColor: "rgba(206, 170, 54, 0.2)", // light bg on hover
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <social.icon className="text-xl animate-pulse text-white hover:text-[#BCA25B]" />
+                  <social.icon className="text-xl animate-pulse" />
                 </motion.a>
               ))}
             </div>

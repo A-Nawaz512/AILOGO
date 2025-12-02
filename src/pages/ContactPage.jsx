@@ -7,13 +7,13 @@ import ContactInfo from '../components/contact/ContactInfo';
 
 function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0A0A0A] via-[#111111] to-[#0A0A0A]">
+    <div className="min-h-screen bg-gray-50">
       <Header />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Info Card */}
           <motion.div
-            className="lg:col-span-1 bg-gradient-to-br from-[#151515] to-[#1A1A1A] rounded-2xl p-8 shadow-2xl border border-gray-900"
+            className="lg:col-span-1 bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -24,7 +24,7 @@ function ContactPage() {
           {/* Contact Form & Map */}
           <div className="lg:col-span-2 space-y-8">
             <motion.div
-              className="bg-gradient-to-br from-[#151515] to-[#1A1A1A] rounded-2xl p-8 shadow-2xl border border-gray-900"
+              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
@@ -33,7 +33,7 @@ function ContactPage() {
             </motion.div>
             
             <motion.div
-              className="bg-gradient-to-br from-[#151515] to-[#1A1A1A] rounded-2xl p-6 shadow-2xl border border-gray-900 overflow-hidden"
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
