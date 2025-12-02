@@ -62,17 +62,16 @@ const CoustomerFooter = () => {
         </div>
 
         {/* Quick Links */}
-        <div data-aos="fade-up" data-aos-delay="150">
+        <div data-aos="fade-right" data-aos-delay="150">
           <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#BCA25B] border-b border-[#BCA25B]/30 pb-2">
             Quick Links
           </h3>
-
           <ul className="space-y-3">
             {companyLinks.map((link, index) => (
               <li key={index}>
                 <motion.a
                   href={link.href}
-                  whileHover={{ scale: 1.05 }}   // ⭐ Same Hover Scale Animation
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 250, damping: 15 }}
                   className="text-white/70 hover:text-[#BCA25B] transition-all duration-300 flex items-center gap-2"
                 >
@@ -85,7 +84,7 @@ const CoustomerFooter = () => {
         </div>
 
         {/* Services */}
-        <div data-aos="fade-up" data-aos-delay="300">
+        <div data-aos="fade-down" data-aos-delay="300">
           <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#BCA25B] border-b border-[#BCA25B]/30 pb-2">
             Services
           </h3>
@@ -94,7 +93,7 @@ const CoustomerFooter = () => {
               <li key={index}>
                 <motion.a
                   href={service.href}
-                  whileHover={{ scale: 1.04 }}   // ⭐ Hover Scale Animation
+                  whileHover={{ scale: 1.04 }}
                   transition={{ type: "spring", stiffness: 250, damping: 15 }}
                   className="text-white/70 hover:text-[#BCA25B] transition-all duration-300 flex items-center gap-2"
                 >
@@ -106,9 +105,8 @@ const CoustomerFooter = () => {
           </ul>
         </div>
 
-
         {/* Contact */}
-        <div data-aos="fade-up" data-aos-delay="450" className="space-y-4">
+        <div data-aos="fade-left" data-aos-delay="450" className="space-y-4">
           <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#BCA25B] border-b border-[#BCA25B]/30 pb-2">
             Contact
           </h3>
@@ -122,10 +120,8 @@ const CoustomerFooter = () => {
             <div className="p-2 bg-white/10 rounded-lg">
               <FaEnvelope className="text-white animate-pulse text-md" />
             </div>
-
             <span className="text-md">support@allogo.dz</span>
           </motion.a>
-
 
           <motion.a
             whileHover={{ scale: 1.05, x: 5 }}
@@ -136,10 +132,8 @@ const CoustomerFooter = () => {
             <div className="p-2 bg-white/10 rounded-lg">
               <FaPhone className="text-white animate-pulse text-md" />
             </div>
-
             <span className="text-md">+213 XX XXX XXXX</span>
           </motion.a>
-
 
           <motion.div
             whileHover={{ scale: 1.05, x: 5 }}
@@ -149,22 +143,18 @@ const CoustomerFooter = () => {
             <div className="p-2 bg-white/10 rounded-lg">
               <FaMapMarkerAlt className="text-white animate-pulse text-md" />
             </div>
-
             <span className="text-md leading-relaxed">Algiers, Algeria</span>
           </motion.div>
-
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-[#BCA25B]/20 py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-
           <p className="text-white/60 text-md">
-            © {currentYear} <span className="text-[#BCA25B]  font-semibold animate-pulse">AlLOGO</span> — All Rights Reserved
+            © {currentYear} <span className="text-[#BCA25B] font-semibold animate-pulse">AlLOGO</span> — All Rights Reserved
           </p>
 
-          {/* Social Icons */}
           <div className="flex space-x-4">
             {socialLinks.map((social, index) => (
               <motion.a
