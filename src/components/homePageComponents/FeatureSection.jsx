@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function FeaturesSection() {
   const features = [
@@ -16,42 +17,54 @@ export default function FeaturesSection() {
     },
     {
       title: "MapLibre 3D Tracking",
-      description: "Real-time tracking for rides, couriers, rentals, apartments & assistance.",
+      description:
+        "Real-time tracking for rides, couriers, rentals, apartments & assistance.",
     },
   ];
 
   return (
-    <div className="bg-black text-white pt-6 pb-6 px-6">
+    <div className="bg-white text-black min-h-screen flex flex-col justify-center px-6 py-20">
 
-      <h2 className="text-center text-4xl font-extrabold tracking-wide mb-10">
+      {/* SECTION HEADING */}
+      <h2 className="text-center text-4xl font-extrabold tracking-tight mb-16">
         Key{" "}
-        <span className="bg-gradient-to-r from-[#FFC936] via-[#D4AF37] to-[#A7862C] text-transparent bg-clip-text drop-shadow-[0_0_12px_rgba(255,201,54,0.5)]">
+        <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]
+          text-transparent bg-clip-text drop-shadow-[0_0_12px_rgba(226,207,125,0.45)]">
           Features
         </span>
       </h2>
 
-      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-
+      {/* FEATURES GRID */}
+      <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
         {features.map((feature, i) => (
-          <div
+          <motion.div
             key={i}
-            className="p-8 bg-[#0D0D0D] rounded-3xl border border-[#C9A227]/20 shadow-[0_0_10px_rgba(255,201,54,0.15)]
-                       transform transition-all duration-500
-                       hover:scale-[1.05] 
-                       hover:border-[#FFD95A]
-                       hover:shadow-[0_0_20px_rgba(255,217,90,0.6)]
-                       hover:bg-opacity-90"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: i * 0.12 }}
+
+            className="p-8 rounded-3xl bg-white border border-[#6F4918]/25
+              shadow-[0_0_14px_rgba(111,73,24,0.10)]
+              transition-all duration-500 transform
+              hover:scale-[1.05]
+              hover:border-[#E2CF7D]
+              hover:shadow-[0_0_30px_rgba(226,207,125,0.35)]
+            "
           >
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-[#FFE08A] via-[#D4AF37] to-[#A7862C] text-transparent bg-clip-text mb-4">
+            {/* CARD TITLE */}
+            <h3 className="text-2xl font-semibold mb-4
+              bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]
+              text-transparent bg-clip-text">
               {feature.title}
             </h3>
 
-            <p className="text-[#B5B5B5] text-[15px] leading-relaxed">
+            {/* DESCRIPTION */}
+            <p className="text-gray-700 text-[15px] leading-relaxed">
               {feature.description}
             </p>
-          </div>
+          </motion.div>
         ))}
-
       </div>
     </div>
   );

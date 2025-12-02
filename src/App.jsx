@@ -5,8 +5,12 @@ import Navbar from "./components/commonComponents/CoustomerNavbar";
 import Footer from "./components/commonComponents/CoustomerFooter";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import ClientSignup from "./pages/SignUp";
-import ClientLogin from "./pages/Login";
+import Footer from "./components/commonComponents/CoustomerFooter";
+import ContactPage from "./pages/ContactPage";
+import RidesPage from "./pages/RidesPage";
+import Deliveries from "./pages/Deliveries";
+import Rental from "./pages/Rental";
+import Appartment from "./pages/Appartment";
 
 const MainLayout = () => (
    <div className="lg:mx-auto lg:max-w-[1536px]">
@@ -22,10 +26,14 @@ const router = createBrowserRouter([
       children: [
          { path: "/", element: <HomePage /> },
          { path: "/about", element: <AboutPage /> },
-         { path: "/signup", element: <ClientSignup /> },
-         { path: "/login", element: <ClientLogin /> },
+         { path: "/contact", element: <ContactPage /> },
+         { path: "/services/rides", element: <RidesPage /> },
+         { path: "/services/deliveries", element: <Deliveries /> },
+         { path: "/services/rentals", element: <Rental /> },
+         { path: "/services/apartments", element: <Appartment /> },
 
-         
+
+
 
       ],
    },
