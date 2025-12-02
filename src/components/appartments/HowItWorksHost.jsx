@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   FaUserPlus,
   FaImages,
@@ -6,6 +6,8 @@ import {
   FaEnvelope,
   FaMoneyBillWave,
 } from 'react-icons/fa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 /* ----------------------------------------------------
    HOST STEPS DATA
@@ -43,43 +45,48 @@ const HOST_STEPS = [
   },
 ];
 
-/* ----------------------------------------------------
-   STEP TIMELINE ITEM
----------------------------------------------------- */
-function TimelineItem({ Icon, number, title, description }) {
+function TimelineItem({ Icon, number, title, description, delay }) {
   return (
-    <div className="relative pl-14 py-8 group">
+    <div
+      data-aos="fade-up"
+      data-aos-delay={delay}
+      className="relative pl-14 py-8 group"
+    >
       {/* Vertical Line */}
-      <span className="absolute left-5 top-0 h-full w-1 bg-[#9A7A3E]/20 rounded-full"></span>
+      <span className="absolute left-5 top-0 h-full w-1 bg-[#B78E3B]/20 rounded-full"></span>
 
       {/* Step Number Circle */}
       <div className="absolute left-0 flex items-center justify-center h-10 w-10 rounded-full 
-                      bg-white shadow-md border border-[#9A7A3E]/40 
-                      group-hover:shadow-xl group-hover:shadow-[#9A7A3E]/50 transition duration-300">
-        <Icon className="text-[#9A7A3E]" size={20} />
+                      bg-white shadow-md border border-[#B78E3B]/40 
+                      group-hover:shadow-xl group-hover:shadow-[#B78E3B]/50 transition duration-300">
+        <Icon className="text-[#B78E3B]" size={20} />
       </div>
 
       {/* Content */}
       <div className="bg-white rounded-2xl p-6 
                       shadow-md border border-gray-200 
-                      group-hover:shadow-xl group-hover:shadow-[#9A7A3E]/40 transition duration-300">
-        <h3 className="text-lg font-semibold text-[#9A7A3E] mb-2">
+                      group-hover:shadow-xl group-hover:shadow-[#B78E3B]/40 transition duration-300">
+        <h3 className="text-lg font-semibold text-[#B78E3B] mb-2">
           {number}. {title}
         </h3>
-        <p className="text-gray-700 text-sm leading-relaxed">{description}</p>
+        <p className="text-black text-sm leading-relaxed">{description}</p>
       </div>
     </div>
   );
 }
 
-/* ----------------------------------------------------
-   MAIN COMPONENT
----------------------------------------------------- */
 export default function HowItWorksHost() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
-        <h2 className="text-center text-3xl font-bold text-[#9A7A3E] mb-12">
+        <h2
+          data-aos="fade-down"
+          className="text-center text-3xl font-bold text-[#B78E3B] mb-12"
+        >
           How It Works – Host / Owner
         </h2>
 
@@ -92,6 +99,7 @@ export default function HowItWorksHost() {
               number={index + 1}
               title={step.title}
               description={step.description}
+              delay={index * 200} // stagger each step
             />
           ))}
         </div>

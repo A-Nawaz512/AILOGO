@@ -54,11 +54,18 @@ const Technology = () => {
    ];
 
    return (
-      <section className="py-20 px-6 lg:px-8 bg-gradient-to-b from-[#202020] to-[#1a1a1a]">
+      <section className="py-20 px-6 lg:px-8 bg-white overflow-hidden">
          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div
+               className="text-center mb-16"
+               data-aos="fade-up"
+               data-aos-delay="100"
+               data-aos-once="true"
+               data-aos-mirror="false"
+               data-aos-anchor-placement="top-center"
+            >
                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="text-gray-100">Our</span>{" "}
+                  <span className="text-[#202020]">Our</span>{" "}
                   <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
                      Technology
                   </span>
@@ -74,32 +81,42 @@ const Technology = () => {
                {techFeatures.map((feature, index) => (
                   <div
                      key={index}
-                     className="bg-[#2a2a2a] relative p-6 rounded-xl border border-[#3a3a3a] hover:border-[#6F4918] transition-all duration-300 hover:-translate-y-1"
+                     className="bg-[#2a2a2a] relative p-10 rounded-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden group"
+                     data-aos="fade-up"
+                     data-aos-delay={100 + index * 100}
+                     data-aos-once="true"
+                     data-aos-mirror="false"
+                     data-aos-anchor-placement="top-center"
                   >
-                     <div className="flex items-start">
-                        <div className="flex-shrink-0 mr-4 absolute top-0 -right-4">
-                           <div className="w-12 h-12 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] flex items-center justify-center">
-                              <div className="text-white text-xl">
-                                 {feature.icon}
+                     {/* Background overlay that appears on hover */}
+                     <div className="absolute inset-0 bg-[#6F4918] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out z-0 rounded-xl"></div>
+
+                     <div className="relative z-10">
+                        <div className="flex items-start">
+                           <div className="f absolute -top-10 -right-10">
+                              <div className="w-12 h-12 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] flex items-center justify-center">
+                                 <div className="text-white text-xl">
+                                    {feature.icon}
+                                 </div>
                               </div>
                            </div>
-                        </div>
-                        <div className="flex-1">
-                           <h3 className="text-xl font-bold text-gray-100 mb-2">
-                              {feature.title}
-                           </h3>
-                           <p className="text-gray-400 mb-3">
-                              {feature.description}
-                           </p>
-                           <div className="flex flex-wrap gap-2">
-                              {feature.details.map((detail, idx) => (
-                                 <span
-                                    key={idx}
-                                    className="px-3 py-1 bg-[#1a1a1a] text-gray-300 text-sm rounded-full border border-[#3a3a3a]"
-                                 >
-                                    {detail}
-                                 </span>
-                              ))}
+                           <div className="flex-1">
+                              <h3 className="text-xl font-bold text-gray-100 mb-2">
+                                 {feature.title}
+                              </h3>
+                              <p className="text-gray-400 mb-3">
+                                 {feature.description}
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                 {feature.details.map((detail, idx) => (
+                                    <span
+                                       key={idx}
+                                       className="px-5 py-3 bg-[#1a1a1a] text-gray-300 text-sm rounded-full border border-[#3a3a3a]"
+                                    >
+                                       {detail}
+                                    </span>
+                                 ))}
+                              </div>
                            </div>
                         </div>
                      </div>
@@ -108,68 +125,139 @@ const Technology = () => {
             </div>
 
             {/* 3D Map Features - Below the grid */}
-            <div className="bg-gradient-to-br from-[#6F4918] to-[#E2CF7D] p-1 rounded-2xl">
+            <div
+               className="bg-gradient-to-br from-[#6F4918] to-[#E2CF7D] p-1 rounded-2xl overflow-hidden"
+               data-aos="fade-up"
+               data-aos-delay="300"
+               data-aos-once="true"
+               data-aos-mirror="false"
+               data-aos-anchor-placement="top-center"
+            >
                <div className="bg-[#202020] rounded-2xl p-8">
-                  <div className="text-center mb-10">
+                  <div
+                     className="text-center mb-10"
+                     data-aos="fade-up"
+                     data-aos-delay="400"
+                     data-aos-once="true"
+                     data-aos-mirror="false"
+                     data-aos-anchor-placement="top-center"
+                  >
                      <h3 className="text-3xl md:text-4xl font-bold text-gray-100 mb-4">
                         3D Map Technology
                      </h3>
                      <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-                        Powered by MapLibre for immersive real-time visualization
+                        Powered by MapLibre for immersive real-time
+                        visualization
                      </p>
                   </div>
 
                   <div className="grid md:grid-cols-3 gap-8">
-                     <div className="text-center">
+                     <div
+                        className="text-center"
+                        data-aos="fade-up"
+                        data-aos-delay="500"
+                        data-aos-once="true"
+                        data-aos-mirror="false"
+                        data-aos-anchor-placement="top-center"
+                     >
                         <div className="w-16 h-16 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full flex items-center justify-center mx-auto mb-4">
-                           <span className="text-white font-bold text-2xl">1</span>
+                           <span className="text-white font-bold text-2xl">
+                              1
+                           </span>
                         </div>
                         <h4 className="text-lg font-semibold text-gray-100 mb-2">
                            Live Entity Tracking
                         </h4>
                         <p className="text-gray-400 text-sm">
-                           See all vehicles, rentals, apartments, and technicians on 3D map in real-time
+                           See all vehicles, rentals, apartments, and
+                           technicians on 3D map in real-time
                         </p>
                      </div>
 
-                     <div className="text-center">
+                     <div
+                        className="text-center"
+                        data-aos="fade-up"
+                        data-aos-delay="550"
+                        data-aos-once="true"
+                        data-aos-mirror="false"
+                        data-aos-anchor-placement="top-center"
+                     >
                         <div className="w-16 h-16 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full flex items-center justify-center mx-auto mb-4">
-                           <span className="text-white font-bold text-2xl">2</span>
+                           <span className="text-white font-bold text-2xl">
+                              2
+                           </span>
                         </div>
                         <h4 className="text-lg font-semibold text-gray-100 mb-2">
                            Perspective View
                         </h4>
                         <p className="text-gray-400 text-sm">
-                           3D visualization for better spatial awareness and navigation experience
+                           3D visualization for better spatial awareness and
+                           navigation experience
                         </p>
                      </div>
 
-                     <div className="text-center">
+                     <div
+                        className="text-center"
+                        data-aos="fade-up"
+                        data-aos-delay="600"
+                        data-aos-once="true"
+                        data-aos-mirror="false"
+                        data-aos-anchor-placement="top-center"
+                     >
                         <div className="w-16 h-16 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full flex items-center justify-center mx-auto mb-4">
-                           <span className="text-white font-bold text-2xl">3</span>
+                           <span className="text-white font-bold text-2xl">
+                              3
+                           </span>
                         </div>
                         <h4 className="text-lg font-semibold text-gray-100 mb-2">
                            Cost-Effective Solution
                         </h4>
                         <p className="text-gray-400 text-sm">
-                           Free MapLibre eliminates expensive map service fees while maintaining quality
+                           Free MapLibre eliminates expensive map service fees
+                           while maintaining quality
                         </p>
                      </div>
                   </div>
 
                   {/* Additional Info */}
-                  <div className="mt-12 pt-8 border-t border-[#3a3a3a]">
+                  <div
+                     className="mt-12 pt-8 border-t border-[#3a3a3a]"
+                     data-aos="fade-up"
+                     data-aos-delay="700"
+                     data-aos-once="true"
+                     data-aos-mirror="false"
+                     data-aos-anchor-placement="top-center"
+                  >
                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="bg-[#2a2a2a] p-5 rounded-lg">
-                           <h5 className="text-[#E2CF7D] font-semibold mb-2">✓ No Google Maps Dependency</h5>
+                        <div
+                           className="bg-[#2a2a2a] p-5 rounded-lg"
+                           data-aos="fade-up"
+                           data-aos-delay="750"
+                           data-aos-once="true"
+                           data-aos-mirror="false"
+                           data-aos-anchor-placement="top-center"
+                        >
+                           <h5 className="text-[#E2CF7D] font-semibold mb-2">
+                              ✓ No Google Maps Dependency
+                           </h5>
                            <p className="text-gray-400 text-sm">
                               Complete independence from paid mapping services
                            </p>
                         </div>
-                        <div className="bg-[#2a2a2a] p-5 rounded-lg">
-                           <h5 className="text-[#E2CF7D] font-semibold mb-2">✓ All Services Integrated</h5>
+                        <div
+                           className="bg-[#2a2a2a] p-5 rounded-lg"
+                           data-aos="fade-up"
+                           data-aos-delay="800"
+                           data-aos-once="true"
+                           data-aos-mirror="false"
+                           data-aos-anchor-placement="top-center"
+                        >
+                           <h5 className="text-[#E2CF7D] font-semibold mb-2">
+                              ✓ All Services Integrated
+                           </h5>
                            <p className="text-gray-400 text-sm">
-                              Cars, scooters, apartments, technicians - all visible in 3D
+                              Cars, scooters, apartments, technicians - all
+                              visible in 3D
                            </p>
                         </div>
                      </div>

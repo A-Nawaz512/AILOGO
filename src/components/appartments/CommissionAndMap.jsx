@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaPercentage, FaMapMarkedAlt } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const FEATURES = [
   {
@@ -15,10 +17,17 @@ const FEATURES = [
 ];
 
 export default function CommissionAndMap() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section className="py-16 bg-white text-black">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 text-[#9A7A3E]">
+        <h2
+          data-aos="fade-down"
+          className="text-3xl font-bold text-center mb-12 text-[#B78E3B]"
+        >
           Commission & Map Visualization
         </h2>
 
@@ -26,23 +35,25 @@ export default function CommissionAndMap() {
           {FEATURES.map((item, index) => (
             <div
               key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 200} // stagger animation
               className="flex items-start gap-5 bg-white p-6 rounded-2xl 
-              border border-[#9A7A3E]/30 
-              shadow-xl hover:shadow-2xl hover:shadow-[#9A7A3E]/70 
-              transition duration-300"
+                         border border-[#B78E3B]/30 
+                         shadow-xl hover:shadow-2xl hover:shadow-[#B78E3B]/70 
+                         transition duration-300"
             >
               {/* Icon */}
               <div className="h-14 w-14 flex items-center justify-center rounded-xl 
-              bg-[#9A7A3E]/10 border border-[#9A7A3E]/40 shadow-md">
-                <item.icon size={28} className="text-[#9A7A3E]" />
+                              bg-[#B78E3B]/10 border border-[#B78E3B]/40 shadow-md">
+                <item.icon size={28} className="text-[#B78E3B]" />
               </div>
 
               {/* Text */}
               <div>
-                <h3 className="text-xl font-semibold text-[#9A7A3E] mb-2">
+                <h3 className="text-xl font-semibold text-[#B78E3B] mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-sm">{item.text}</p>
+                <p className="text-black leading-relaxed text-sm">{item.text}</p>
               </div>
             </div>
           ))}

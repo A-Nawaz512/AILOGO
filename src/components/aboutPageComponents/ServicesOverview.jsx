@@ -101,11 +101,11 @@ const ServicesOverview = () => {
    ];
 
    return (
-      <section className="py-20 px-6 lg:px-8 bg-gradient-to-b from-[#1a1a1a] to-[#202020]">
+      <section className="py-20 px-6 lg:px-8 bg-gray-100">
          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="text-gray-100">Our</span>{" "}
+                  <span className="text-[#2A2A2A]">Our</span>{" "}
                   <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
                      Services
                   </span>
@@ -116,48 +116,58 @@ const ServicesOverview = () => {
                </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
                {services.map((service, index) => (
                   <div
                      key={index}
-                     className="bg-[#2a2a2a] rounded-xl border border-[#3a3a3a] p-6 hover:border-[#6F4918] transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
+                     className="relative rounded-xl border border-[#3a3a3a] p-6 hover:border-[#6F4918] transition-all duration-300 hover:-translate-y-2 flex flex-col h-full overflow-hidden group"
                   >
-                     <div>
-                        
-                           <div className="flex items-center justify-between pb-3 gap-3">
-                                                      <h3 className="text-xl font-bold text-gray-100">
-                              {service.title}
-                                                      </h3>
-                              {service.icon}
-                                 
-                           </div>
-                        <p className="text-gray-400 mb-4">
-                           {service.description}
-                        </p>
-                        <ul className="space-y-2 mb-6 grid md:grid-cols-2">
-                           {service.features.map((feature, idx) => (
-                              <li
-                                 key={idx}
-                                 className="flex items-center text-sm text-gray-300"
-                              >
-                                 <div className="w-1.5 h-1.5 bg-[#E2CF7D] rounded-full mr-2"></div>
-                                 {feature}
-                              </li>
-                           ))}
-                        </ul>
-                     </div>
+                     {/* Background Image with Overlay */}
+                     <div
+                        className="absolute inset-0 bg-cover bg-center z-0  group-hover:opacity-30 transition-opacity duration-300"
+                        style={{ backgroundImage: `url(/simple2.jpg)` }}
+                     ></div>
 
-                     {/* Explore Button */}
-                     <div className="mt-auto pt-4 border-t border-[#3a3a3a]">
-                        <Link
-                           to={service.path}
-                           className="flex items-center justify-between group"
-                        >
-                           <span className="text-[#E2CF7D] font-medium group-hover:text-white transition-colors duration-300">
-                              {service.buttonText}
-                           </span>
-                           <FaArrowRight className="text-[#E2CF7D] group-hover:translate-x-2 transition-transform duration-300" />
-                        </Link>
+                     {/* Dark Overlay */}
+                     <div className="absolute inset-0 bg-[#2a2a2a]/90 z-0 group-hover:bg-[#2a2a2a]/80 transition-all duration-300"></div>
+
+                     {/* Content */}
+                     <div className="relative z-10">
+                        <div>
+                           <div className="flex items-center justify-between pb-3 gap-3">
+                              <h3 className="text-xl font-bold text-gray-100">
+                                 {service.title}
+                              </h3>
+                              {service.icon}
+                           </div>
+                           <p className="text-gray-400 mb-4">
+                              {service.description}
+                           </p>
+                           <ul className="space-y-2 mb-6 grid md:grid-cols-2">
+                              {service.features.map((feature, idx) => (
+                                 <li
+                                    key={idx}
+                                    className="flex items-center text-sm text-gray-300"
+                                 >
+                                    <div className="w-1.5 h-1.5 bg-[#E2CF7D] rounded-full mr-2"></div>
+                                    {feature}
+                                 </li>
+                              ))}
+                           </ul>
+                        </div>
+
+                        {/* Explore Button */}
+                        <div className="mt-auto pt-4 border-t border-[#3a3a3a]/50 flex justify-center">
+                           <Link
+                              to={service.path}
+                              className="relative z-20 flex items-center justify-between group bg-[#6F4918] w-fit py-3 px-5 gap-8 rounded-full"
+                           >
+                              <span className="text-[#E2CF7D] font-medium group-hover:text-white transition-colors duration-300">
+                                 {service.buttonText}
+                              </span>
+                              <FaArrowRight className="text-[#E2CF7D] group-hover:translate-x-2 transition-transform duration-300" />
+                           </Link>
+                        </div>
                      </div>
                   </div>
                ))}

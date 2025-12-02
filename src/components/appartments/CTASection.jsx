@@ -1,26 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function CTASection() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section className="py-20 bg-[#f8f6f1]">
       <div className="container mx-auto px-6 text-center">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-[#9A7A3E] mb-6">
+        <h2
+          data-aos="fade-down"
+          className="text-3xl md:text-4xl font-bold text-[#B78E3B] mb-6"
+        >
           Ready to Explore ALLOGO?
         </h2>
 
-        <p className="text-gray-700 max-w-xl mx-auto mb-12">
+        <p
+          data-aos="fade-up"
+          className="text-black max-w-xl mx-auto mb-12"
+        >
           Browse thousands of apartments or start earning by listing your own.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-6">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="flex flex-col md:flex-row justify-center gap-6"
+        >
           {/* Browse Apartments */}
           <Link
             to="/apartments"
-            className="px-5 py-2 rounded-xl bg-[#9A7A3E] text-white font-semibold 
-                       shadow-md hover:shadow-xl hover:bg-[#8b6d38] transition"
+            className="px-5 py-2 rounded-xl bg-[#B78E3B] text-white font-semibold 
+                       shadow-md hover:shadow-xl hover:bg-[#B78E3B] transition"
           >
             Browse Apartments
           </Link>
@@ -28,14 +44,13 @@ export default function CTASection() {
           {/* List Your Apartment */}
           <Link
             to="/list-apartment"
-            className="px-5 py-2 rounded-xl border-2 border-[#9A7A3E] text-[#9A7A3E] font-semibold 
-                       bg-white shadow-md hover:shadow-xl hover:bg-[#9A7A3E] hover:text-white transition"
+            className="px-5 py-2 rounded-xl border-2 border-[#B78E3B] text-[#B78E3B] font-semibold 
+                       bg-white shadow-md hover:shadow-xl hover:bg-[#B78E3B] hover:text-white transition duration-300"
           >
             List Your Apartment
           </Link>
         </div>
       </div>
-
     </section>
   );
 }
