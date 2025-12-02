@@ -23,7 +23,7 @@ function Header() {
             data-aos="fade-up" // Animation for header title
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E2CF7D] via-[#B89C5A] to-[#E2CF7D]">
-              Contact AlLOGO
+              Contact ALLOGO
             </span>
           </h1>
 
