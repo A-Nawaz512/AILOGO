@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./components/commonComponents/CoustomerNavbar";
+import Footer from "./components/commonComponents/CoustomerFooter";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ClientSignup from "./pages/SignUp";

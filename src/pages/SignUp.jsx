@@ -35,8 +35,8 @@ export default function ClientSignup() {
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Full Name */}
           <div className="relative">
-            <label className="block text-sm font-medium text-[#9A7A3E] mb-1">Full Name</label>
-            <FaUser className="absolute left-3 top-[38px] text-[#9A7A3E]" />
+            <label className="block text-sm font-medium text-[#D9B22C] mb-1">Full Name</label>
+            <FaUser className="absolute left-3 top-[38px] text-[#D9B22C]" />
             <input
               name="fullName"
               type="text"
@@ -50,8 +50,8 @@ export default function ClientSignup() {
 
           {/* Phone */}
           <div className="relative">
-            <label className="block text-sm font-medium text-[#9A7A3E] mb-1">Phone Number</label>
-            <FaPhone className="absolute left-3 top-[38px] text-[#9A7A3E]" />
+            <label className="block text-sm font-medium text-[#D9B22C] mb-1">Phone Number</label>
+            <FaPhone className="absolute left-3 top-[38px] text-[#D9B22C]" />
             <input
               name="phone"
               type="tel"
@@ -65,8 +65,8 @@ export default function ClientSignup() {
 
           {/* Email */}
           <div className="relative">
-            <label className="block text-sm font-medium text-[#9A7A3E] mb-1">Email </label>
-            <FaEnvelope className="absolute left-3 top-[38px] text-[#9A7A3E]" />
+            <label className="block text-sm font-medium text-[#D9B22C] mb-1">Email </label>
+            <FaEnvelope className="absolute left-3 top-[38px] text-[#D9B22C]" />
             <input
               name="email"
               type="email"
@@ -79,8 +79,8 @@ export default function ClientSignup() {
 
           {/* Password */}
           <div className="relative">
-            <label className="block text-sm font-medium text-[#9A7A3E] mb-1">Password</label>
-            <FaLock className="absolute left-3 top-[38px] text-[#9A7A3E]" />
+            <label className="block text-sm font-medium text-[#D9B22C] mb-1">Password</label>
+            <FaLock className="absolute left-3 top-[38px] text-[#D9B22C]" />
             <input
               name="password"
               type="password"
@@ -94,8 +94,8 @@ export default function ClientSignup() {
 
           {/* Confirm Password */}
           <div className="relative">
-            <label className="block text-sm font-medium text-[#9A7A3E] mb-1">Confirm Password</label>
-            <FaLock className="absolute left-3 top-[38px] text-[#9A7A3E]" />
+            <label className="block text-sm font-medium text-[#D9B22C] mb-1">Confirm Password</label>
+            <FaLock className="absolute left-3 top-[38px] text-[#D9B22C]" />
             <input
               name="confirmPassword"
               type="password"
@@ -109,8 +109,8 @@ export default function ClientSignup() {
 
           {/* Referral */}
           <div className="relative">
-            <label className="block text-sm font-medium text-[#9A7A3E] mb-1">Referral Code (optional)</label>
-            <FaTag className="absolute left-3 top-[38px] text-[#9A7A3E]" />
+            <label className="block text-sm font-medium text-[#D9B22C] mb-1">Referral Code (optional)</label>
+            <FaTag className="absolute left-3 top-[38px] text-[#D9B22C]" />
             <input
               name="referral"
               type="text"
@@ -124,7 +124,7 @@ export default function ClientSignup() {
           {/* Signup Button */}
           <button
             type="submit"
-            className="w-full py-2 rounded-xl font-semibold text-white bg-[#9A7A3E] hover:bg-[#b8924b] transition-all shadow-lg hover:shadow-[#9A7A3E]/50"
+            className="w-full py-2 rounded-xl font-semibold text-white bg-[#D9B22C] hover:bg-[#b8924b] transition-all shadow-lg hover:shadow-[#9A7A3E]/50"
           >
             Sign Up
           </button>
@@ -132,7 +132,7 @@ export default function ClientSignup() {
 
         <p className="mt-6 text-center text-gray-700 text-sm">
           Already have an account?{" "}
-          <Link to="/login" className="text-[#9A7A3E] hover:underline">
+          <Link to="/login" className="text-[#D9B22C] hover:underline">
             Login
           </Link>
         </p>
