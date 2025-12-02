@@ -81,37 +81,42 @@ const Technology = () => {
                {techFeatures.map((feature, index) => (
                   <div
                      key={index}
-                     className="bg-[#2a2a2a] relative p-10 rounded-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                     className="bg-[#2a2a2a] relative p-10 rounded-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden group"
                      data-aos="fade-up"
                      data-aos-delay={100 + index * 100}
                      data-aos-once="true"
                      data-aos-mirror="false"
                      data-aos-anchor-placement="top-center"
                   >
-                     <div className="flex items-start">
-                        <div className="flex-shrink-0 mr-4 absolute top-0 -right-4">
-                           <div className="w-12 h-12 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] flex items-center justify-center">
-                              <div className="text-white text-xl">
-                                 {feature.icon}
+                     {/* Background overlay that appears on hover */}
+                     <div className="absolute inset-0 bg-[#6F4918] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out z-0 rounded-xl"></div>
+
+                     <div className="relative z-10">
+                        <div className="flex items-start">
+                           <div className="f absolute -top-10 -right-10">
+                              <div className="w-12 h-12 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] flex items-center justify-center">
+                                 <div className="text-white text-xl">
+                                    {feature.icon}
+                                 </div>
                               </div>
                            </div>
-                        </div>
-                        <div className="flex-1">
-                           <h3 className="text-xl font-bold text-gray-100 mb-2">
-                              {feature.title}
-                           </h3>
-                           <p className="text-gray-400 mb-3">
-                              {feature.description}
-                           </p>
-                           <div className="flex flex-wrap gap-2">
-                              {feature.details.map((detail, idx) => (
-                                 <span
-                                    key={idx}
-                                    className="px-5 py-3 bg-[#1a1a1a] text-gray-300 text-sm rounded-full border border-[#3a3a3a]"
-                                 >
-                                    {detail}
-                                 </span>
-                              ))}
+                           <div className="flex-1">
+                              <h3 className="text-xl font-bold text-gray-100 mb-2">
+                                 {feature.title}
+                              </h3>
+                              <p className="text-gray-400 mb-3">
+                                 {feature.description}
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                 {feature.details.map((detail, idx) => (
+                                    <span
+                                       key={idx}
+                                       className="px-5 py-3 bg-[#1a1a1a] text-gray-300 text-sm rounded-full border border-[#3a3a3a]"
+                                    >
+                                       {detail}
+                                    </span>
+                                 ))}
+                              </div>
                            </div>
                         </div>
                      </div>

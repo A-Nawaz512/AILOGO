@@ -1,7 +1,13 @@
 import React from "react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
 import {
    Quote,
    Star,
