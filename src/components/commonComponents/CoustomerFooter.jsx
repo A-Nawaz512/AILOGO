@@ -47,7 +47,7 @@ const CoustomerFooter = () => {
 
   return (
     <div className="bg-white">
-      <footer className="bg-black text-white relative overflow-hidden max-w-7xl mx-auto rounded-xl border-t-5 border-[#CEAA36] mt-4 mb-3">
+      <footer className="bg-black text-white relative overflow-hidden border-t-5 border-[#CEAA36] mt-4">
         {/* LIGHT GOLD GRADIENT TOP BORDER */}
         <div className="w-full bg-gradient-to-r from-[#734D1C] via-[#BCA25B] to-[#734D1C]"></div>
 
