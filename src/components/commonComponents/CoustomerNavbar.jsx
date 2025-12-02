@@ -13,6 +13,9 @@ const ModernNavbar = () => {
   const toggleMobile = () => setMobileOpen(!mobileOpen);
   const toggleServices = () => setServicesOpen(!servicesOpen);
 
+
+  
+
   return (
     <nav className="bg-black text-gray-100 py-3 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +23,7 @@ const ModernNavbar = () => {
           {/* Brand */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src='src/assets/logo.png'
+              src='/ailogo.png'
               alt="Logo"
               className="h-10 w-auto lg:h-12 bg-black-400/20 shadow-sm shadow-[#755023] rounded-lg lg:w-auto"
             />
@@ -65,6 +68,7 @@ const ModernNavbar = () => {
                     <Link
                       key={item.path}
                       to={item.path}
+                      onClick={()=>setServicesOpen(false)}
                       className="block px-4 py-2 text-gray-100 rounded-md transition-all duration-300 hover:bg-[#6F4918]"
                     >
                       {item.label}

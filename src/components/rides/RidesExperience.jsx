@@ -40,7 +40,7 @@ const driverSteps = [
 
 const RidesHowItWorks = () => {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-16 sm:py-20 overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 lg:px-0">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center" data-aos="fade-up">
