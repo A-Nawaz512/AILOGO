@@ -13,17 +13,17 @@ export const MapShowcase = () => {
   ];
 
   return (
-    <div className="bg-[#c39e4877] px-4 py-10">
+    <div className="bg-white px-4 ">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
-            <div className="h-px w-12 bg-[#543918] mr-4"></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            <div className="h-px w-8 mr-2 sm:w-12 bg-[#543918] sm:mr-4"></div>
+            <h2 className="text-lg md:text-4xl font-bold text-gray-800">
               Real Time 3D Service <span style={{ color: "#B78E3B" }}>Tracking</span>
             </h2>
-            <div className="h-px w-12 bg-[#543918] ml-4"></div>
+            <div className="h-px w-8 ml-2 sm:w-12 bg-[#543918] sm:ml-4"></div>
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Track rides, deliveries, rentals, and roadside assistance live in 3D with secure, free, and transparent MapLibre visualization</p>

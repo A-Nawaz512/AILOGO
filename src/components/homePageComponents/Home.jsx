@@ -1,156 +1,141 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
 
-export default function Home() {
+
+const Home = () => {
   const slides = [
     {
       id: 1,
       title: "ALL Services, One Platform",
       subtitle: "InDrive + ALLOGO Complete Ecosystem",
-      description: "Rides, deliveries, rentals, roadside assistance with price negotiation, driver selection, live OpenStreetMap 3D tracking, WhatsApp communication & point transfer system.",
-      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      link: '/services',
-      color: "text-[#B78E3B]"
+      description:
+        "Rides, deliveries, rentals, roadside assistance with price negotiation, driver selection, live OpenStreetMap 3D tracking, WhatsApp communication & point transfer system.",
+      image:
+        "https://img.freepik.com/premium-photo/digital-composite-man-holding-car-icon-car-automobile-insurance-car-services-concept-businessman-with-offering-gesture-icon-car_150455-11485.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_se_enriched&w=740&q=80",
+      link: "/services",
+      color: "text-[#B78E3B]",
     },
     {
       id: 2,
       title: "Book Rides & Order for Others",
       subtitle: "Male/Female Drivers • Motorcycles • Direct Assignment",
-      description: "Choose driver gender, vehicle type (cars/motorcycles), or order rides for someone else. Real-time price negotiation & only 7% commission. Provider credit system included.",
-      image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      link: '/services/rides',
-      color: "text-[#B78E3B]"
+      description:
+        "Choose driver gender, vehicle type (cars/motorcycles), or order rides for someone else. Real-time price negotiation & only 7% commission. Provider credit system included.",
+      image:
+        "https://img.freepik.com/free-photo/close-up-mobile-with-map-directions_23-2148906400.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_se_enriched&w=740&q=80",
+      link: "/services/rides",
+      color: "text-[#B78E3B]",
     },
     {
       id: 3,
       title: "Smart Delivery & Food Service",
       subtitle: "Transparent & Traceable • 5% Commission",
-      description: "Send parcels, groceries, or order food with live tracking. Delivery A → B → C possible. Direct assignment available. WhatsApp registration & validation.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      link: '/services/deliveries',
-      color: "text-[#B78E3B]"
+      description:
+        "Send parcels, groceries, or order food with live tracking. Delivery A → B → C possible. Direct assignment available. WhatsApp registration & validation.",
+      image:
+        "https://img.freepik.com/premium-photo/courier-with-mobile-phone-checks-apartment-number-standing-entrance-man-holds-pizza-boxes_307890-5351.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_se_enriched&w=740&q=80",
+      link: "/services/deliveries",
+      color: "text-[#B78E3B]",
     },
     {
       id: 4,
       title: "Rent Vehicles & Apartments Securely",
       subtitle: "Card Payment Only • Temporary Numbers • 3% Commission",
-      description: "Book cars, scooters, motorcycles, SUVs, trucks, bikes, or apartments instantly. Secure card payments with temporary numbers generated for communication.",
-      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      link: '/services/rentals',
-      color: "text-[#B78E3B]"
+      description:
+        "Book cars, scooters, motorcycles, SUVs, trucks, bikes, or apartments instantly. Secure card payments with temporary numbers generated for communication.",
+      image:
+        "https://img.freepik.com/free-photo/female-realtor-shaking-hands-with-couple-new-house-deal_23-2148895463.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_se_enriched&w=740&q=80",
+      link: "/services/rentals",
+      color: "text-[#B78E3B]",
     },
     {
       id: 5,
       title: "24/7 Roadside Assistance",
       subtitle: "Mechanic • Towing • Battery • Fuel • 5% Commission",
-      description: "Request emergency help instantly: mechanic, towing, battery service, tires, fuel delivery. Live tracking with in-app chat/call or WhatsApp communication.",
-      image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      link: '/services/roadside',
-      color: "text-[#B78E3B]"
-    }
+      description:
+        "Request emergency help instantly: mechanic, towing, battery service, tires, fuel delivery. Live tracking with in-app chat/call or WhatsApp communication.",
+      image:
+        "https://img.freepik.com/free-photo/long-shot-couple-repairing-car_23-2148270640.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_se_enriched&w=740&q=80",
+      link: "/services/roadside",
+      color: "text-[#B78E3B]",
+    },
   ];
 
-  const [current, setCurrent] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  const goToSlide = (index) => setCurrent(index);
+  // AOS Init
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent(prev => (prev + 1) % slides.length);
-    }, 10000);
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 5000);
 
-    return () => clearInterval(interval); 
-  }, [slides.length]);
-  const slideVariants = {
-    enter: (direction) => ({ x: direction > 0 ? 1000 : -1000, opacity: 0 }),
-    center: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 300, damping: 30 } },
-    exit: (direction) => ({ x: direction < 0 ? 1000 : -1000, opacity: 0, transition: { type: "spring", stiffness: 300, damping: 30 } })
-  };
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentSlide = slides[currentIndex];
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black/70">
-      <AnimatePresence >
-        <motion.div
-          key={slides[current].id}
-          custom={1}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          autplay={true}
-          className="absolute inset-0 w-full h-full"
+    <div className="min-h-screen text-white relative overflow-x-hidden">
+      <section className="relative flex items-center justify-center h-[90vh] overflow-hidden">
+
+        {/* Background Images */}
+        <div className="absolute inset-0 w-full h-full">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-2000 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"
+                }`}
+              style={{ backgroundImage: `url(${slide.image})` }}
+            ></div>
+          ))}
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d0d]/70 via-[#0d0d0d]/60 to-[#0d0d0d]"></div>
+        <div
+          className="relative z-10 text-center px-2 md:px-5 max-w-full md:max-w-3xl mx-auto"
+          data-aos="fade-up"
         >
-          <img
-            src={slides[current].image}
-            alt={slides[current].title}
-            className="w-full h-full object-cover"
-            loading="eager"
-            onError={(e) => { e.target.style.backgroundColor = "#000"; }}
-          />
-          <div className="absolute inset-0 bg-black/70" />
+          <h1 className="text-3xl md:text-5xl text-[#B78E3B] font-bold mb-6">
+            {currentSlide.title}
+          </h1>
 
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-16">
-            <motion.h1
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold ${slides[current].color} mb-4`}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
-            >
-              {slides[current].title}
-            </motion.h1>
-            <motion.h2
-              className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-6"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } }}
-            >
-              {slides[current].subtitle}
-            </motion.h2>
-            <motion.p
-              className="text-lg md:text-xl max-w-3xl text-gray-200 mb-8 leading-relaxed"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4 } }}
-            >
-              {slides[current].description}
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.6 } }}
-            >
-              <Link to={slides[current].link}>
-                <button className="px-8 py-4 rounded-lg font-semibold text-lg bg-[#B78E3B] text-white hover:bg-[#a67c2a] shadow-lg transition">
-                  Explore Now →
-                </button>
-              </Link>
-            </motion.div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
+          <p className="text-xl md:text-2xl text-gray-300 mb-4">
+            {currentSlide.subtitle}
+          </p>
 
-      {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 z-30">
-        <button onClick={prevSlide} className="p-3 rounded-full bg-[#b78e3b41] text-[#B78E3B] backdrop-blur-sm hover:bg-[#b78e3b60] transition">
-          <FaChevronLeft size={20} />
-        </button>
-        <button onClick={nextSlide} className="p-3 rounded-full bg-[#b78e3b41] text-[#B78E3B] backdrop-blur-sm hover:bg-[#b78e3b60] transition">
-          <FaChevronRight size={20} />
-        </button>
-      </div>
+          <p className="text-md md:text-lg text-gray-200 leading-relaxed">
+            {currentSlide.description}
+          </p>
 
-      {/* Slide Indicators */}
-      <div className="absolute top-1/2 right-8 z-30 hidden md:flex flex-col space-y-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === current
-              ? "bg-[#B78E3B] border-2 border-[#B78E3B]"
-              : "border border-white/70 hover:border-[#B78E3B] hover:bg-[#B78E3B]/30"
-              }`}
-          />
-        ))}
-      </div>
+          <Link to={currentSlide.link}>
+            <button className="mt-8 px-8 py-4 rounded-lg bg-[#B78E3B] text-white text-lg font-semibold hover:bg-[#926f2d] transition shadow-lg">
+              Explore Now →
+            </button>
+          </Link>
+        </div>
+        <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 space-x-3 z-20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === index
+                  ? "bg-[#B78E3B] scale-110 shadow-lg"
+                  : "bg-gray-400/50 hover:bg-gray-300"
+                }`}
+            ></button>
+          ))}
+        </div>
+
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent"></div>
+      </section>
     </div>
   );
-}
+};
+
+export default Home;

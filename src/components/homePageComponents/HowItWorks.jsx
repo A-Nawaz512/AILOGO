@@ -34,8 +34,8 @@ export const HowItWorks = () => {
                 <div className="text-center mb-14">
                     <div className="flex justify-center items-center">
                         <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
-                            How <span style={{ color: "#B78E3B" }}>AlLOGO Works</span>
+                        <h2 className="text-xl md:text-4xl font-bold text-gray-800 mb-3">
+                            How <span style={{ color: "#B78E3B" }}>ALLOGO Works</span>
                         </h2>
                         <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
                     </div>
