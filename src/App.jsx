@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./components/commonComponents/CoustomerNavbar";
-import Footer from "./components/commonComponents/Footer";
+import CoustmerFooter from "./components/commonComponents/CoustomerFooter";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -20,7 +20,7 @@ const MainLayout = () => (
    <div className="lg:mx-auto lg:max-w-[1536px]">
       <Navbar />
       <Outlet />
-      <CoustomerFooter />
+      <CoustmerFooter />
    </div>
 );
 
