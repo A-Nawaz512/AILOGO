@@ -1,220 +1,156 @@
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const slides = [
     {
       id: 1,
-      title: "All Services,One Platform",
-      subtitle: "Complete Digital Ecosystem",
-      description: "Transport, rentals, delivery, food, and roadside assistance all in one app with live 3D tracking.",
+      title: "ALL Services, One Platform",
+      subtitle: "InDrive + ALLOGO Complete Ecosystem",
+      description: "Rides, deliveries, rentals, roadside assistance with price negotiation, driver selection, live OpenStreetMap 3D tracking, WhatsApp communication & point transfer system.",
       image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      link:'/services/rides'
+      link: '/services',
+      color: "text-[#B78E3B]"
     },
     {
       id: 2,
-      title: "Book Your Ride in Seconds",
-      subtitle: "Fast, safe, and affordable.",
-      description: "Choose your driver, your vehicle, and track your ride in 3D anytime, anywhere.",
+      title: "Book Rides & Order for Others",
+      subtitle: "Male/Female Drivers • Motorcycles • Direct Assignment",
+      description: "Choose driver gender, vehicle type (cars/motorcycles), or order rides for someone else. Real-time price negotiation & only 7% commission. Provider credit system included.",
       image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      link:'/services/rides'
+      link: '/services/rides',
+      color: "text-[#B78E3B]"
     },
     {
       id: 3,
-      title: "Rent Cars, Scooters, or Apartments",
-      subtitle: "Verified owners. Transparent pricing.",
-      description: "Find rentals around you instantly and book securely with AlLOGO.",
-      image: "https://img.freepik.com/free-photo/beautiful-kitchen-interior-design_23-2150976526.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_hybrid&w=740&q=80",
-      link:'/services/rentals'
+      title: "Smart Delivery & Food Service",
+      subtitle: "Transparent & Traceable • 5% Commission",
+      description: "Send parcels, groceries, or order food with live tracking. Delivery A → B → C possible. Direct assignment available. WhatsApp registration & validation.",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      link: '/services/deliveries',
+      color: "text-[#B78E3B]"
     },
     {
       id: 4,
-      title: "Delivery & Food at Your Door",
-      subtitle: "Send parcels or order meals easily.",
-      description: "Track every courier live on our 3D map for a transparent delivery experience.",
-      image: "https://img.freepik.com/premium-photo/back-view-deliveryman-knocking-door-holding-food-from-grocery-store_926199-2148140.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_hybrid&w=740&q=80",
-      link:'/services/deliveries'
+      title: "Rent Vehicles & Apartments Securely",
+      subtitle: "Card Payment Only • Temporary Numbers • 3% Commission",
+      description: "Book cars, scooters, motorcycles, SUVs, trucks, bikes, or apartments instantly. Secure card payments with temporary numbers generated for communication.",
+      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      link: '/services/rentals',
+      color: "text-[#B78E3B]"
     },
     {
       id: 5,
-      title: "Emergency Roadside Assistance",
-      subtitle: "Help whenever you need it.",
-      description: "Request a technician instantly for any vehicle breakdown 24/7.",
-      image: "https://img.freepik.com/premium-photo/woman-took-her-car-change-tires_926199-2163583.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_hybrid&w=740&q=80",
-      link:'/services/roadside-assistance'
-    },
+      title: "24/7 Roadside Assistance",
+      subtitle: "Mechanic • Towing • Battery • Fuel • 5% Commission",
+      description: "Request emergency help instantly: mechanic, towing, battery service, tires, fuel delivery. Live tracking with in-app chat/call or WhatsApp communication.",
+      image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      link: '/services/roadside',
+      color: "text-[#B78E3B]"
+    }
   ];
 
   const [current, setCurrent] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const goToSlide = useCallback((index) => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrent(index);
-    setTimeout(() => setIsTransitioning(false), 700);
-  }, [isTransitioning]);
-
-  const nextSlide = useCallback(() => {
-    goToSlide((current + 1) % slides.length);
-  }, [current, slides.length, goToSlide]);
-
-  const prevSlide = useCallback(() => {
-    goToSlide((current - 1 + slides.length) % slides.length);
-  }, [current, slides.length, goToSlide]);
-
+  const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  const goToSlide = (index) => setCurrent(index);
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
-  }, [nextSlide]);
+    const interval = setInterval(() => {
+      setCurrent(prev => (prev + 1) % slides.length);
+    }, 10000);
 
-  const slide = slides[current];
+    return () => clearInterval(interval); 
+  }, [slides.length]);
+  const slideVariants = {
+    enter: (direction) => ({ x: direction > 0 ? 1000 : -1000, opacity: 0 }),
+    center: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 300, damping: 30 } },
+    exit: (direction) => ({ x: direction < 0 ? 1000 : -1000, opacity: 0, transition: { type: "spring", stiffness: 300, damping: 30 } })
+  };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Background Image with Overlays */}
-      <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
-        <img
-          src={slide.image}
-          alt={slide.title}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-        {/* Solid Overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
-      </div>
+    <div className="relative w-full h-screen overflow-hidden bg-black/70">
+      <AnimatePresence >
+        <motion.div
+          key={slides[current].id}
+          custom={1}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          autplay={true}
+          className="absolute inset-0 w-full h-full"
+        >
+          <img
+            src={slides[current].image}
+            alt={slides[current].title}
+            className="w-full h-full object-cover"
+            loading="eager"
+            onError={(e) => { e.target.style.backgroundColor = "#000"; }}
+          />
+          <div className="absolute inset-0 bg-black/70" />
 
-      {/* Content Container */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="container mx-auto px-4 md:px-8 lg:px-26">
-          <div className="max-w-2xl">
-  
-            {/* Title with Decorative Element */}
-            <div className="mb-6">
-              <div className="flex items-center mb-4">
-                {/* <div className="w-16 h-1 rounded-full mr-4" style={{ backgroundColor: "#B78E3B" }}></div> */}
-                <h1
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-                  style={{ color: "#B78E3B" }}
-                >
-                  {slide.title}
-                </h1>
-              </div>
-            </div>
-
-            {/* Subtitle */}
-            <h2 className="text-xl md:text-2xl lg:text-3xl mb-6 font-semibold text-white">
-              {slide.subtitle}
-            </h2>
-
-            {/* Description */}
-            <p className="text-lg md:text-xl mb-10 max-w-xl leading-relaxed text-gray-300">
-              {slide.description}
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Link to={slide.link}>
-                <button
-                  className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 active:scale-95"
-                  style={{
-                    backgroundColor: "#B78E3B",
-                    color: "white",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#543918";
-                    e.target.style.transform = 'translateY(-2px)';
-                    e.target.style.boxShadow = '0 10px 25px rgba(183, 142, 59, 0.6)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "#B78E3B";
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.boxShadow = 'none';
-                  }}
-                >
-                  Explore more
-                  <span className="ml-3">→</span>
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-16">
+            <motion.h1
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold ${slides[current].color} mb-4`}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+            >
+              {slides[current].title}
+            </motion.h1>
+            <motion.h2
+              className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-6"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } }}
+            >
+              {slides[current].subtitle}
+            </motion.h2>
+            <motion.p
+              className="text-lg md:text-xl max-w-3xl text-gray-200 mb-8 leading-relaxed"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4 } }}
+            >
+              {slides[current].description}
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.6 } }}
+            >
+              <Link to={slides[current].link}>
+                <button className="px-8 py-4 rounded-lg font-semibold text-lg bg-[#B78E3B] text-white hover:bg-[#a67c2a] shadow-lg transition">
+                  Explore Now →
                 </button>
               </Link>
-
-              {/* <button
-                className="px-8 py-4 rounded-lg font-semibold text-lg border-2 transition-all duration-300 hover:scale-105 active:scale-95"
-                style={{
-                  borderColor: "#B78E3B",
-                  color: "#B78E3B",
-                  backgroundColor: "rgba(183, 142, 59, 0.1)"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "rgba(183, 142, 59, 0.2)";
-                  e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = '0 10px 25px rgba(183, 142, 59, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "rgba(183, 142, 59, 0.1)";
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = 'none';
-                }}
-              >
-                Become a Partner
-              </button> */}
-            </div>
-
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Navigation Controls */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 z-30">
+        <button onClick={prevSlide} className="p-3 rounded-full bg-[#b78e3b41] text-[#B78E3B] backdrop-blur-sm hover:bg-[#b78e3b60] transition">
+          <FaChevronLeft size={20} />
+        </button>
+        <button onClick={nextSlide} className="p-3 rounded-full bg-[#b78e3b41] text-[#B78E3B] backdrop-blur-sm hover:bg-[#b78e3b60] transition">
+          <FaChevronRight size={20} />
+        </button>
       </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute hidden sm:flex left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-sm transition-all duration-300 group"
-        aria-label="Previous slide"
-        style={{ border: "1px solid #543918" }}
-      >
-        <svg className="w-6 h-6 text-white group-hover:text-[#B78E3B] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute hidden sm:flex right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-sm transition-all duration-300 group"
-        aria-label="Next slide"
-        style={{ border: "1px solid #543918" }}
-      >
-        <svg className="w-6 h-6 text-white group-hover:text-[#B78E3B] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      {/* Slide Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
-        <div className="flex items-center gap-2">
-          {slides.map((slideItem, index) => (
-            <div
-              key={slideItem.id}
-              className="flex flex-col items-center cursor-pointer group"
-              onClick={() => goToSlide(index)}
-            >
-              <div className="relative mb-2">
-                <div
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === current ? 'scale-125' : 'opacity-50'}`}
-                  style={{
-                    backgroundColor: index === current ? "#B78E3B" : "white",
-                  }}
-                ></div>
-                {index === current && (
-                  <div className="absolute inset-0 animate-ping rounded-full" style={{ backgroundColor: "#B78E3B" }}></div>
-                )}
-              </div>
-         
-            </div>
-          ))}
-        </div>
+      {/* Slide Indicators */}
+      <div className="absolute top-1/2 right-8 z-30 hidden md:flex flex-col space-y-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === current
+              ? "bg-[#B78E3B] border-2 border-[#B78E3B]"
+              : "border border-white/70 hover:border-[#B78E3B] hover:bg-[#B78E3B]/30"
+              }`}
+          />
+        ))}
       </div>
-
-  
     </div>
   );
 }
