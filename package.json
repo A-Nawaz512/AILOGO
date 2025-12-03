@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.11.0",
     "@tailwindcss/vite": "^4.1.17",
     "aos": "^2.3.4",
+    "flickity": "^3.0.0",
     "flickity": "^2.3.0",
     "framer-motion": "^12.23.25",
     "lucide-react": "^0.555.0",

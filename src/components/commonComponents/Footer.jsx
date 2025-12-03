@@ -15,7 +15,7 @@ import {
 import { PiGreaterThanBold } from "react-icons/pi";
 import { FaPhoneAlt } from "react-icons/fa";
 
-const CoustomerFooter = () => {
+const Footer = () => {
   useEffect(() => {
     AOS.init({ duration: 1200, once: true });
   }, []);
@@ -47,7 +47,7 @@ const CoustomerFooter = () => {
 
   return (
     <div className="bg-white">
-      <footer className="bg-black text-white relative overflow-hidden border-t-5 border-[#CEAA36] mt-4">
+      <footer className="bg-black text-white relative overflow-hidden border-t-5 border-[#CEAA36]">
         {/* LIGHT GOLD GRADIENT TOP BORDER */}
         <div className="w-full bg-gradient-to-r from-[#734D1C] via-[#BCA25B] to-[#734D1C]"></div>
 
@@ -203,4 +203,4 @@ const CoustomerFooter = () => {
   );
 };
 
-export default CoustomerFooter;
+export default Footer;

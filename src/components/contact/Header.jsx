@@ -25,7 +25,7 @@ function Header() {
       {/* Background Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#6F4918]/10 via-[#E2CF7D]/10 to-[#6F4918]/10"></div>
 
-      <div className="relative container mx-auto px-4 py-16 lg:py-24">
+      <div className="relative container mx-auto px-4 py-16 lg:py-33">
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Header Title */}
