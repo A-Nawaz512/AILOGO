@@ -2,46 +2,50 @@ import React, { useEffect } from 'react';
 import {
   FaUserPlus,
   FaImages,
+  FaFileAlt,
+  FaCheckCircle,
   FaCalendarAlt,
-  FaEnvelope,
-  FaMoneyBillWave,
+  FaStar,
 } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-/* ----------------------------------------------------
-   HOST STEPS DATA
----------------------------------------------------- */
 const HOST_STEPS = [
   {
     id: 1,
     icon: FaUserPlus,
-    title: "Create owner account",
-    description: "Sign up as a host and start listing your apartments on ALLOGO.",
+    title: "Register as provider",
+    description: "Sign up as a host and create your provider account on ALLOGO.",
   },
   {
     id: 2,
     icon: FaImages,
-    title: "Add apartment details, photos, rules",
-    description: "Upload photos, create descriptions, and define house rules.",
+    title: "Add apartment listings",
+    description: "Add apartments with photos, descriptions, and amenities.",
   },
   {
     id: 3,
-    icon: FaCalendarAlt,
-    title: "Set availability & pricing",
-    description: "Choose available dates and configure your pricing options.",
+    icon: FaFileAlt,
+    title: "Upload ownership documents",
+    description: "Submit ownership or authorization documents for verification.",
   },
   {
     id: 4,
-    icon: FaEnvelope,
-    title: "Receive bookings & messages",
-    description: "Accept bookings and chat easily with clients.",
+    icon: FaCheckCircle,
+    title: "Get validated by controller",
+    description: "Wait for verification and approval from the platform controller.",
   },
   {
     id: 5,
-    icon: FaMoneyBillWave,
-    title: "Get paid through ALLOGO",
-    description: "Receive secure payments after each completed stay.",
+    icon: FaCalendarAlt,
+    title: "Manage bookings & prices",
+    description: "Receive booking requests and manage your calendar and pricing.",
+  },
+  {
+    id: 6,
+    icon: FaStar,
+    title: "Rate tenants",
+    description: "After each stay, rate the tenant to maintain trust and transparency.",
   },
 ];
 
@@ -52,17 +56,17 @@ function TimelineItem({ Icon, number, title, description, delay }) {
       data-aos-delay={delay}
       className="relative pl-14 py-8 group"
     >
-      {/* Vertical Line */}
+    
       <span className="absolute left-5 top-0 h-full w-1 bg-[#B78E3B]/20 rounded-full"></span>
 
-      {/* Step Number Circle */}
+  
       <div className="absolute left-0 flex items-center justify-center h-10 w-10 rounded-full 
                       bg-white shadow-md border border-[#B78E3B]/40 
                       group-hover:shadow-xl group-hover:shadow-[#B78E3B]/50 transition duration-300">
         <Icon className="text-[#B78E3B]" size={20} />
       </div>
 
-      {/* Content */}
+      
       <div className="bg-white rounded-2xl p-6 
                       shadow-md border border-gray-200 
                       group-hover:shadow-xl group-hover:shadow-[#B78E3B]/40 transition duration-300">
@@ -87,10 +91,10 @@ export default function HowItWorksHost() {
           data-aos="fade-down"
           className="text-center text-3xl font-bold text-[#B78E3B] mb-12"
         >
-          How It Works – Host / Owner
+          How It Works – Host / Provider
         </h2>
 
-        {/* Timeline */}
+      
         <div className="max-w-3xl mx-auto">
           {HOST_STEPS.map((step, index) => (
             <TimelineItem
@@ -99,7 +103,7 @@ export default function HowItWorksHost() {
               number={index + 1}
               title={step.title}
               description={step.description}
-              delay={index * 200} // stagger each step
+              delay={index * 200} 
             />
           ))}
         </div>
