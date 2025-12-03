@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./components/commonComponents/CoustomerNavbar";
-import Footer from "./components/commonComponents/CoustomerFooter";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -12,6 +11,7 @@ import Rental from "./pages/Rental";
 import Appartment from "./pages/Appartment";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
+import CoustomerFooter from "./components/commonComponents/CoustomerFooter";
 
 const MainLayout = () => (
    <div className="lg:mx-auto lg:max-w-[1536px]">
