@@ -5,8 +5,8 @@ import DeliveryServices from '../components/FoodDelivery/DeliveryServices';
 import ZoneCoverage from '../components/FoodDelivery/ZoneCoverage';
 import SmartRouting from '../components/FoodDelivery/SmartRouting';
 import PaymentSystem from '../components/FoodDelivery/PaymentSystem';
-import ProviderApp from '../components/FoodDelivery/ProviderApp';
 import ChatIntegration from '../components/FoodDelivery/ChatIntegration';
+import ProviderPaymentUnlock from '../components/FoodDelivery/ProviderPaymentUnlock';
 function FoodDeliveryPage() {
   return (
     <div className="">
@@ -16,8 +16,8 @@ function FoodDeliveryPage() {
       <ZoneCoverage />
       <SmartRouting />
       <PaymentSystem />
-      <ProviderApp />
       <ChatIntegration />
+      <ProviderPaymentUnlock/>
     </div>
   );
 }

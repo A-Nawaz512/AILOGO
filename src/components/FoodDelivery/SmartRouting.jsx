@@ -3,11 +3,9 @@ import React, { useState } from "react";
 import {
   Map,
   Navigation,
-  Users,
   Target,
   CheckCircle,
   MessageCircle,
-  CreditCard,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -25,62 +23,59 @@ const SmartRouting = () => {
   };
 
   return (
-    <section
-      id="routing"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#151212] text-white"
-    >
+    <section id="routing" className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#86632C] to-yellow-600 rounded-full mb-4">
-            <Navigation className="w-8 h-8 text-white" />
+          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#F5B45D] to-[#FACC15] rounded-full mb-4">
+            <Navigation className="w-8 h-8 text-gray-900" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Smart{" "}
-            <span className="bg-gradient-to-r from-[#86632C] to-yellow-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#F5B45D] to-[#FACC15] bg-clip-text text-transparent">
               Delivery Routing
             </span>
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Efficient multi-stop routing across zones with real-time
-            optimization and delivery assignment.
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            Efficient multi-stop routing across zones with real-time optimization
+            and delivery assignment.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* ROUTE BUILDER */}
-          <div className="bg-[#1e1c1b] border border-gray-700 rounded-3xl p-8 shadow-xl">
+          <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-lg">
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl font-bold">Route Builder</h3>
               <button
                 onClick={addStop}
                 disabled={route.length >= 7}
-                className="bg-gradient-to-r from-[#86632C] to-yellow-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition disabled:opacity-40"
+                className="bg-gradient-to-r from-[#F5B45D] to-[#FACC15] text-gray-900 px-6 py-2 rounded-full hover:shadow-lg transition disabled:opacity-40"
               >
                 Add Stop
               </button>
             </div>
 
             <div className="relative">
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#86632C] to-yellow-600"></div>
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#F5B45D] to-[#FACC15]"></div>
 
               {route.map((stop, index) => (
                 <div key={index} className="flex items-center mb-8 ml-4">
                   <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-lg border border-white/20 ${
+                    className={`w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-md border border-gray-200 ${
                       index === 0
-                        ? "bg-gradient-to-r from-green-600 to-emerald-500"
+                        ? "bg-gradient-to-r from-[#F5B45D] to-[#FACC15]"
                         : index === route.length - 1
-                        ? "bg-gradient-to-r from-red-600 to-pink-600"
-                        : "bg-gradient-to-r from-[#86632C] to-yellow-600"
+                        ? "bg-gradient-to-r from-[#F5B45D] to-[#FACC15]"
+                        : "bg-gradient-to-r from-[#F5B45D] to-[#FACC15]"
                     }`}
                   >
                     {index === 0 ? (
-                      <Target className="w-6 h-6 text-white" />
+                      <Target className="w-6 h-6 text-gray-900" />
                     ) : index === route.length - 1 ? (
-                      <CheckCircle className="w-6 h-6 text-white" />
+                      <CheckCircle className="w-6 h-6 text-gray-900" />
                     ) : (
-                      <Map className="w-6 h-6 text-white" />
+                      <Map className="w-6 h-6 text-gray-900" />
                     )}
                   </div>
 
@@ -88,7 +83,7 @@ const SmartRouting = () => {
                     <div className="flex justify-between items-center">
                       <div>
                         <h4 className="font-semibold">Stop {stop}</h4>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-gray-500">
                           {index === 0
                             ? "Pickup Location"
                             : index === route.length - 1
@@ -99,7 +94,7 @@ const SmartRouting = () => {
                       {index > 0 && index < route.length - 1 && (
                         <button
                           onClick={() => removeStop(index)}
-                          className="text-red-400 hover:text-red-600 transition"
+                          className="text-red-500 hover:text-red-600 transition"
                         >
                           Remove
                         </button>
@@ -111,18 +106,18 @@ const SmartRouting = () => {
             </div>
 
             {/* SUMMARY */}
-            <div className="mt-8 p-4 bg-[#151212] border border-gray-700 rounded-xl">
+            <div className="mt-8 p-4 bg-gray-50 border border-gray-200 rounded-xl">
               <div className="flex justify-between">
                 <div>
-                  <p className="text-sm text-gray-400">Total Stops</p>
+                  <p className="text-sm text-gray-500">Total Stops</p>
                   <p className="text-2xl font-bold">{route.length}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Est. Time</p>
+                  <p className="text-sm text-gray-500">Est. Time</p>
                   <p className="text-2xl font-bold">{route.length * 25} min</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Distance</p>
+                  <p className="text-sm text-gray-500">Distance</p>
                   <p className="text-2xl font-bold">
                     {(route.length * 4.2).toFixed(1)} km
                   </p>
@@ -133,10 +128,9 @@ const SmartRouting = () => {
 
           {/* FEATURES */}
           <div className="space-y-6">
-            {/* Delivery Types */}
-            <div className="bg-[#1e1c1b] p-6 rounded-2xl border border-gray-700 shadow-lg">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
               <h4 className="text-xl font-semibold mb-2">Delivery Types</h4>
-              <ul className="list-disc list-inside text-gray-300 space-y-1">
+              <ul className="list-disc list-inside text-gray-700 space-y-1">
                 <li>Food</li>
                 <li>Pharmacy</li>
                 <li>Packages</li>
@@ -144,10 +138,9 @@ const SmartRouting = () => {
               </ul>
             </div>
 
-            {/* Zones */}
-            <div className="bg-[#1e1c1b] p-6 rounded-2xl border border-gray-700 shadow-lg">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
               <h4 className="text-xl font-semibold mb-2">Zones</h4>
-              <ul className="list-disc list-inside text-gray-300 space-y-1">
+              <ul className="list-disc list-inside text-gray-700 space-y-1">
                 <li>Within the city</li>
                 <li>Between two cities / zones</li>
                 <li>Delivery A → B → C possible</li>
@@ -155,15 +148,14 @@ const SmartRouting = () => {
               </ul>
             </div>
 
-            {/* Communication */}
-            <div className="bg-[#1e1c1b] p-6 rounded-2xl border border-gray-700 shadow-lg">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg">
-                  <MessageCircle className="w-6 h-6 text-white" />
+                <div className="p-3 bg-gradient-to-r from-[#F5B45D] to-[#FACC15] rounded-lg">
+                  <MessageCircle className="w-6 h-6 text-gray-900" />
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold mb-1">Communication</h4>
-                  <p className="text-gray-400">
+                  <p className="text-gray-500">
                     In-app chat, call, or WhatsApp with customers and providers.
                   </p>
                 </div>
@@ -171,16 +163,42 @@ const SmartRouting = () => {
             </div>
           </div>
         </div>
+
         {/* Commission & Payment */}
-        <div className="bg-gradient-to-r mx-auto max-w-2xl mt-10 from-[#86632C] to-yellow-600 rounded-2xl p-8 text-white shadow-xl">
-          <h3 className="text-2xl font-bold mb-4">Commission & Payment</h3>
-          <ul className="list-disc list-inside mb-4 space-y-1">
-            <li>ALLOGO Commission: 5% flat rate</li>
-            <li>Customer payment: cash or card</li>
-            <li>Provider must use card to unlock new deliveries</li>
-          </ul>
-          <div className="flex justify-between items-center">
-            <span className="text-lg">Commission Rate</span>
+        <div
+          id="commission"
+          className="mx-auto max-w-2xl mt-10 p-8 bg-gradient-to-r from-[#F5B45D] to-[#FACC15] rounded-3xl shadow-lg text-black"
+        >
+          <h3 className="text-3xl font-bold mb-6">Commission & Payment</h3>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
+              <span className="p-2 bg-yellow-300 rounded-full">💰</span>
+              <div>
+                <p className="font-semibold">ALLOGO Commission</p>
+                <p className="text-gray-700 text-sm">Flat 5% rate on each delivery</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
+              <span className="p-2 bg-yellow-300 rounded-full">💳</span>
+              <div>
+                <p className="font-semibold">Customer Payment</p>
+                <p className="text-gray-700 text-sm">Cash or Card accepted</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
+              <span className="p-2 bg-yellow-300 rounded-full">🛡️</span>
+              <div>
+                <p className="font-semibold">Provider Requirement</p>
+                <p className="text-gray-700 text-sm">Card verification required to unlock new deliveries</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 flex justify-between items-center p-4 bg-white/50 rounded-xl">
+            <span className="text-lg font-medium">Commission Rate</span>
             <span className="text-4xl font-bold">5%</span>
           </div>
         </div>
