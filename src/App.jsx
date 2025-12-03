@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./components/commonComponents/CoustomerNavbar";
-import Footer from "./components/commonComponents/CoustomerFooter";
+import Footer from "./components/commonComponents/Footer";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -13,6 +13,8 @@ import Appartment from "./pages/Appartment";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import FoodDelivery from "./pages/FoodDeveleviry";
+import BookRide from "./pages/BookRide";
+import BecomeDriver from "./pages/BecomeDriver";
 
 const MainLayout = () => (
    <div className="lg:mx-auto lg:max-w-[1536px]">
@@ -36,12 +38,8 @@ const router = createBrowserRouter([
          { path: "/services/apartments", element: <Appartment /> }, 
          { path: "/signup", element: <Signup /> }, 
          { path: "/login", element: <Login /> }, 
-
-
-
-
-
-         
+         { path: "/bookride", element: <BookRide /> }, 
+         { path: "/becomedriver", element: <BecomeDriver /> }, 
 
       ],
    },
