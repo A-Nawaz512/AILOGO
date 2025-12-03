@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaMapMarkerAlt, FaPhone, FaUser, FaCreditCard, FaWhatsapp, FaChevronDown } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaUser,
+  FaCreditCard,
+  FaWhatsapp,
+  FaChevronDown,
+} from "react-icons/fa";
 import { IoPricetagOutline } from "react-icons/io5";
 
 export default function Booksection() {
@@ -14,7 +21,6 @@ export default function Booksection() {
   const [notes, setNotes] = useState("");
   const [bookForSomeoneElse, setBookForSomeoneElse] = useState(false);
 
-  // Custom dropdown states
   const [vehicleOpen, setVehicleOpen] = useState(false);
   const [genderOpen, setGenderOpen] = useState(false);
   const [paymentOpen, setPaymentOpen] = useState(false);
@@ -32,141 +38,140 @@ export default function Booksection() {
   const optionsClass =
     "absolute w-full bg-white border border-[#B78E3B] mt-1 rounded-xl shadow-lg z-10 max-h-48 overflow-auto";
 
-  const optionItemClass =
-    "px-4 py-2 cursor-pointer hover:bg-[#B78E3B]/10";
+  const optionItemClass = "px-4 py-2 cursor-pointer hover:bg-[#B78E3B]/10";
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-3 md:p-5">
-      <div className="w-full max-w-2xl bg-white rounded-2xl border border-[#B78E3B]/40 overflow-hidden shadow-lg">
+    <div className="min-h-screen bg-white flex items-center justify-center p-3 md:p-5 mb-5">
+      <div className="w-full max-w-3xl bg-white rounded-2xl border border-[#B78E3B]/40 overflow-hidden shadow-lg">
         {/* HEADER */}
         <div className="bg-[#0D0D0D] text-center py-6 px-6 relative">
-          <h2 className="text-5xl font-bold mb-6 text-[#B78E3B]">Book a Ride</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#B78E3B]">Book a Ride</h2>
           <div className="border-t border-[#B78E3B]/30 w-11/12 mx-auto my-2"></div>
           <p className="text-md text-white">Fill the details below to book your ride</p>
         </div>
 
         {/* FORM */}
         <div className="p-5 md:p-8 space-y-5 transition-all duration-300 hover:shadow-[0_0_25px_#B78E3B]">
-          {/* Pickup */}
-          <div className="relative">
-            <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
-              Pickup Location
-            </label>
-            <FaMapMarkerAlt className="absolute left-3 top-[40px] text-[#B78E3B]" />
-            <input
-              type="text"
-              value={pickup}
-              onChange={(e) => setPickup(e.target.value)}
-              placeholder="Enter pickup location"
-              className={inputClass}
-            />
+
+          {/* Pickup & Dropoff */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="relative">
+              <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
+                Pickup Location
+              </label>
+              <FaMapMarkerAlt className="absolute left-3 top-[40px] text-[#B78E3B]" />
+              <input
+                type="text"
+                value={pickup}
+                onChange={(e) => setPickup(e.target.value)}
+                placeholder="Enter pickup location"
+                className={inputClass}
+              />
+            </div>
+
+            <div className="relative">
+              <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
+                Dropoff Location
+              </label>
+              <FaMapMarkerAlt className="absolute left-3 top-[40px] text-[#B78E3B]" />
+              <input
+                type="text"
+                value={dropoff}
+                onChange={(e) => setDropoff(e.target.value)}
+                placeholder="Enter dropoff location"
+                className={inputClass}
+              />
+            </div>
           </div>
 
-          {/* Dropoff */}
-          <div className="relative">
-            <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
-              Dropoff Location
-            </label>
-            <FaMapMarkerAlt className="absolute left-3 top-[40px] text-[#B78E3B]" />
-            <input
-              type="text"
-              value={dropoff}
-              onChange={(e) => setDropoff(e.target.value)}
-              placeholder="Enter dropoff location"
-              className={inputClass}
-            />
+          {/* Vehicle Type & Driver Preference */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="relative">
+              <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
+                Vehicle Type
+              </label>
+              <FaUser className="absolute left-3 top-[40px] text-[#B78E3B]" />
+              <div
+                className={`${dropdownClass} pl-10`}
+                onClick={() => setVehicleOpen(!vehicleOpen)}
+              >
+                <span className={vehicleType === "" ? "text-gray-500" : "text-black"}>
+                  {vehicleType || "Select vehicle type"}
+                </span>
+                <FaChevronDown className="text-[#B78E3B]" />
+              </div>
+              {vehicleOpen && (
+                <ul className={optionsClass}>
+                  <li className={optionItemClass} onClick={() => { setVehicleType(""); setVehicleOpen(false); }}>Select vehicle type</li>
+                  <li className={optionItemClass} onClick={() => { setVehicleType("Car"); setVehicleOpen(false); }}>Car</li>
+                  <li className={optionItemClass} onClick={() => { setVehicleType("Motorcycle / Two-Wheeler"); setVehicleOpen(false); }}>Motorcycle / Two-Wheeler</li>
+                </ul>
+              )}
+            </div>
+
+            <div className="relative">
+              <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
+                Driver Preference
+              </label>
+              <FaUser className="absolute left-3 top-[40px] text-[#B78E3B]" />
+              <div
+                className={`${dropdownClass} pl-10`}
+                onClick={() => setGenderOpen(!genderOpen)}
+              >
+                <span className={genderPreference === "" ? "text-gray-500" : "text-black"}>
+                  {genderPreference || "Select driver gender"}
+                </span>
+                <FaChevronDown className="text-[#B78E3B]" />
+              </div>
+              {genderOpen && (
+                <ul className={optionsClass}>
+                  <li className={optionItemClass} onClick={() => { setGenderPreference(""); setGenderOpen(false); }}>Select driver gender</li>
+                  <li className={optionItemClass} onClick={() => { setGenderPreference("Any"); setGenderOpen(false); }}>Any</li>
+                  <li className={optionItemClass} onClick={() => { setGenderPreference("Male Driver"); setGenderOpen(false); }}>Male Driver</li>
+                  <li className={optionItemClass} onClick={() => { setGenderPreference("Female Driver"); setGenderOpen(false); }}>Female Driver</li>
+                </ul>
+              )}
+            </div>
           </div>
 
-          {/* Vehicle Type Dropdown */}
-<div className="relative">
-  <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
-    Vehicle Type
-  </label>
-  <FaUser className="absolute left-3 top-[40px] text-[#B78E3B]" />
-  <div
-    className={`${dropdownClass} pl-10`} // <-- add left padding so text doesn't overlap icon
-    onClick={() => setVehicleOpen(!vehicleOpen)}
-  >
-    <span className={vehicleType === "" ? "text-gray-500" : "text-black"}>
-      {vehicleType || "Select vehicle type"}
-    </span>
-    <FaChevronDown className="text-[#B78E3B]" />
-  </div>
-  {vehicleOpen && (
-    <ul className={optionsClass}>
-      <li className={optionItemClass} onClick={() => { setVehicleType(""); setVehicleOpen(false); }}>
-        Select vehicle type
-      </li>
-      <li className={optionItemClass} onClick={() => { setVehicleType("Car"); setVehicleOpen(false); }}>
-        Car
-      </li>
-      <li className={optionItemClass} onClick={() => { setVehicleType("Motorcycle / Two-Wheeler"); setVehicleOpen(false); }}>
-        Motorcycle / Two-Wheeler
-      </li>
-    </ul>
-  )}
-</div>
+          {/* Your Offer & Payment Method */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="relative">
+              <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
+                Your Offer (DZD)
+              </label>
+              <IoPricetagOutline className="absolute left-3 top-[40px] text-[#B78E3B]" />
+              <input
+                type="number"
+                value={offer}
+                onChange={(e) => setOffer(e.target.value)}
+                placeholder="Enter your offer"
+                className={inputClass}
+              />
+            </div>
 
-
-         {/* Driver Gender Dropdown */}
-<div className="relative">
-  <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
-    Driver Preference
-  </label>
-  <FaUser className="absolute left-3 top-[40px] text-[#B78E3B]" />
-  <div
-    className={`${dropdownClass} pl-10`} // <-- add pl-10 to leave space for icon
-    onClick={() => setGenderOpen(!genderOpen)}
-  >
-    <span className={genderPreference === "" ? "text-gray-500" : "text-black"}>
-      {genderPreference || "Select driver gender"}
-    </span>
-    <FaChevronDown className="text-[#B78E3B]" />
-  </div>
-  {genderOpen && (
-    <ul className={optionsClass}>
-      <li
-        className={optionItemClass}
-        onClick={() => { setGenderPreference(""); setGenderOpen(false); }}
-      >
-        Select driver gender
-      </li>
-      <li
-        className={optionItemClass}
-        onClick={() => { setGenderPreference("Any"); setGenderOpen(false); }}
-      >
-        Any
-      </li>
-      <li
-        className={optionItemClass}
-        onClick={() => { setGenderPreference("Male Driver"); setGenderOpen(false); }}
-      >
-        Male Driver
-      </li>
-      <li
-        className={optionItemClass}
-        onClick={() => { setGenderPreference("Female Driver"); setGenderOpen(false); }}
-      >
-        Female Driver
-      </li>
-    </ul>
-  )}
-</div>
-
-
-          {/* Offer */}
-          <div className="relative">
-            <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
-              Your Offer (DZD)
-            </label>
-            <IoPricetagOutline className="absolute left-3 top-[40px] text-[#B78E3B]" />
-            <input
-              type="number"
-              value={offer}
-              onChange={(e) => setOffer(e.target.value)}
-              placeholder="Enter your offer"
-              className={inputClass}
-            />
+            <div className="relative">
+              <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
+                Payment Method
+              </label>
+              <FaCreditCard className="absolute left-3 top-[40px] text-[#B78E3B]" />
+              <div
+                className={`${dropdownClass} pl-10`}
+                onClick={() => setPaymentOpen(!paymentOpen)}
+              >
+                <span className={paymentMethod === "" ? "text-gray-500" : "text-black"}>
+                  {paymentMethod || "Select payment method"}
+                </span>
+                <FaChevronDown className="text-[#B78E3B]" />
+              </div>
+              {paymentOpen && (
+                <ul className={optionsClass}>
+                  <li className={optionItemClass} onClick={() => { setPaymentMethod(""); setPaymentOpen(false); }}>Select payment method</li>
+                  <li className={optionItemClass} onClick={() => { setPaymentMethod("Cash"); setPaymentOpen(false); }}>Cash</li>
+                  <li className={optionItemClass} onClick={() => { setPaymentMethod("Card"); setPaymentOpen(false); }}>Card</li>
+                </ul>
+              )}
+            </div>
           </div>
 
           {/* Notes */}
@@ -194,58 +199,24 @@ export default function Booksection() {
             Book for someone else
           </label>
 
-          {/* Payment Method Dropdown */}
-<div className="relative">
-  <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
-    Payment Method
-  </label>
-  <FaCreditCard className="absolute left-3 top-[40px] text-[#B78E3B]" />
-  <div
-    className={`${dropdownClass} pl-10`} // <-- add left padding so text doesn't overlap icon
-    onClick={() => setPaymentOpen(!paymentOpen)}
-  >
-    <span className={paymentMethod === "" ? "text-gray-500" : "text-black"}>
-      {paymentMethod || "Select payment method"}
-    </span>
-    <FaChevronDown className="text-[#B78E3B]" />
-  </div>
-  {paymentOpen && (
-    <ul className={optionsClass}>
-      <li
-        className={optionItemClass}
-        onClick={() => { setPaymentMethod(""); setPaymentOpen(false); }}
-      >
-        Select payment method
-      </li>
-      <li
-        className={optionItemClass}
-        onClick={() => { setPaymentMethod("Cash"); setPaymentOpen(false); }}
-      >
-        Cash
-      </li>
-      <li
-        className={optionItemClass}
-        onClick={() => { setPaymentMethod("Card"); setPaymentOpen(false); }}
-      >
-        Card
-      </li>
-    </ul>
-  )}
-</div>
-
-
-          {/* Communication */}
+          {/* Preferred Communication */}
           <div className="space-y-2">
             <label className="font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-3">
               Preferred Communication
             </label>
             <div className="grid grid-cols-2 gap-4">
-              <button className="flex items-center justify-center gap-2 p-4 rounded-xl border border-[#000000] text-[#000000] hover:bg-[#000000] hover:text-white transition-all shadow-sm hover:shadow-md">
+              <a
+                href="tel:+92 012 345678"
+                className="flex items-center justify-center gap-2 p-4 rounded-xl border border-[#000000] text-[#000000] hover:bg-[#000000] hover:text-white transition-all shadow-sm hover:shadow-md"
+              >
                 <FaPhone /> Call
-              </button>
-              <button className="flex items-center justify-center gap-2 p-4 rounded-xl border border-[#B78E3B] text-[#B78E3B] hover:bg-[#B78E3B] hover:text-white transition-all shadow-sm hover:shadow-[#B78E3B]/50">
+              </a>
+              <a
+                href="https://wa.me/920123456789"
+                className="flex items-center justify-center gap-2 p-4 rounded-xl border border-[#B78E3B] text-[#B78E3B] hover:bg-[#B78E3B] hover:text-white transition-all shadow-sm hover:shadow-[#B78E3B]/50"
+              >
                 <FaWhatsapp /> WhatsApp
-              </button>
+              </a>
             </div>
           </div>
 
