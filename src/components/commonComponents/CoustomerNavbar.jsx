@@ -136,7 +136,7 @@ const Navbar = () => {
             <IoLanguageSharp size={18} /> {selectedLang} {langOpenDesktop ? <FaCaretUp /> : <FaCaretDown />}
           </button>
           {langOpenDesktop && (
-            <div className="absolute right-0 py-2 mt-2 w-30 bg-black border border-[#202020] rounded-lg shadow-lg animate-fadeIn">
+            <div className="absolute right-0 py-2 mt-10 w-30 bg-black border border-[#202020] rounded-lg shadow-lg animate-fadeIn">
               {languages.map((lang) => (
                 <button key={lang} onClick={() => { setSelectedLang(lang); setLangOpenDesktop(false); }} className={dropdownItemStyle}>{lang}</button>
               ))}
