@@ -7,7 +7,7 @@ import { IoLanguageSharp } from "react-icons/io5";
 
 const Navbar = () => {
   // Set user to null if not logged in
-  const user = null; // or { name: "John Doe", avatar: "/user-avatar.jpg" }
+  const user = true; // or { name: "John Doe", avatar: "/user-avatar.jpg" }
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpenDesktop, setServicesOpenDesktop] = useState(false);
@@ -307,7 +307,7 @@ const Navbar = () => {
             <div className="px-6 space-y-3 pt-3">
               <Link
                 to="/signup"
-                className="block text-center px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                className="block text-center px-5 py-2 bg-linear-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
                 Sign Up
               </Link>
