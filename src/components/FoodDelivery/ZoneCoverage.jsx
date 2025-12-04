@@ -23,7 +23,7 @@ const ZoneCoverage = () => {
       id: "within-city",
       name: "Within City",
       icon: <Building className="w-6 h-6" />,
-      color: "from-[#B78E3B] to-yellow-400",
+      color: "from-[#6F4918] to-[#E2CF7D]",
       description: "Fast deliveries within city limits",
       features: [
         {
@@ -44,7 +44,7 @@ const ZoneCoverage = () => {
       id: "between-cities",
       name: "Between Cities",
       icon: <Train className="w-6 h-6" />,
-      color: "from-[#B78E3B] to-yellow-400",
+      color: "from-[#6F4918] to-[#E2CF7D]",
       description: "Reliable inter-city transportation",
       features: [
         {
@@ -62,7 +62,7 @@ const ZoneCoverage = () => {
       id: "multi-zone",
       name: "Multi-Zone Network",
       icon: <Globe className="w-6 h-6" />,
-      color: "from-[#B78E3B] to-yellow-400",
+      color: "from-[#6F4918] to-[#E2CF7D]",
       description: "Complex routing across multiple zones",
       features: [
         { text: "A → B → C routing", icon: <Navigation className="w-4 h-4" /> },
@@ -143,12 +143,12 @@ const ZoneCoverage = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#B78E3B] to-yellow-400 rounded-full mb-4">
+          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full mb-4">
             <Globe className="w-8 h-8 text-white" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Comprehensive{" "}
-            <span className="bg-gradient-to-r from-[#B78E3B] to-yellow-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
               Zone Coverage
             </span>
           </h2>
@@ -158,221 +158,205 @@ const ZoneCoverage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - Zone Selector */}
-          <div className="space-y-8">
-            <div className="bg-white rounded-3xl p-6 shadow-xl border border-gray-300">
-              <h3 className="text-2xl font-bold mb-6">Select Zone Type</h3>
-              <div className="space-y-4">
-                {zones.map((zone) => (
-                  <button
-                    key={zone.id}
-                    onClick={() => setSelectedZone(zone.id)}
-                    className={`w-full p-4 rounded-xl border-2 transition-all duration-300 transform cursor-pointer ${
+       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+  {/* Left Column - Zone Selector */}
+  <div className="space-y-8">
+
+    {/* Zone Selector Card */}
+    <div className="bg-white rounded-3xl p-6 shadow-xl border border-gray-200">
+      <h3 className="text-2xl font-bold mb-6">Select Zone Type</h3>
+
+      <div className="space-y-4">
+        {zones.map((zone) => (
+          <button
+            key={zone.id}
+            onClick={() => setSelectedZone(zone.id)}
+            className={`w-full p-4 rounded-xl border-2 transition-all duration-300 transform cursor-pointer
+              ${
+                selectedZone === zone.id
+                  ? `border-transparent bg-gradient-to-r ${zone.color} text-white shadow-lg scale-105`
+                  : "border-gray-300 hover:border-[#6F4918] hover:bg-gray-50 text-[#6F4918]"
+              }`}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div
+                  className={`p-3 rounded-lg ${
+                    selectedZone === zone.id ? "bg-white/25" : "bg-gray-100"
+                  }`}
+                >
+                  {zone.icon}
+                </div>
+
+                <div className="text-left">
+                  <div className="font-semibold text-lg">{zone.name}</div>
+                  <div
+                    className={`text-sm ${
                       selectedZone === zone.id
-                        ? `border-transparent bg-gradient-to-r ${zone.color} text-white shadow-lg scale-105`
-                        : "border-gray-300 hover:border-[#B78E3B] hover:bg-gray-50 text-[#B78E3B]"
+                        ? "text-white/90"
+                        : "text-gray-50"
                     }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4">
-                        <div
-                          className={`p-3 rounded-lg ${
-                            selectedZone === zone.id
-                              ? "bg-white/20"
-                              : "bg-gray-100"
-                          }`}
-                        >
-                          {zone.icon}
-                        </div>
-                        <div className="text-left">
-                          <div className="font-semibold text-lg">
-                            {zone.name}
-                          </div>
-                          <div
-                            className={`text-sm ${
-                              selectedZone === zone.id
-                                ? "text-white/90"
-                                : "text-gray-600"
-                            }`}
-                          >
-                            {zone.description}
-                          </div>
-                        </div>
-                      </div>
-                      <ChevronRight
-                        className={`w-5 h-5 transition-transform ${
-                          selectedZone === zone.id ? "rotate-90" : ""
-                        }`}
-                      />
-                    </div>
-                    {selectedZone === zone.id && (
-                      <div className="mt-4 pl-16 space-y-2 animate-fadeIn">
-                        {zone.features.map((feature, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center space-x-2 text-gray-700"
-                          >
-                            {feature.icon}
-                            <span>{feature.text}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </button>
-                ))}
+                    {zone.description}
+                  </div>
+                </div>
               </div>
+
+              <ChevronRight
+                className={`w-5 h-5 transition-transform ${
+                  selectedZone === zone.id ? "rotate-90" : ""
+                }`}
+              />
             </div>
 
-            {/* Zone Performance */}
+            {selectedZone === zone.id && (
+              <div className="mt-4 pl-16 space-y-2 animate-fadeIn">
+                {zone.features.map((feature, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center space-x-2 text-gray-50"
+                  >
+                    {feature.icon}
+                    <span>{feature.text}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* Zone Performance */}
+    <div
+      className={`bg-gradient-to-r ${currentZone.color} rounded-3xl p-6 shadow-xl`}
+    >
+      <h3 className="text-2xl font-bold mb-6 text-white">
+        Zone Performance
+      </h3>
+
+      <div className="grid grid-cols-2 gap-6 text-white">
+        {[
+          { value: "1250", label: "Active Providers" },
+          { value: "8500", label: "Daily Deliveries" },
+          { value: "4.8", label: "Avg. Rating" },
+          { value: "98%", label: "Coverage" },
+        ].map((stat, idx) => (
+          <div key={idx} className="bg-white/10 rounded-xl p-4">
+            <div className="text-3xl font-bold mb-1">{stat.value}</div>
+            <div className="text-sm">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+
+  {/* Right Column - Map & CTA */}
+  <div className="space-y-8">
+
+    {/* Map Card */}
+    <div className="bg-white rounded-3xl p-6 shadow-xl border border-gray-200 h-full relative">
+      <h3 className="text-2xl font-bold mb-4">Zone Network Map</h3>
+      <p className="text-gray-700 mb-4">Interactive coverage visualization</p>
+
+      <div className="relative h-96 bg-gray-100 rounded-2xl border-2 border-gray-200">
+
+        {/* City Points */}
+        {cities.map((city) => (
+          <button
+            key={city.id}
+            onClick={() => setActiveCity(city.id)}
+            className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300
+              ${activeCity === city.id ? "scale-125 z-10" : "hover:scale-110 z-0"}`}
+            style={{ left: city.x, top: city.y }}
+          >
             <div
-              className={`bg-gradient-to-r ${currentZone.color} rounded-3xl p-6 shadow-xl`}
+              className="w-12 h-12 rounded-full flex items-center justify-center
+                         shadow-lg border-2 border-white
+                         bg-gradient-to-r from-[#4A3A26] to-[#A88C54]"
             >
-              <h3 className="text-2xl font-bold mb-6 text-white">
-                Zone Performance
-              </h3>
-              <div className="grid grid-cols-2 gap-6 text-white">
-                <div className="bg-white/10 rounded-xl p-4">
-                  <div className="text-3xl font-bold mb-1">1250</div>
-                  <div className="text-sm">Active Providers</div>
-                </div>
-                <div className="bg-white/10 rounded-xl p-4">
-                  <div className="text-3xl font-bold mb-1">8500</div>
-                  <div className="text-sm">Daily Deliveries</div>
-                </div>
-                <div className="bg-white/10 rounded-xl p-4">
-                  <div className="text-3xl font-bold mb-1">4.8</div>
-                  <div className="text-sm">Avg. Rating</div>
-                </div>
-                <div className="bg-white/10 rounded-xl p-4">
-                  <div className="text-3xl font-bold mb-1">98%</div>
-                  <div className="text-sm">Coverage</div>
-                </div>
-              </div>
+              {zoneIcons[city.zone]}
             </div>
-          </div>
+          </button>
+        ))}
 
-          {/* Right Column - Map & CTA */}
-          <div className="space-y-8">
-            <div className="bg-white rounded-3xl p-6 shadow-xl border border-gray-300 h-full relative">
-              <h3 className="text-2xl font-bold mb-4">Zone Network Map</h3>
-              <p className="text-gray-700 mb-4">
-                Interactive coverage visualization
-              </p>
-              <div className="relative h-96 bg-gray-100 rounded-2xl border-2 border-gray-300">
-                {/* City Points */}
-                {cities.map((city) => (
-                  <button
-                    key={city.id}
-                    onClick={() => setActiveCity(city.id)}
-                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-                      activeCity === city.id
-                        ? "scale-125 z-10"
-                        : "hover:scale-110 z-0"
-                    }`}
-                    style={{ left: city.x, top: city.y }}
-                  >
-                    <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white ${
-                        city.zone === "within-city"
-                          ? "bg-gradient-to-br from-[#B78E3B] to-yellow-400"
-                          : city.zone === "between-cities"
-                          ? "bg-gradient-to-br from-[#B78E3B] to-yellow-400"
-                          : "bg-gradient-to-br from-[#B78E3B] to-yellow-400"
-                      }`}
-                    >
-                      {zoneIcons[city.zone]}
-                    </div>
-                  </button>
-                ))}
+        {/* Multi-zone routes */}
+        {multiZoneRoute.map((route, idx) => {
+          const from = getCityCoords(route.from);
+          const to = getCityCoords(route.to);
 
-                {/* Multi-zone routes */}
-                {multiZoneRoute.map((route, idx) => {
-                  const from = getCityCoords(route.from);
-                  const to = getCityCoords(route.to);
-                  return (
-                    <svg key={idx} className="absolute w-full h-full">
-                      <line
-                        x1={from.left}
-                        y1={from.top}
-                        x2={to.left}
-                        y2={to.top}
-                        stroke="url(#routeGradient)"
-                        strokeWidth="3"
-                        className="transition-all duration-300"
-                      />
-                      <defs>
-                        <linearGradient
-                          id="routeGradient"
-                          x1="0"
-                          y1="0"
-                          x2="1"
-                          y2="1"
-                        >
-                          <stop offset="0%" stopColor="#B78E3B" />
-                          <stop offset="100%" stopColor="#F5B45D" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  );
-                })}
-              </div>
+          return (
+            <svg key={idx} className="absolute w-full h-full">
+              <defs>
+                <linearGradient id="routeGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#4A3A26" />
+                  <stop offset="100%" stopColor="#A88C54" />
+                </linearGradient>
+              </defs>
+              <line
+                x1={from.left}
+                y1={from.top}
+                x2={to.left}
+                y2={to.top}
+                stroke="url(#routeGradient)"
+                strokeWidth="3"
+                className="transition-all duration-300"
+              />
+            </svg>
+          );
+        })}
+      </div>
 
-              {/* Ready to Deliver CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="bg-gradient-to-r from-[#B78E3B] to-yellow-400 rounded-3xl p-8 text-center shadow-xl mt-8 space-y-6"
-              >
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  Ready to Deliver?
-                </h3>
-                <p className="text-white/90 text-lg md:text-xl max-w-xl mx-auto">
-                  Join our network of delivery providers and start earning
-                  today. 5% flat commission across all zones.
-                </p>
+      {/* Ready to Deliver CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-gradient-to-r from-[#4A3A26] to-[#A88C54]
+                   rounded-3xl p-8 text-center shadow-xl mt-8 space-y-6"
+      >
+        <h3 className="text-2xl md:text-3xl font-bold text-white">Ready to Deliver?</h3>
+        <p className="text-white/90 text-lg md:text-xl max-w-xl mx-auto">
+          Join our network of delivery providers and start earning today.
+          5% flat commission across all zones.
+        </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  {/* Become a Provider Button */}
-                  <button
-                    className="relative inline-block px-10 py-3 font-semibold rounded-full
-      bg-gradient-to-r from-[#B78E3B] via-[#D4AF37] to-[#FFD700] text-white
-      shadow-md shadow-black/40 hover:shadow-lg hover:shadow-[#FFD700]/60
-      transform hover:-translate-y-1 hover:scale-105
-      transition-all duration-300 overflow-hidden
-      before:absolute before:top-0 before:left-0 before:w-full before:h-full
-      before:bg-white/10 before:rounded-full before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-20
-      after:absolute after:-top-1 after:-left-1 after:w-0 after:h-full
-      after:bg-gradient-to-r from-white/40 via-white/10 to-white/40
-      after:skew-x-12 after:transition-all after:duration-700 hover:after:w-[calc(100%+2px)]
-    "
-                  >
-                    Become a Provider
-                  </button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
-                  {/* View Zone Details Button */}
-                  <button
-                    className="relative inline-block px-10 py-3 font-semibold rounded-full
-      border-2 border-[#B78E3B] text-[black] bg-transparent
-      hover:bg-gradient-to-r hover:from-[#B78E3B] hover:via-[#D4AF37] hover:to-[#FFD700] hover:text-white
-      shadow-md shadow-black/30 hover:shadow-lg hover:shadow-[#FFD700]/40
-      transform hover:-translate-y-1 hover:scale-105
-      transition-all duration-300 overflow-hidden
-      before:absolute before:top-0 before:left-0 before:w-full before:h-full
-      before:bg-white/10 before:rounded-full before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-20
-      after:absolute after:-top-1 after:-left-1 after:w-0 after:h-full
-      after:bg-gradient-to-r from-white/40 via-white/10 to-white/40
-      after:skew-x-12 after:transition-all after:duration-700 hover:after:w-[calc(100%+2px)]
-    "
-                  >
-                    View Zone Details
-                  </button>
-                </div>
-              </motion.div>
-            </div>
-          </div>
+          {/* Modern Primary Button */}
+          <button
+            className="px-6 py-3 rounded-full font-semibold tracking-wide text-white
+                       bg-[linear-gradient(135deg,#4A3A26,#6F4918,#A88C54)]
+                       shadow-lg shadow-black/25
+                       transition-all duration-300 ease-out
+                       hover:scale-105 hover:shadow-xl hover:brightness-110
+                       active:scale-95"
+          >
+            Become a Provider
+          </button>
+
+          {/* Modern Outline Button */}
+          <button
+            className="px-6 py-3 rounded-full font-semibold tracking-wide
+                       border border-[#6F4918] text-[#3C2C1A]
+                       bg-white/5 backdrop-blur-sm
+                       shadow-md shadow-black/10
+                       transition-all duration-300
+                       hover:bg-[#4A3A26]/20 hover:text-white hover:shadow-lg
+                       hover:scale-105 active:scale-95"
+          >
+            View Zone Details
+          </button>
         </div>
+
+      </motion.div>
+    </div>
+
+  </div>
+</div>
+
       </div>
     </section>
   );

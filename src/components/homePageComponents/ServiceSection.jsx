@@ -1,43 +1,50 @@
 import React from "react";
 import { Car, Home, Bike, Truck, Utensils, Wrench, Shield, Zap, Users, Map, Clock, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     title: "Smart Ride Booking (VTC)",
     icon: Car,
     description: "Choose your driver (male/female), vehicle type, negotiate price, and even order a ride for someone else. Track rides in real-time 3D across Algeria.",
-    features: ["Driver Selection", "Price Negotiation", "Order for Someone Else", "Live 3D Tracking", "7% Commission"]
+    features: ["Driver Selection", "Price Negotiation", "Order for Someone Else", "Live 3D Tracking", "7% Commission"],
+    link: '/services/rides'
   },
   {
     title: "Vehicle Rentals",
     icon: Bike,
     description: "Rent cars, scooters, motorcycles, SUVs, or trucks with card-only payment and temporary numbers for secure communication.",
-    features: ["Hourly/Daily Booking", "Verified Vehicles", "Secure Payments", "Temporary Numbers", "3% Commission"]
+    features: ["Hourly/Daily Booking", "Verified Vehicles", "Secure Payments", "Temporary Numbers", "3% Commission"],
+    link: '/services/rentals'
   },
   {
     title: "Apartment Rentals",
     icon: Home,
     description: "Book verified apartments instantly with integrated card payment, ratings, and dispute management for tenants and owners.",
-    features: ["Verified Listings", "Secure Card Payment", "Ratings & History", "Dispute Management", "3% Commission"]
+    features: ["Verified Listings", "Secure Card Payment", "Ratings & History", "Dispute Management", "3% Commission"],
+    link: '/services/apartments'
   },
   {
     title: "Package Delivery",
     icon: Truck,
     description: "Send parcels, products, or pharmacy items with live courier tracking and optional direct assignment of a delivery person.",
-    features: ["Live Tracking", "Direct Assignment", "Delivery Confirmation", "Secure Handling", "5% Commission"]
+    features: ["Live Tracking", "Direct Assignment", "Delivery Confirmation", "Secure Handling", "5% Commission"],
+    link: '/services/deliveries'
   },
   {
     title: "Food Delivery",
     icon: Utensils,
     description: "Order from restaurants or groceries with live tracking and instant delivery confirmation.",
-    features: ["Restaurant & Grocery Network", "Live Tracking", "Fresh Delivery", "Secure Payments", "5% Commission"]
+    features: ["Restaurant & Grocery Network", "Live Tracking", "Fresh Delivery", "Secure Payments", "5% Commission"],
+    link: '/services/food-delivery'
   },
   {
     title: "Roadside Assistance",
     icon: Wrench,
     description: "Request mechanics, towing, battery, tire change, or fuel delivery instantly. 24/7 assistance with nearby technician matching.",
-    features: ["24/7 Support", "Nearby Technicians", "Quick Response", "Direct Assignment", "5% Commission"]
+    features: ["24/7 Support", "Nearby Technicians", "Quick Response", "Direct Assignment", "5% Commission"],
+    link: '/services/roadside-assistance'
   },
 ];
 
@@ -63,11 +70,11 @@ export default function ServicesSection() {
           className="text-center mb-10"
         >
           <div className="flex  justify-center items-center mb-2">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
             <h2 className="text-2xl md:text-4xl font-bold">
-              <span style={{ color: '#B78E3B' }}>Our Services</span>
+              Our<span style={{ color: '#B78E3B' }}> Services</span>
             </h2>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
           </div>
           <p className="text-md text-gray-600 max-w-2xl mx-auto">
             Ride, rent, deliver, and repair all in Algeria's first multi-service super app with live 3D tracking, verified providers, and secure payments.
@@ -108,6 +115,9 @@ export default function ServicesSection() {
                   ))}
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#B78E3B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Link to={service.link}>
+                  <span className="absolute right-4 bottom-2 text-[#B78E3B] cursor-pointer">See more..</span>
+                </Link>
               </div>
             </motion.div>
           ))}
