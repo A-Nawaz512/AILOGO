@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import RidesPage from "./pages/RidesPage";
+import RoadSideAss from "./pages/RoadSideAss";
 import Deliveries from "./pages/Deliveries";
 import Rental from "./pages/Rental";
 import Appartment from "./pages/Appartment";
@@ -32,15 +33,15 @@ const router = createBrowserRouter([
          { path: "/about", element: <AboutPage /> },
          { path: "/contact", element: <ContactPage /> },
          { path: "/services/rides", element: <RidesPage /> },
+         { path: "/services/roadside", element: <RoadSideAss /> },
          { path: "/services/deliveries", element: <Deliveries /> },
          { path: "/services/food-delivery", element: <FoodDelivery /> },
          { path: "/services/rentals", element: <Rental /> },
-         { path: "/services/apartments", element: <Appartment /> }, 
-         { path: "/signup", element: <Signup /> }, 
-         { path: "/login", element: <Login /> }, 
-         { path: "/bookride", element: <BookRide /> }, 
+         { path: "/services/apartments", element: <Appartment /> },
+         { path: "/signup", element: <Signup /> },
+         { path: "/login", element: <Login /> },
+         { path: "/bookride", element: <BookRide /> },
          { path: "/becomedriver", element: <BecomeDriver /> }, 
-
       ],
    },
    // { path: "*", element: <PageNotFound /> },

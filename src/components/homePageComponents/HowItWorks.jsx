@@ -54,7 +54,6 @@ export const HowItWorks = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            whileHover={{ y: -5, scale: 1.02 }}
                             className="bg-white cursor-pointer rounded-2xl p-6 group border-2 border-[#B78E3B]/20 hover:border-[#B78E3B] shadow-lg hover:shadow-2xl transition-all delay-75 relative"
                         >
                             {/* Step Icon */}

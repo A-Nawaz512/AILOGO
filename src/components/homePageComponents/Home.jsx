@@ -14,7 +14,7 @@ const Home = () => {
         "Rides, deliveries, rentals, roadside assistance with price negotiation, driver selection, live OpenStreetMap 3D tracking, WhatsApp communication & point transfer system.",
       image:
         "https://img.freepik.com/premium-photo/digital-composite-man-holding-car-icon-car-automobile-insurance-car-services-concept-businessman-with-offering-gesture-icon-car_150455-11485.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_se_enriched&w=740&q=80",
-      link: "/services",
+      link: "/services/rides",
       color: "text-[#B78E3B]",
     },
     {
@@ -81,8 +81,8 @@ const Home = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <div className="min-h-screen text-white relative overflow-x-hidden">
-      <section className="relative flex items-center justify-center h-[90vh] overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-x-hidden ">
+      <section className="relative flex items-center justify-center h-[100vh] overflow-hidden">
 
         {/* Background Images */}
         <div className="absolute inset-0 w-full h-full">
