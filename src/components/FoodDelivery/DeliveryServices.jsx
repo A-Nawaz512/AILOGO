@@ -57,7 +57,7 @@ const DeliveryServices = () => {
     },
   };
 
-  const activeGradient = "from-[#B78E3B] to-yellow-400";
+  const activeGradient = "from-[#6F4918] to-[#E2CF7D]";
 
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -66,15 +66,15 @@ const DeliveryServices = () => {
         <div className="text-center mb-16">
          <h2 className="relative text-4xl md:text-5xl font-bold text-black mb-4 flex items-center justify-center">
   {/* Left line */}
-  <span className="absolute left-0 top-1/2 w-24 h-0.5 bg-gradient-to-r from-yellow-200 to-yellow-400 opacity-60 -translate-y-1/2"></span>
+  <span className="absolute left-0 top-1/2 w-24 h-0.5 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] opacity-60 -translate-y-1/2"></span>
 
   {/* Gradient text */}
-  <span className="bg-gradient-to-r from-[#D4AF37] to-yellow-400 bg-clip-text text-transparent px-6">
+  <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent px-6">
     Delivery Services
   </span>
 
   {/* Right line */}
-  <span className="absolute right-0 top-1/2 w-24 h-0.5 bg-gradient-to-l from-yellow-200 to-yellow-400 opacity-60 -translate-y-1/2"></span>
+  <span className="absolute right-0 top-1/2 w-24 h-0.5 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] opacity-60 -translate-y-1/2"></span>
 </h2>
 
 
@@ -129,7 +129,7 @@ const DeliveryServices = () => {
             >
               <div className="flex items-center space-x-4 mb-6">
                 <div
-                  className={`p-4 rounded-xl bg-gradient-to-br ${activeGradient}`}
+                  className={`p-4 rounded-xl text-white bg-gradient-to-br ${activeGradient}`}
                 >
                   {services[activeService].icon}
                 </div>
@@ -137,7 +137,7 @@ const DeliveryServices = () => {
                   <h3 className="text-3xl font-bold text-black">
                     {services[activeService].title}
                   </h3>
-                  <div className="w-16 h-1 bg-gradient-to-r from-[#B78E3B] to-yellow-400 mt-2 rounded-full"></div>
+                  <div className="w-16 h-1 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] mt-2 rounded-full"></div>
                 </div>
               </div>
               <p className="text-gray-700 text-lg mb-8">
@@ -149,17 +149,17 @@ const DeliveryServices = () => {
                     key={idx}
                     className="flex items-center space-x-3 text-gray-700"
                   >
-                    <div className="w-2 h-2 bg-gradient-to-r from-[#B78E3B] to-yellow-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full"></div>
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
              <button className="
   relative inline-block px-10 py-3 font-semibold rounded-full
-  bg-gradient-to-r from-[#B78E3B] via-[#D4AF37] to-[#FFD700] 
+  bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] 
   text-white
   shadow-md shadow-black/40
-  hover:shadow-lg hover:shadow-[#FFD700]/60
+  hover:shadow-lg hover:shadow-[#6F4918]/60
   transform hover:-translate-y-1 hover:scale-105
   transition-all duration-300
   overflow-hidden

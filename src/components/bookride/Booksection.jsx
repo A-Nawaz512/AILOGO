@@ -10,6 +10,8 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 import { IoPricetagOutline } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
+
 
 export default function Booksection() {
   const [vehicleType, setVehicleType] = useState("");
@@ -209,13 +211,13 @@ export default function Booksection() {
                 href="tel:+92 012 345678"
                 className="flex items-center justify-center gap-2 p-4 rounded-xl border border-[#000000] text-[#000000] hover:bg-[#000000] hover:text-white transition-all shadow-sm hover:shadow-md"
               >
-                <FaPhone /> Call
+                <FaPhoneAlt /> Call
               </a>
               <a
                 href="https://wa.me/920123456789"
                 className="flex items-center justify-center gap-2 p-4 rounded-xl border border-[#B78E3B] text-[#B78E3B] hover:bg-[#B78E3B] hover:text-white transition-all shadow-sm hover:shadow-[#B78E3B]/50"
               >
-                <FaWhatsapp /> WhatsApp
+                <FaWhatsapp className="text-green-600 text-xl" /> WhatsApp
               </a>
             </div>
           </div>

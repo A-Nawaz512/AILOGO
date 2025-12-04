@@ -27,12 +27,12 @@ const SmartRouting = () => {
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#F5B45D] to-[#FACC15] rounded-full mb-4">
-            <Navigation className="w-8 h-8 text-gray-900" />
+          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full mb-4">
+            <Navigation className="w-8 h-8 text-gray-50" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Smart{" "}
-            <span className="bg-gradient-to-r from-[#F5B45D] to-[#FACC15] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
               Delivery Routing
             </span>
           </h2>
@@ -50,32 +50,32 @@ const SmartRouting = () => {
               <button
                 onClick={addStop}
                 disabled={route.length >= 7}
-                className="bg-gradient-to-r from-[#F5B45D] to-[#FACC15] text-gray-900 px-6 py-2 rounded-full hover:shadow-lg transition disabled:opacity-40"
+                className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-gray-50 px-6 py-2 rounded-full hover:shadow-lg transition disabled:opacity-40"
               >
                 Add Stop
               </button>
             </div>
 
             <div className="relative">
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#F5B45D] to-[#FACC15]"></div>
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]"></div>
 
               {route.map((stop, index) => (
                 <div key={index} className="flex items-center mb-8 ml-4">
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-md border border-gray-200 ${
                       index === 0
-                        ? "bg-gradient-to-r from-[#F5B45D] to-[#FACC15]"
+                        ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]"
                         : index === route.length - 1
-                        ? "bg-gradient-to-r from-[#F5B45D] to-[#FACC15]"
-                        : "bg-gradient-to-r from-[#F5B45D] to-[#FACC15]"
+                        ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]"
+                        : "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]"
                     }`}
                   >
                     {index === 0 ? (
-                      <Target className="w-6 h-6 text-gray-900" />
+                      <Target className="w-6 h-6 text-gray-50" />
                     ) : index === route.length - 1 ? (
-                      <CheckCircle className="w-6 h-6 text-gray-900" />
+                      <CheckCircle className="w-6 h-6 text-gray-50" />
                     ) : (
-                      <Map className="w-6 h-6 text-gray-900" />
+                      <Map className="w-6 h-6 text-gray-50" />
                     )}
                   </div>
 
@@ -150,8 +150,8 @@ const SmartRouting = () => {
 
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-gradient-to-r from-[#F5B45D] to-[#FACC15] rounded-lg">
-                  <MessageCircle className="w-6 h-6 text-gray-900" />
+                <div className="p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-lg">
+                  <MessageCircle className="w-6 h-6 text-gray-50" />
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold mb-1">Communication</h4>
@@ -167,13 +167,13 @@ const SmartRouting = () => {
         {/* Commission & Payment */}
         <div
           id="commission"
-          className="mx-auto max-w-2xl mt-10 p-8 bg-gradient-to-r from-[#F5B45D] to-[#FACC15] rounded-3xl shadow-lg text-black"
+          className="mx-auto max-w-2xl mt-10 p-8 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-3xl shadow-lg text-white"
         >
           <h3 className="text-3xl font-bold mb-6">Commission & Payment</h3>
 
           <div className="space-y-4">
             <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
-              <span className="p-2 bg-yellow-300 rounded-full">💰</span>
+              <span className="p-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full">💰</span>
               <div>
                 <p className="font-semibold">ALLOGO Commission</p>
                 <p className="text-gray-700 text-sm">Flat 5% rate on each delivery</p>
@@ -181,7 +181,7 @@ const SmartRouting = () => {
             </div>
 
             <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
-              <span className="p-2 bg-yellow-300 rounded-full">💳</span>
+              <span className="p-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full">💳</span>
               <div>
                 <p className="font-semibold">Customer Payment</p>
                 <p className="text-gray-700 text-sm">Cash or Card accepted</p>
@@ -189,7 +189,7 @@ const SmartRouting = () => {
             </div>
 
             <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
-              <span className="p-2 bg-yellow-300 rounded-full">🛡️</span>
+              <span className="p-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full">🛡️</span>
               <div>
                 <p className="font-semibold">Provider Requirement</p>
                 <p className="text-gray-700 text-sm">Card verification required to unlock new deliveries</p>
@@ -197,9 +197,9 @@ const SmartRouting = () => {
             </div>
           </div>
 
-          <div className="mt-6 flex justify-between items-center p-4 bg-white/50 rounded-xl">
+          <div className="mt-6 flex justify-between text-black items-center p-4 bg-white/50 rounded-xl">
             <span className="text-lg font-medium">Commission Rate</span>
-            <span className="text-4xl font-bold">5%</span>
+            <span className="text-4xl  font-bold">5%</span>
           </div>
         </div>
       </div>
