@@ -92,11 +92,15 @@ const Header = () => {
               transition={{ duration: 0.8 }}
             >
               {/* Main Title */}
-              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-                {before}
-                <span className="text-[#B78E3B]">{highlightWord}</span>
-                {after}
-              </h1>
+             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+  {before}
+  <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
+  {highlightWord}
+</span>
+
+  {after}
+</h1>
+
 
               {/* Subtext */}
               <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-8">
@@ -107,7 +111,7 @@ const Header = () => {
               <div className="flex justify-center gap-4 mt-6">
                 <a
                   href={slide.cta1.link}
-                  className="bg-[#B78E3B] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#d89a49] transition-all transform hover:scale-105 shadow-lg hover:shadow-[#B78E3B]/50"
+                  className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#d89a49] transition-all transform hover:scale-105 shadow-lg hover:shadow-[#B78E3B]/50"
                 >
                   {slide.cta1.text}
                 </a>

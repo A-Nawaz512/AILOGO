@@ -26,9 +26,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${
-        scrolled
-          ? "bg-[#0D0D0D] backdrop-blur-md shadow-lg"
-          : "bg-[#0D0D0D]"
+        scrolled ? "bg-[#0D0D0D] backdrop-blur-md shadow-lg" : "bg-[#0D0D0D]"
       }`}
       role="navigation"
     >
@@ -37,7 +35,7 @@ const Navbar = () => {
           {/* Logo */}
           <a
             href="/"
-            className="text-2xl font-bold text-[#B78E3B] hover:text-[#d3a458] transition-colors duration-300 rounded-md p-1"
+            className="text-2xl font-bold text-[white] hover:text-[#d3a458] transition-colors duration-300 rounded-md p-1"
           >
             FoodDelivery
           </a>
@@ -48,9 +46,20 @@ const Navbar = () => {
               <a
                 key={idx}
                 href={item.href}
-                className="relative text-[#B78E3B] hover:text-[#d3a458] font-medium px-3 py-1 transition-colors duration-300
-                           after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-[#B78E3B]
-                           after:transition-all after:duration-300 after:ease-in-out hover:after:w-full"
+                className="
+        relative font-semibold px-3 py-1
+        text-[#B78E3B] transition-colors duration-300
+        no-underline
+
+        /* subtle hover glow using after */
+        after:absolute after:inset-0 after:rounded-md
+        after:bg-gradient-to-r after:from-[#46352022] after:to-[#3c361d22]
+        after:opacity-0 after:transition-opacity after:duration-300 after:blur-sm
+        hover:after:opacity-100
+
+        /* optional text highlight */
+        hover:text-white
+      "
               >
                 {item.label}
               </a>
