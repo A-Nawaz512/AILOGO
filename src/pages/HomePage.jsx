@@ -15,7 +15,7 @@ import { FAQSection } from "../components/homePageComponents/FAQSection";
 
 function HomePage() {
    return (
-      <>
+      <div className="">
          <Home/>
          <ServicesSection/>
          <MapShowcase/>
@@ -29,7 +29,7 @@ function HomePage() {
          {/* <Testimonials/> */}
          
         
-      </>
+      </div>
    );
 }
 

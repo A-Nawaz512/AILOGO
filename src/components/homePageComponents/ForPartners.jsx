@@ -26,14 +26,14 @@ export const ForPartners = () => {
   ];
 
   return (
-    <div className="bg-[#b78e3b2d] py-12 px-4">
+    <div className="bg-white py-4 px-4">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-4">
             <div className="h-px w-12 bg-[#543918] mr-4"></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
               Partner <span style={{ color: "#B78E3B" }}>Benefits</span>
             </h2>
             <div className="h-px w-12 bg-[#543918] ml-4"></div>
@@ -44,19 +44,19 @@ export const ForPartners = () => {
         </div>
 
         {/* Benefits Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid w-full sm:w-[80%] mx-auto md:grid-cols-2 gap-8">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
               <div 
                 key={index} 
-                className="flex gap-4 p-6 bg-white rounded-xl shadow hover:shadow-lg transition-transform transform hover:-translate-y-1"
+                className="flex gap-4 p-6 bg-white rounded-xl shadow hover:shadow-lg transition-transform transform border border-[#b78e3b94] hover:border-[#B78E3B] hover:-translate-y-1"
               >
                 <div 
-                  className="p-4 rounded-lg flex items-center justify-center"
+                  className="p-4 rounded-lg sm:w-12 w-12 sm:h-12 h-12 flex items-center justify-center"
                   style={{ backgroundColor: "rgba(183,142,59,0.1)" }}
                 >
-                  <Icon className="w-6 h-6 text-[#543918]" />
+                  <Icon className="h-4 sm:w-6 w-4 sm:h-6 text-[#543918]" />
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-1">{benefit.title}</h4>

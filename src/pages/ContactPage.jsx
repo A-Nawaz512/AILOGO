@@ -9,7 +9,7 @@ function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9 lg:py-16">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Info Card */}
           <motion.div

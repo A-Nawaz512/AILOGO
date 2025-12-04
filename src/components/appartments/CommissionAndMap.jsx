@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FaPercentage, FaMapMarkedAlt } from "react-icons/fa";
+import { FaPercentage, FaCreditCard, FaWallet, FaExclamationTriangle } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -7,28 +7,38 @@ const FEATURES = [
   {
     icon: FaPercentage,
     title: "Commission",
-    text: "On apartment rentals, ALLOGO takes a 5% commission per booking.",
+    text: "ALLOGO charges a 3% commission per booking on apartment rentals.",
   },
   {
-    icon: FaMapMarkedAlt,
-    title: "Map & Visualization",
-    text: "Available apartments can be displayed as markers on the 3D map.",
+    icon: FaCreditCard,
+    title: "Payment",
+    text: "All payments are processed via secure card transactions only.",
+  },
+  {
+    icon: FaWallet,
+    title: "Payout Flow",
+    text: "ALLOGO keeps the commission and sends the remaining amount directly to the apartment owner.",
+  },
+  {
+    icon: FaExclamationTriangle,
+    title: "Dispute Management",
+    text: "Tenants can report issues. The controller reviews booking, chat history, and photos. Outcomes may include refunds, partial refunds, or other resolutions.",
   },
 ];
 
-export default function CommissionAndMap() {
+export default function CommissionAndPayout() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
     <section className="py-16 bg-white text-black">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-5">
         <h2
           data-aos="fade-down"
           className="text-3xl font-bold text-center mb-12 text-[#B78E3B]"
         >
-          Commission & Map Visualization
+          Commission, Payment & Dispute Management
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
