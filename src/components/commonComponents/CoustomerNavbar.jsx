@@ -54,7 +54,7 @@ const Navbar = () => {
 
   const servicesList = [
     { label: "Rides / Drivers", path: "/services/rides", icon: <FaCar size={16} /> },
-    { label: "Deliveries", path: "/services/deliveries", icon: <FaBox size={16} /> },
+    { label: "Deliveries", path: "/services/food-delivery", icon: <FaBox size={16} /> },
     { label: "Roadside Assistance", path: "/services/roadside", icon: <FaWrench size={16} /> },
     { label: "Vehicle Rental", path: "/services/rentals", icon: <FaMotorcycle size={16} /> },
     { label: "Apartment Rental", path: "/services/apartments", icon: <FaBuilding size={16} /> },
