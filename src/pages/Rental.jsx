@@ -8,10 +8,11 @@ const Rental = () => {
   return (
     <div>
         <RentalsHero/>
-        <RentalsDetails/>
+          <RentalsDetails/>
+
         <RentalsDetailsSection/>
         <RentalsFaqSection/>
-    </div>
+          </div>
   )
 }
 
