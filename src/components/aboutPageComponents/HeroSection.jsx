@@ -121,7 +121,7 @@ const HeroSection = () => {
    const currentContent = contentTexts[currentContentIndex];
 
    return (
-      <section className="relative py-20 px-6 lg:px-8 overflow-hidden md:min-h-screen">
+      <section className="relative py-20 px-6 lg:px-8 overflow-hidden md:min-h-[90vh]">
          {/* Background images */}
          {backgroundImages.map((image, index) => (
             <div
@@ -134,7 +134,7 @@ const HeroSection = () => {
          ))}
 
          {/* Overlay */}
-         <div className="absolute inset-0 bg-black/80 transition-opacity duration-1000"></div>
+         <div className="absolute inset-0 bg-black/50 transition-opacity duration-1000"></div>
 
          <div className="max-w-[100%] flex items-center justify-center mx-auto relative z-10">
             <div className="max-w-7xl  flex items-center justify-center pt-20">
@@ -153,7 +153,7 @@ const HeroSection = () => {
                               .slice(0, -2)
                               .join(" ")}
                         </span>{" "}
-                        <span className="bg-linear-to-r from-[#6F4918] via-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
+                        <span className="bg-[#926325] bg-clip-text text-transparent">
                            {currentContent.title.split(" ").slice(-2).join(" ")}
                         </span>
                      </h1>

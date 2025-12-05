@@ -16,7 +16,7 @@ const ServicesOverview = () => {
    const services = [
       {
          id: "rides",
-         icon: <FaCar className="text-[#6F4918] text-2xl" />,
+         icon: <FaCar className="text-[#B78E3B] text-2xl" />,
          title: "VTC Transport",
          description:
             "Book rides with choice of driver gender, vehicle type, and destination",
@@ -31,7 +31,7 @@ const ServicesOverview = () => {
       },
       {
          id: "vehicle-rental",
-         icon: <FaKey className="text-[#6F4918] text-2xl" />,
+         icon: <FaKey className="text-[#B78E3B] text-2xl" />,
          title: "Vehicle Rental",
          description: "Rent cars and scooters with availability management",
          features: [
@@ -45,7 +45,7 @@ const ServicesOverview = () => {
       },
       {
          id: "apartment-rental",
-         icon: <FaHome className="text-[#6F4918] text-2xl" />,
+         icon: <FaHome className="text-[#B78E3B] text-2xl" />,
          title: "Apartment Rental",
          description: "Find and rent apartments with integrated payment",
          features: [
@@ -59,7 +59,7 @@ const ServicesOverview = () => {
       },
       {
          id: "delivery",
-         icon: <FaBox className="text-[#6F4918] text-2xl" />,
+         icon: <FaBox className="text-[#B78E3B] text-2xl" />,
          title: "Delivery & Courier",
          description: "Send packages with delivery confirmation",
          features: [
@@ -73,7 +73,7 @@ const ServicesOverview = () => {
       },
       {
          id: "food-delivery",
-         icon: <FaUtensils className="text-[#6F4918] text-2xl" />,
+         icon: <FaUtensils className="text-[#B78E3B] text-2xl" />,
          title: "Food Delivery",
          description: "Order food from local restaurants",
          features: [
@@ -87,7 +87,7 @@ const ServicesOverview = () => {
       },
       {
          id: "roadside-assistance",
-         icon: <FaWrench className="text-[#6F4918] text-2xl" />,
+         icon: <FaWrench className="text-[#B78E3B] text-2xl" />,
          title: "Roadside Assistance",
          description: "Get help for vehicle breakdowns",
          features: [
@@ -110,14 +110,12 @@ const ServicesOverview = () => {
                   data-aos="fade-up"
                   data-aos-delay="100"
                >
-                  <div className="hidden md:block bg-amber-900 w-25 h-[2px]"></div>
                   <div className="pb-3">
                      <span className="text-[#2a2a2a]">Our</span>{" "}
-                     <span className="text-[#6F4918]">Services</span>
+                     <span className="text-[#B78E3B]">Services</span>
                   </div>
-                  <div className="hidden md:block  bg-amber-900 w-25 h-[2px]"></div>
                </h2>
-               <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+               <p className="text-gray-600 text-lg max-w-3xl mx-auto">
                   Six comprehensive services integrated into one powerful
                   platform
                </p>
@@ -127,7 +125,7 @@ const ServicesOverview = () => {
                {services.map((service, index) => (
                   <div
                      key={index}
-                     className="relative rounded-xl bg-white shadow-lg hover:shadow-xl border border-2 border-[#A68748] p-6 hover:border-[#6F4918] transition-all duration-500 hover:-translate-y-2 flex flex-col h-full overflow-hidden group"
+                     className="relative rounded-xl bg-white shadow-lg hover:shadow-xl  border-2 border-[#A68748] p-6 hover:border-[#B78E3B] transition-all duration-500 hover:-translate-y-2 flex flex-col h-full overflow-hidden group"
                   >
                      {/* Content */}
                      <div className="relative z-10">
@@ -138,7 +136,7 @@ const ServicesOverview = () => {
                               </h3>
                               {service.icon}
                            </div>
-                           <p className="text-gray-400 mb-4">
+                           <p className="text-gray-500 mb-4">
                               {service.description}
                            </p>
                            <ul className="space-y-2 mb-6 grid md:grid-cols-2">
@@ -158,12 +156,12 @@ const ServicesOverview = () => {
                         <div className="mt-auto pt-4 border-t border-[#3a3a3a]/50 flex items-center justify-center">
                            <Link
                               to={service.path}
-                              className="relative z-20 flex items-center justify-between group bg-[#6F4918] w-fit py-3 px-5 gap-8 rounded-full"
+                              className="relative z-20 flex items-center justify-between group bg-[#B78E3B] hover:bg-[#997630] w-fit py-3 px-5 gap-8 rounded-full transition-all duration-500"
                            >
-                              <span className="text-[#E2CF7D] font-medium group-hover:text-white transition-colors duration-300">
+                              <span className="text-[#f1f0e9] font-medium group-hover:text-white transition-colors duration-300">
                                  {service.buttonText}
                               </span>
-                              <FaArrowRight className="text-[#E2CF7D] group-hover:translate-x-2 transition-transform duration-300" />
+                              <FaArrowRight className="text-[#E2CF7D] group-hover:text-white group-hover:translate-x-2 transition-transform duration-300" />
                            </Link>
                         </div>
                      </div>
@@ -175,7 +173,7 @@ const ServicesOverview = () => {
             <div className="mt-16 p-8 rounded-2xl bg-white shadow-2xl shadow-3xl border border-[#D4BE71]">
                <div className="grid md:grid-cols-3 gap-8">
                   <div className="text-center">
-                     <div className="text-3xl font-bold bg-[#6F4918] bg-clip-text text-transparent mb-2">
+                     <div className="text-3xl font-bold bg-[#B78E3B] bg-clip-text text-transparent mb-2">
                         1 Point = 1 DA
                      </div>
                      <p className="text-gray-700">
@@ -183,7 +181,7 @@ const ServicesOverview = () => {
                      </p>
                   </div>
                   <div className="text-center">
-                     <div className="text-3xl font-bold bg-[#6F4918] bg-clip-text text-transparent mb-2">
+                     <div className="text-3xl font-bold bg-[#B78E3B] bg-clip-text text-transparent mb-2">
                         1000-2000 DA
                      </div>
                      <p className="text-gray-700">
@@ -191,7 +189,7 @@ const ServicesOverview = () => {
                      </p>
                   </div>
                   <div className="text-center">
-                     <div className="text-3xl font-bold bg-[#6F4918] bg-clip-text text-transparent mb-2">
+                     <div className="text-3xl font-bold bg-[#B78E3B] bg-clip-text text-transparent mb-2">
                         Real-time
                      </div>
                      <p className="text-gray-700">3D tracking on MapLibre</p>
@@ -202,10 +200,10 @@ const ServicesOverview = () => {
                <div className="text-center mt-10">
                   <Link
                      to="/services"
-                     className="inline-flex items-center px-8 py-2 md:py-4 bg-[#6F4918] text-white rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                     className="inline-flex items-center px-8 py-2 md:py-4 bg-[#B78E3B] text-white rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   >
                      <span>Explore All</span>
-                     <FaArrowRight className="ml-3 animate-pulse" />
+                     <FaArrowRight className="ml-3 " />
                   </Link>
                   <p className="text-gray-800 text-sm mt-3">
                      Access all 6 services from one dashboard

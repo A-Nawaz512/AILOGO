@@ -43,12 +43,10 @@ const OurStory = () => {
                   data-aos="fade-up"
                   data-aos-delay="100"
                >
-                  <div className="hidden md:block bg-amber-900 w-25 h-[2px]"></div>
                   <div className="pb-3">
                      <span className="text-[#2a2a2a]">Our</span>{" "}
-                     <span className="text-[#6F4918]">Story</span>
+                     <span className="text-[#B78E3B]">Story</span>
                   </div>
-                  <div className="hidden md:block  bg-amber-900 w-25 h-[2px]"></div>
                </h2>
                <p
                   className="text-gray-800 text-lg max-w-3xl mx-auto"
@@ -77,11 +75,11 @@ const OurStory = () => {
                      </div>
                      <div className="relative z-10">
                         <div className="flex items-center justify-between">
-                           <h3 className="text-2xl font-bold text-gray-100">
+                           <h3 className="text-2xl font-bold text-[#B78E3B]">
                               The Beginning
                            </h3>
                            <div className="flex items-center pt-2">
-                              <FaRocket className="text-white text-2xl " />
+                              <FaRocket className="text-[#B78E3B] text-2xl " />
                            </div>
                         </div>
                         <p className="text-gray-300 mt-6 ">
@@ -104,11 +102,11 @@ const OurStory = () => {
                      </div>
                      <div className="relative z-10">
                         <div className="flex items-center justify-between">
-                           <h3 className="text-2xl font-bold text-gray-100">
+                           <h3 className="text-2xl font-bold text-[#B78E3B]">
                               UC Design
                            </h3>
                            <div className="flex items-center pt-1">
-                              <FaUsers className="text-white text-2xl" />
+                              <FaUsers className="text-[#B78E3B] text-2xl" />
                            </div>
                         </div>
                         <p className="text-gray-300 mt-6 ">
@@ -131,11 +129,11 @@ const OurStory = () => {
                      </div>
                      <div className="relative z-10">
                         <div className="flex items-center justify-between">
-                           <h3 className="text-2xl font-bold text-gray-100">
+                           <h3 className="text-2xl font-bold text-[#B78E3B]">
                               Local Focus
                            </h3>
                            <div className="flex items-center pt-1">
-                              <FaGlobeAfrica className="text-white text-2xl" />
+                              <FaGlobeAfrica className="text-[#B78E3B] text-2xl" />
                            </div>
                         </div>
                         <p className="text-gray-300 mt-6 ">

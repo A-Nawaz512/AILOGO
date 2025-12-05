@@ -24,16 +24,16 @@ const VisionMission = () => {
                data-aos-anchor-placement="top-center"
             >
                <h2 className="text-4xl md:text-5xl font-bold mb-6 flex items-center justify-center gap-6 transition-all duration-400">
-                  <div className="hidden md:block w-25 h-[2px] bg-amber-900 group-hover:bg-[#6F4918] transition-colors duration-400"></div>
+                  
                   <div className="pb-3 transition-all duration-400">
-                     <span className="text-[#202020] hover:text-[#6F4918] transition-colors duration-400">
+                     <span className="text-[#202020] ">
                         Vision &
                      </span>{" "}
-                     <span className="bg-[#6F4918] bg-clip-text text-transparent hover:bg-[#E2CF7D] transition-all duration-400">
+                     <span className="bg-[#B78E3B] bg-clip-text text-transparent ">
                         Mission
                      </span>
                   </div>
-                  <div className="hidden md:block w-25 h-[2px] bg-amber-900 group-hover:bg-[#6F4918] transition-colors duration-400"></div>
+                  
                </h2>
                <p className="text-[#202020] text-lg max-w-3xl mx-auto hover:text-[#6F4918] transition-colors duration-400">
                   Driving innovation with purpose, building Algeria's most
@@ -56,9 +56,9 @@ const VisionMission = () => {
                      <div className="flex items-start justify-between mb-8">
                         <div>
                            <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-[#6F4918]/10 to-[#E2CF7D]/10 rounded-xl mb-4 group-hover:from-[#6F4918]/20 group-hover:to-[#E2CF7D]/20 transition-all duration-400">
-                              <FaEye className="text-[#6F4918] text-2xl group-hover:scale-110 transition-all duration-400" />
+                              <FaEye className="text-[#B78E3B] text-2xl group-hover:scale-110 transition-all duration-400" />
                            </div>
-                           <h2 className="text-3xl font-bold text-[#202020] hover:text-[#6F4918] transition-colors duration-400">
+                           <h2 className="text-3xl font-bold text-[#202020] hover:text-[#B78E3B] transition-colors duration-400">
                               Our Vision
                            </h2>
                         </div>
@@ -71,8 +71,8 @@ const VisionMission = () => {
                      </p>
 
                      <div className="space-y-4">
-                        <h3 className="text-xl font-bold text-[#202020] mb-4 flex items-center gap-3 hover:text-[#6F4918] transition-colors duration-400">
-                           <FaRocket className="text-[#6F4918] group-hover:animate-pulse transition-all duration-400" />
+                        <h3 className="text-xl font-bold text-[#202020] mb-4 flex items-center gap-3 group-hover:text-[#B78E3B] transition-colors duration-400">
+                           <FaRocket className="text-[#B78E3B]  transition-all duration-400" />
                            Strategic Goals
                         </h3>
                         <ul className="space-y-3">
@@ -86,8 +86,8 @@ const VisionMission = () => {
                                  key={index}
                                  className="flex items-center group/item hover:translate-x-1 transition-all duration-400"
                               >
-                                 <div className="w-2 h-2 bg-[#6F4918] rounded-full mr-3 group-hover/item:scale-125 transition-all duration-400 group-hover/item:bg-[#E2CF7D]"></div>
-                                 <span className="text-[#202020] group-hover/item:text-[#6F4918] transition-colors duration-400">
+                                 <div className="w-2 h-2 bg-[#B78E3B] rounded-full mr-3 group-hover/item:scale-125 transition-all duration-400 group-hover/item:bg-[#E2CF7D]"></div>
+                                 <span className="text-[#202020] group-hover/item:text-[#B78E3B] transition-colors duration-400">
                                     {goal}
                                  </span>
                               </li>
@@ -106,14 +106,14 @@ const VisionMission = () => {
                   data-aos-mirror="false"
                   data-aos-anchor-placement="top-center"
                >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-2xl blur opacity-0 group-hover:opacity-70 transition-all duration-400 ease-out"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#B78E3B] to-[#E2CF7D] rounded-2xl blur opacity-0 group-hover:opacity-70 transition-all duration-400 ease-out"></div>
                   <div className="relative bg-white p-8 rounded-2xl border border-gray-200 h-full overflow-hidden transition-all duration-400 group-hover:shadow-xl group-hover:shadow-[#E2CF7D]/20 group-hover:border-[#E2CF7D]/30">
                      <div className="flex items-start justify-between mb-8">
                         <div>
                            <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-[#6F4918]/10 to-[#E2CF7D]/10 rounded-xl mb-4 group-hover:from-[#6F4918]/20 group-hover:to-[#E2CF7D]/20 transition-all duration-400">
-                              <FaBullseye className="text-[#6F4918] text-2xl group-hover:scale-110 transition-all duration-400" />
+                              <FaBullseye className="text-[#B78E3B] text-2xl group-hover:scale-110 transition-all duration-400" />
                            </div>
-                           <h2 className="text-3xl font-bold text-[#202020] hover:text-[#6F4918] transition-colors duration-400">
+                           <h2 className="text-3xl font-bold text-[#202020] hover:text-[#B78E3B] transition-colors duration-400">
                               Our Mission
                            </h2>
                         </div>
@@ -125,8 +125,8 @@ const VisionMission = () => {
                      </p>
 
                      <div className="space-y-4">
-                        <h3 className="text-xl font-bold text-[#202020] mb-4 flex items-center gap-3 hover:text-[#6F4918] transition-colors duration-400">
-                           <FaStar className="text-[#6F4918] group-hover:animate-spin group-hover:duration-1000 transition-all duration-400" />
+                        <h3 className="text-xl font-bold text-[#202020] mb-4 flex items-center gap-3 group-hover:text-[#B78E3B] transition-colors duration-400">
+                           <FaStar className="text-[#B78E3B] group-hover:animate-spin group-hover:duration-1000 transition-all duration-400" />
                            Core Values
                         </h3>
                         <div className="grid grid-cols-2 gap-4">
@@ -157,10 +157,10 @@ const VisionMission = () => {
                                  className="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-[#6F4918] transition-all duration-400 hover:shadow-md hover:shadow-[#E2CF7D]/10 hover:-translate-y-1"
                               >
                                  <div className="flex items-center gap-3 mb-2 transition-all duration-400">
-                                    <div className="text-[#6F4918] hover:scale-110 transition-all duration-400">
+                                    <div className="text-[#B78E3B] hover:scale-110 transition-all duration-400">
                                        {value.icon}
                                     </div>
-                                    <span className="text-[#202020] font-semibold hover:text-[#6F4918] transition-colors duration-400">
+                                    <span className="text-[#202020] font-semibold hover:text-[#B78E3B] transition-colors duration-400">
                                        {value.label}
                                     </span>
                                  </div>
@@ -192,10 +192,10 @@ const VisionMission = () => {
                   data-aos-mirror="false"
                   data-aos-anchor-placement="top-center"
                >
-                  <h3 className="text-3xl font-bold text-[#202020] mb-3 hover:text-[#6F4918] transition-colors duration-400">
+                  <h3 className="text-3xl font-bold text-[#202020] mb-3 ">
                      Sustainable Business Model
                   </h3>
-                  <p className="text-[#202020] max-w-2xl mx-auto hover:text-[#6F4918] transition-colors duration-400">
+                  <p className="text-[#202020] max-w-2xl mx-auto ">
                      Fair commissions supporting platform growth while providing
                      value to service providers
                   </p>
@@ -236,23 +236,23 @@ const VisionMission = () => {
                         data-aos-mirror="false"
                         data-aos-anchor-placement="top-center"
                      >
-                        <div className="group relative bg-white p-6 rounded-2xl border border-gray-200 hover:border-[#6F4918] transition-all duration-400 hover:-translate-y-2 overflow-hidden hover:shadow-xl hover:shadow-[#E2CF7D]/20">
+                        <div className="group relative bg-white p-6 rounded-2xl border border-gray-200 hover:border-[#B78E3B] transition-all duration-400 hover:-translate-y-2 overflow-hidden hover:shadow-xl hover:shadow-[#E2CF7D]/20">
                            <div className="absolute top-4 right-4 transition-all duration-400">
-                              <span className="px-3 py-1 bg-[#6F4918]/10 text-[#6F4918] text-xs font-semibold rounded-full group-hover:bg-[#6F4918] group-hover:text-white transition-all duration-400">
+                              <span className="px-3 py-1 bg-[#6F4918]/10 text-[#B78E3B] text-xs font-semibold rounded-full group-hover:bg-[#B78E3B] group-hover:text-white transition-all duration-400">
                                  {model.tag}
                               </span>
                            </div>
-                           <div className="text-4xl font-bold bg-[#6F4918] bg-clip-text text-transparent mb-3 hover:bg-[#E2CF7D] transition-all duration-400">
+                           <div className="text-4xl font-bold bg-[#B78E3B] bg-clip-text text-transparent mb-3 hover:bg-[#E2CF7D] transition-all duration-400">
                               {model.rate}
                            </div>
-                           <h4 className="text-xl font-bold text-[#202020] mb-2 group-hover:text-[#6F4918] transition-colors duration-400">
+                           <h4 className="text-xl font-bold text-[#202020] mb-2 group-hover:text-[#B78E3B] transition-colors duration-400">
                               {model.title}
                            </h4>
                            <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-400">
                               {model.desc}
                            </p>
                            <div className="mt-4 pt-4 border-t border-gray-200 group-hover:border-[#E2CF7D]/30 transition-colors duration-400">
-                              <p className="text-gray-500 text-sm group-hover:text-[#6F4918]/80 transition-colors duration-400">
+                              <p className="text-gray-500 text-sm group-hover:text-[#B78E3B]/80 transition-colors duration-400">
                                  Platform commission rate
                               </p>
                            </div>
@@ -272,7 +272,7 @@ const VisionMission = () => {
                >
                   <div className="inline-block bg-gray-50 px-6 py-3 rounded-full border border-gray-200 hover:shadow-lg hover:shadow-[#E2CF7D]/10 hover:border-[#E2CF7D]/50 transition-all duration-400">
                      <p className="text-gray-600 hover:text-[#202020] transition-colors duration-400">
-                        <span className="text-[#6F4918] font-semibold hover:text-[#E2CF7D] transition-colors duration-400">
+                        <span className="text-[#B78E3B] font-semibold hover:text-[#E2CF7D] transition-colors duration-400">
                            All commissions
                         </span>{" "}
                         reinvested in platform development & user experience

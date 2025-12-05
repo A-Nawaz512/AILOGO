@@ -64,7 +64,7 @@ const Footer = () => {
               & Roadside Assistance.
             </p>
             <p className="text-[#CEAA36] text-sm font-semibold animate-pulse">
-              ★ Premium Services – 24/7 Available
+              ★ Premium Services - 24/7 Available
             </p>
           </div>
 

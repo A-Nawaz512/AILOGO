@@ -83,7 +83,7 @@ const RidesHero = () => {
           {slides.map((slide, i) => (
             <div
               key={i}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out ${
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-2000 ease-in-out ${
                 i === currentIndex ? "opacity-100" : "opacity-0"
               }`}
               style={{ backgroundImage: `url(${slide.image})` }}
@@ -92,8 +92,8 @@ const RidesHero = () => {
         </div>
 
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/70 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/80" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/65 via-black/70 to-black/30" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/55 via-transparent to-black/80" />
 
         {/* CONTENT WRAPPER */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-6 py-24 flex flex-col justify-between gap-10">
@@ -157,7 +157,7 @@ const RidesHero = () => {
               >
                 <a
                   href={currentSlide.cta1.link}
-                  className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-[#1a1207] font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition text-sm md:text-base"
+                  className="bg-linear-to-r from-[#6F4918] to-[#E2CF7D] text-[#1a1207] font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition text-sm md:text-base"
                 >
                   {currentSlide.cta1.text}
                 </a>
@@ -204,7 +204,7 @@ const RidesHero = () => {
         </div>
 
         {/* bottom fade */}
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black via-black/90 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-black via-black/90 to-transparent" />
       </section>
     </div>
   );

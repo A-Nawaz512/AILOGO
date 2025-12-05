@@ -54,7 +54,7 @@ const RidesPoints = () => {
                       "url('https://blog.currencyalliance.com/wp-content/uploads/2023/03/card-accepted-2-1024x482.jpg')",
                   }}
                 />
-                <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs bg-white shadow-lg text-[#6F4918] font-semibold transition-all duration-300 group-hover:bg-[#FFF9EE] group-hover:scale-105 group-hover:shadow-xl">
+                <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-1 rounded-full text-xs bg-white shadow-lg text-[#6F4918] font-semibold transition-all duration-300 group-hover:bg-[#FFF9EE] group-hover:scale-105 group-hover:shadow-xl">
                   Pay with points
                 </span>
               </div>
@@ -79,7 +79,7 @@ const RidesPoints = () => {
                       "url('https://www.lalamove.com/hs-fs/hubfs/confirm%20with%20passenger.jpg?width=600&height=400&name=confirm%20with%20passenger.jpg')",
                   }}
                 />
-                <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs bg-white shadow-lg text-[#6F4918] font-semibold transition-all duration-300 group-hover:bg-[#FFF9EE] group-hover:scale-105 group-hover:shadow-xl">
+                <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-1 rounded-full text-xs bg-white shadow-lg text-[#6F4918] font-semibold transition-all duration-300 group-hover:bg-[#FFF9EE] group-hover:scale-105 group-hover:shadow-xl">
                   Tip in points
                 </span>
               </div>
@@ -104,7 +104,7 @@ const RidesPoints = () => {
                       "url('https://t4.ftcdn.net/jpg/02/16/64/59/360_F_216645902_N6uzAuvXTt8bglqwMYFIvqw5ajEumro0.jpg')",
                   }}
                 />
-                <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs bg-white shadow-lg text-[#6F4918] font-semibold transition-all duration-300 group-hover:bg-[#FFF9EE] group-hover:scale-105 group-hover:shadow-xl">
+                <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-1 rounded-full text-xs bg-white shadow-lg text-[#6F4918] font-semibold transition-all duration-300 group-hover:bg-[#FFF9EE] group-hover:scale-105 group-hover:shadow-xl">
                   Unlock missions
                 </span>
               </div>
@@ -132,7 +132,7 @@ const RidesPoints = () => {
               <div className="w-10 h-10 rounded-2xl bg-[#FFF3D7] flex items-center justify-center text-xl transition-all duration-500 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-[#FFF3D7] group-hover:to-[#E2CF7D] group-hover:shadow-md">
                 👤
               </div>
-              <h3 className="text-sm sm:text-base font-semibold text-[#111827] transition-colors duration-500 group-hover:text-[#6F4918]">
+              <h3 className="text-sm sm:text-base font-semibold text-[#111827] transition-colors duration-350 group-hover:text-[#6F4918]">
                 For ALLOGO clients
               </h3>
             </div>

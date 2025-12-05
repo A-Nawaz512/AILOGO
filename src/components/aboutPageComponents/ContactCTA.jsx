@@ -26,12 +26,12 @@ const ContactCTA = () => {
                         data-aos-anchor-placement="top-center"
                      >
                         <span>Ready to Transform</span>{" "}
-                        <span className="bg-[#785320] bg-clip-text text-transparent">
+                        <span className="bg-[#B78E3B] bg-clip-text text-transparent">
                            Service Experience?
                         </span>
                      </h2>
                      <p
-                        className="text-gray-800 mb-8 text-lg transition-colors duration-400 hover:text-[#785320]"
+                        className="text-gray-800 mb-8 text-lg transition-colors duration-400 hover:text-[#B78E3B]"
                         data-aos="fade-up"
                         data-aos-delay="200"
                         data-aos-once="true"
@@ -75,7 +75,7 @@ const ContactCTA = () => {
                               data-aos-mirror="false"
                               data-aos-anchor-placement="top-center"
                            >
-                              <div className="w-12 h-12 bg-[#BD9751] rounded-lg flex items-center justify-center transition-all duration-400 group-hover:bg-[#785320] group-hover:scale-105">
+                              <div className="w-12 h-12 bg-[#B78E3B] rounded-lg flex items-center justify-center transition-all duration-400 group-hover:bg-[#785320] group-hover:scale-105">
                                  {contact.icon}
                               </div>
                               <div className="transition-all duration-400 group-hover:translate-x-2">
@@ -100,7 +100,7 @@ const ContactCTA = () => {
                      data-aos-anchor-placement="top-center"
                   >
                      <h3
-                        className="text-2xl font-bold text-[#7A5622] mb-6 hover:text-[#BD9751] transition-all duration-900 "
+                        className="text-2xl font-bold text-[#B78E3B] mb-6 hover:text-[#BD9751] transition-all duration-900 "
                         data-aos="fade-up"
                         data-aos-delay="450"
                         data-aos-once="true"
@@ -115,19 +115,19 @@ const ContactCTA = () => {
                               to: "/signup",
                               text: "Sign Up Free",
                               className:
-                                 "block w-full py-4 text-center border border-[#6F4918] border-2 bg-white text-[#6F4918] rounded-lg font-semibold text-lg transition-all duration-500 hover:border-white hover:bg-[#6F4918] hover:text-white hover:scale-[1.02] hover:shadow-lg",
+                                 "block w-full py-2 text-center border border-[#B78E3B] border-2 bg-white text-[#B78E3B] rounded-lg font-semibold text-lg transition-all duration-500 hover:border-white hover:bg-[#B78E3B] hover:text-white hover:scale-[1.02] hover:shadow-lg",
                            },
                            {
                               to: "/login",
                               text: "Login to Account",
                               className:
-                                 "block w-full py-4 text-center border-2 border-[#6F4918] text-[#6F4918] rounded-lg font-semibold text-lg transition-all duration-500 hover:border-white hover:text-white hover:bg-[#6F4918] hover:scale-[1.02] hover:shadow-lg",
+                                 "block w-full py-2 text-center border-2 border-[#B78E3B] text-[#B78E3B] rounded-lg font-semibold text-lg transition-all duration-500 hover:border-white hover:text-white hover:bg-[#B78E3B] hover:scale-[1.02] hover:shadow-lg",
                            },
                            {
                               to: "/services",
                               text: "Explore Services",
                               className:
-                                 "block w-full py-4 text-center bg-[#BD9751] border border-[#BD9751] border-2 text-gray-100 rounded-lg font-semibold text-lg transition-all duration-500 hover:bg-[#6F4918] hover:scale-[1.02] hover:shadow-lg",
+                                 "block w-full py-2 text-center bg-[#BD9751] border border-[#BD9751] border-2 text-gray-100 rounded-lg font-semibold text-lg transition-all duration-500 hover:bg-[#B78E3B] hover:scale-[1.02] hover:shadow-lg",
                            },
                         ].map((link, index) => (
                            <button className={link.className}>
@@ -147,7 +147,7 @@ const ContactCTA = () => {
                      </div>
 
                      <div
-                        className="mt-8 pt-8 border-t border-[#3a3a3a] overflow-hidden transition-all duration-400 hover:border-[#BD9751]"
+                        className="mt-8 pt-8 border-t border-[#3a3a3a] overflow-hidden transition-all duration-400 hover:border-[#B78E3B]"
                         data-aos="fade-up"
                         data-aos-delay="650"
                         data-aos-once="true"
@@ -173,7 +173,7 @@ const ContactCTA = () => {
                            data-aos-anchor-placement="top-center"
                         >
                            {["App Store", "Play Store"].map((store, index) => (
-                              <span className="px-6 py-2 bg-[#BD9751] text-gray-100 rounded-lg transition-all duration-400 hover:bg-[#3a3a3a] hover:scale-105 hover:shadow-lg">
+                              <span className="px-5 py-2 bg-[#B78E3B] text-gray-100 rounded-lg transition-all duration-400 hover:bg-[#3a3a3a] hover:scale-105 hover:shadow-lg">
                                  <button
                                     key={index}
                                     data-aos="fade-up"
