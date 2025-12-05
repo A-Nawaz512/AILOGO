@@ -9,6 +9,8 @@ import {
   FaWhatsapp,
   FaChevronDown,
 } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+
 
 export default function BecomeDriver() {
   const [form, setForm] = useState({
@@ -120,7 +122,7 @@ export default function BecomeDriver() {
               <label className="block font-semibold flex items-center gap-2 text-md text-[#B78E3B] mb-1">
                 Phone Number
               </label>
-              <FaPhone className="absolute left-3 top-[40px] text-[#B78E3B]" />
+              <FaPhoneAlt className="absolute left-3 top-[40px] text-[#B78E3B]" />
               <input
                 name="phone"
                 value={form.phone}

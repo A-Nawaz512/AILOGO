@@ -1,213 +1,171 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaUserShield, FaFileAlt, FaPhoneAlt } from "react-icons/fa";
 
-const DeliveryFAQ = () => {
+const SafetySecurity = () => {
+  const [reportedIssues, setReportedIssues] = useState(0);
+  
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 60,
-      easing: "ease-out-cubic",
-    });
+    AOS.init({ duration: 1200, once: true, easing: "ease-in-out" });
+    // Simulate reported issues count
+    const interval = setInterval(() => {
+      setReportedIssues(prev => (prev < 1247 ? prev + 1 : prev));
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
-  const faqs = [
-    {
-      id: 1,
-      question: "What types of packages can I send?",
-      answer:
-        "You can send most everyday items such as documents, small boxes, parcels, gifts and non-perishable goods. For safety reasons, we don't transport cash, illegal items, dangerous chemicals, or anything that breaks local regulations.",
-    },
-    {
-      id: 2,
-      question: "Is my package insured?",
-      answer:
-        "Every trip includes basic coverage against loss or major damage during the delivery. For high-value items, you can declare an estimated value in the app so our support team has all the information needed if a claim is opened.",
-    },
-    {
-      id: 3,
-      question: "How does delivery confirmation work?",
-      answer:
-        "When the courier reaches the drop-off point, they capture a photo and, when required, a digital signature from the receiver. The delivery is then marked as completed in the app and you receive a real-time notification with the proof attached.",
-    },
-  ];
-
-  const [openId, setOpenId] = useState(3); // default open question (you can change this)
-
-  const toggle = (id) => {
-    setOpenId((prev) => (prev === id ? null : id));
+  const handleReportIssue = () => {
+    alert("Issue reported successfully. Our support team will contact you within 24 hours.");
   };
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#fdfaf3] via-white to-[#fdfaf3] py-16 sm:py-20 lg:py-15 overflow-hidden">
-      {/* enhanced background with subtle gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,_#E2CF7D25,_transparent_45%),radial-gradient(circle_at_80%_80%,_#6F491815,_transparent_50%),linear-gradient(to_bottom,_transparent_0%,_#fdfaf3_30%,_#fdfaf3_70%,_transparent_100%)]" />
-
-      {/* decorative elements */}
-      <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-gradient-to-br from-[#E2CF7D]/15 to-transparent blur-xl"></div>
-      <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-gradient-to-tr from-[#6F4918]/10 to-transparent blur-xl"></div>
-
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.2fr)] lg:items-start">
-          {/* LEFT: INTRO + HIGHLIGHTS */}
-          <div data-aos="fade-right" className="mb-10 lg:mb-0">
-            {/* FAQ badge with enhanced styling */}
-            <div className="mb-8 flex flex-col items-center text-center sm:items-start sm:text-left">
-              <div className="relative mb-6">
-                <span className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-r from-[#f1e1c0] to-[#f8efd9] px-7 py-2 text-[1rem] font-bold uppercase tracking-[0.35em] text-[#6F4918] shadow-[0_4px_12px_rgba(226,207,125,0.25)]">
-                  F A Q
-                </span>
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#E2CF7D]/30 to-transparent blur-sm"></div>
+    <section className="relative bg-gradient-to-b from-[#FFFDF7] to-[#FFF5E0] py-32 px-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
+        {/* Left Image */}
+        <div
+          className="md:w-1/2 flex justify-center md:justify-start"
+          data-aos="fade-right"
+        >
+          <div className="relative">
+            <img
+              src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Safety illustration"
+              className="rounded-3xl shadow-2xl w-full md:w-[95%] transform transition-transform duration-700 hover:scale-105 hover:-rotate-1 border-4 border-[#B78E3B]"
+            />
+            <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-[#6F4918] to-[#B78E3B] text-white px-6 py-3 rounded-2xl shadow-xl">
+              <div className="flex items-center gap-2">
+                <FaUserShield className="text-lg" />
+                <span className="font-bold">24/7 Security</span>
               </div>
-
-              <h2 className="text-3xl font-black leading-tight text-[#1a1206] sm:text-4xl lg:text-[2.5rem] lg:leading-[1.2]">
-                Answers to common
-                <span className="block bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
-                  questions about AILOGO Delivery.
-                </span>
-              </h2>
             </div>
+          </div>
+        </div>
 
-            <p className="mt-3 text-sm text-gray-700 sm:text-base relative pl-4 border-l-2 border-[#E2CF7D]/50">
-              Not sure what you can send or how confirmation works? Start with
-              these quick answers. You can always reach our support team from
-              inside the app if you still need help.
+        {/* Right Features */}
+        <div className="md:w-1/2 flex flex-col gap-12">
+          <div>
+            <h2
+              className="text-4xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6F4918] to-[#B78E3B] drop-shadow-md mb-4"
+              data-aos="fade-left"
+            >
+              🔒 Safety & Security
+            </h2>
+            <p
+              className="text-gray-700 text-lg md:text-xl max-w-xl"
+              data-aos="fade-left"
+              data-aos-delay="100"
+            >
+              Deliveries are secure with privacy for both customers and drivers. 
+              Insurance coverage is included, and support is always available for 
+              any delivery-related concerns.
             </p>
+          </div>
 
-            {/* enhanced highlight chips */}
-            <div className="mt-8 grid gap-4 text-xs sm:text-[0.8rem] sm:grid-cols-2">
-              <div className="group relative flex items-center gap-3 rounded-2xl bg-white/90 px-4 py-3 shadow-[0_6px_20px_rgba(111,73,24,0.08)] transition-all duration-300 hover:shadow-[0_10px_25px_rgba(111,73,24,0.12)] hover:-translate-y-0.5">
-                <div className="absolute -left-1 -top-1 h-8 w-8 rounded-full bg-gradient-to-br from-[#6F4918] to-[#E2CF7D] opacity-0 group-hover:opacity-20 blur-md transition-opacity"></div>
-                <span className="relative z-10 inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#6F4918] to-[#E2CF7D] text-[0.7rem] font-bold text-white shadow-md">
-                  ✓
-                </span>
-                <span className="relative z-10 font-medium text-[#3b2412]">
-                  Clear rules on what can and can't be delivered.
-                </span>
-              </div>
-              <div className="group relative flex items-center gap-3 rounded-2xl bg-white/90 px-4 py-3 shadow-[0_6px_20px_rgba(226,207,125,0.15)] transition-all duration-300 hover:shadow-[0_10px_25px_rgba(226,207,125,0.2)] hover:-translate-y-0.5">
-                <div className="absolute -right-1 -bottom-1 h-8 w-8 rounded-full bg-gradient-to-tr from-[#E2CF7D] to-[#6F4918] opacity-0 group-hover:opacity-20 blur-md transition-opacity"></div>
-                <span className="relative z-10 inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#E2CF7D] to-[#f1e1c0] text-[0.7rem] font-bold text-[#6F4918] shadow-md">
-                  3D
-                </span>
-                <span className="relative z-10 font-medium text-[#3b2412]">
-                  Real-time 3D tracking plus proof of delivery.
-                </span>
-              </div>
+          {/* Security Stats */}
+          <div className="flex items-center gap-6 bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#E2CF7D]" data-aos="fade-up">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-[#6F4918]">{reportedIssues}+</div>
+              <div className="text-gray-600 text-sm">Issues Resolved</div>
             </div>
-
-            {/* enhanced note */}
-            <div className="mt-8 rounded-xl bg-gradient-to-r from-white/50 to-transparent p-4 backdrop-blur-sm">
-              <p className="text-[0.75rem] text-gray-600">
-                Still have questions? Once the platform is live, you'll be able to
-                open a support ticket directly from the{" "}
-                <span className="font-bold text-[#6F4918] bg-gradient-to-r from-[#6F4918]/10 to-transparent px-2 py-0.5 rounded">
-                  Help &amp; FAQ
-                </span>{" "}
-                section in your AILOGO app.
-              </p>
+            <div className="h-8 w-px bg-[#E2CF7D]"></div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-[#6F4918]">100%</div>
+              <div className="text-gray-600 text-sm">Privacy Protected</div>
+            </div>
+            <div className="h-8 w-px bg-[#E2CF7D]"></div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-[#6F4918]">24/7</div>
+              <div className="text-gray-600 text-sm">Support Available</div>
             </div>
           </div>
 
-          {/* RIGHT: ENHANCED ACCORDION */}
-          <div
-            data-aos="fade-left"
-            data-aos-delay="100"
-            className="relative rounded-3xl bg-gradient-to-br from-white to-[#fdfaf3] p-6 shadow-[0_25px_60px_rgba(111,73,24,0.15)] sm:p-7 lg:p-8 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-[#E2CF7D]/5 before:to-transparent before:content-['']"
-          >
-            {/* header with enhanced styling */}
-            <div className="mb-6 flex items-center justify-between border-b border-[#E2CF7D]/30 pb-4">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]"></div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6F4918]">
-                  Help center
-                </p>
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Phone Masking */}
+            <div
+              className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-lg border-2 border-[#E2CF7D] rounded-3xl shadow-xl text-center transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:border-[#B78E3B] hover:-translate-y-2 group"
+              data-aos="fade-up"
+            >
+              <div className="bg-gradient-to-tr from-[#B78E3B] to-[#E2CF7D] text-white p-5 rounded-full text-4xl flex justify-center items-center mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                <FaPhoneAlt />
               </div>
-              <span className="rounded-full bg-gradient-to-r from-[#FFF3C0] to-[#FDF6E7] px-4 py-1.5 text-[0.7rem] font-bold text-[#6F4918] shadow-[0_3px_10px_rgba(226,207,125,0.3)]">
-                Most asked questions
-              </span>
+              <h3 className="text-xl font-bold text-[#6F4918] mb-3">
+                Phone Masking
+              </h3>
+              <p className="text-gray-700 text-base mb-4">
+                Customer and driver numbers are masked to ensure privacy.
+              </p>
+              <div className="text-sm text-[#B78E3B] font-medium bg-[#FFF8E5] px-4 py-1 rounded-full">
+                🔒 Privacy Protected
+              </div>
             </div>
 
-            <div className="divide-y divide-[#E2CF7D]/30">
-              {faqs.map((item) => {
-                const isOpen = item.id === openId;
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => toggle(item.id)}
-                    className="group relative w-full py-5 text-left transition-all duration-300 hover:bg-gradient-to-r hover:from-white/50 hover:to-transparent first:pt-2"
-                  >
-                    {/* decorative line on hover */}
-                    <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-transparent via-[#E2CF7D] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-                    <div className="flex items-center justify-between gap-4 pl-3">
-                      <div className="flex items-center gap-4">
-                        <span className="relative inline-flex h-8 w-8 flex-none items-center justify-center rounded-full bg-gradient-to-br from-white to-[#FFF8E5] text-[0.75rem] font-bold text-[#6F4918] shadow-[0_4px_10px_rgba(226,207,125,0.3)]">
-                          {item.id}
-                          <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#E2CF7D] to-transparent opacity-0 group-hover:opacity-30 blur-sm transition-opacity"></div>
-                        </span>
-                        <span className="text-sm font-bold text-[#2b1a08] sm:text-[1rem] group-hover:text-[#6F4918] transition-colors">
-                          {item.question}
-                        </span>
-                      </div>
-
-                      {/* enhanced icon */}
-                      <span
-                        className={`ml-3 inline-flex h-7 w-7 flex-none items-center justify-center rounded-full bg-gradient-to-br from-[#6F4918]/10 to-[#E2CF7D]/10 text-sm font-black text-[#6F4918] shadow-sm transition-all duration-300 ${
-                          isOpen
-                            ? "rotate-90 scale-110 bg-gradient-to-br from-[#6F4918]/20 to-[#E2CF7D]/20"
-                            : "group-hover:scale-110 group-hover:shadow-md"
-                        }`}
-                      >
-                        ›
-                      </span>
-                    </div>
-
-                    {/* enhanced answer */}
-                    <div
-                      className={`grid overflow-hidden pl-12 transition-all duration-300 ${
-                        isOpen
-                          ? "mt-4 grid-rows-[1fr] opacity-100"
-                          : "grid-rows-[0fr] opacity-0"
-                      }`}
-                    >
-                      <div className="min-h-0">
-                        <p className="rounded-lg bg-gradient-to-r from-[#FFF8E5]/30 to-transparent p-4 text-[0.85rem] leading-relaxed text-gray-700">
-                          {item.answer}
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
+            {/* Insurance */}
+            <div
+              className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-lg border-2 border-[#E2CF7D] rounded-3xl shadow-xl text-center transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:border-[#B78E3B] hover:-translate-y-2 group"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div className="bg-gradient-to-tr from-[#B78E3B] to-[#E2CF7D] text-white p-5 rounded-full text-4xl flex justify-center items-center mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                <FaFileAlt />
+              </div>
+              <h3 className="text-xl font-bold text-[#6F4918] mb-3">
+                Insurance Coverage
+              </h3>
+              <p className="text-gray-700 text-base mb-4">
+                Basic insurance protects against lost or damaged goods.
+              </p>
+              <div className="text-sm text-[#B78E3B] font-medium bg-[#FFF8E5] px-4 py-1 rounded-full">
+                📦 Up to 500,000 DZD
+              </div>
             </div>
 
-            {/* enhanced footer */}
-            <div className="mt-8 rounded-2xl bg-gradient-to-r from-[#FFF3C0] via-[#FDF6E7] to-[#E2CF7D] p-5 shadow-[0_8px_25px_rgba(226,207,125,0.25)] relative overflow-hidden">
-              <div className="absolute right-0 top-0 h-16 w-16 -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-to-br from-white/30 to-transparent blur-md"></div>
-              <div className="relative z-10">
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-[#6F4918] to-[#E2CF7D] text-[0.6rem] font-bold text-white">
-                    💡
-                  </span>
-                  <p className="text-[0.8rem] font-bold text-[#3b2412]">
-                    Pro tip: add details when you book your delivery.
-                  </p>
+            {/* Report & Support */}
+            <div
+              className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-lg border-2 border-[#E2CF7D] rounded-3xl shadow-xl text-center transition-all duration-850 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:border-[#B78E3B] hover:-translate-y-2 group"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div className="bg-gradient-to-tr from-[#B78E3B] to-[#E2CF7D] text-white p-5 rounded-full text-4xl flex justify-center items-center mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                <FaUserShield />
+              </div>
+              <h3 className="text-xl font-bold text-[#6F4918] mb-3">
+                Report & Support
+              </h3>
+              <p className="text-gray-700 text-base mb-4">
+                Option to report issues or contact support anytime.
+              </p>
+              <button 
+                onClick={handleReportIssue}
+                className="text-sm bg-[#6F4918] text-white px-4 py-2 rounded-full font-medium hover:bg-[#B78E3B] transition-colors mt-2"
+              >
+                Report Issue
+              </button>
+            </div>
+          </div>
+
+          {/* Support Contact */}
+          <div className="mt-8" data-aos="fade-up" data-aos-delay="300">
+            <div className="bg-gradient-to-r from-[#fefcf2] to-white rounded-2xl p-6 border-l-4 border-[#B78E3B] shadow-lg">
+              <div className="flex items-center gap-4">
+                <div className="bg-[#FFF8E5] p-3 rounded-full">
+                  <FaUserShield className="text-2xl text-[#B78E3B]" />
                 </div>
-                <p className="text-[0.75rem] text-[#3b2412]/90">
-                  The more information you share (package type, value, special
-                  instructions), the easier it is for couriers and support to keep
-                  your delivery safe.
-                </p>
+                <div>
+                  <h4 className="font-bold text-[#6F4918] text-lg">Need Help?</h4>
+                  <p className="text-gray-600">Contact support: <span className="text-[#B78E3B] font-medium">+213 123 456 789</span></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Subtle Background Shapes */}
+      <div className="absolute -z-10 top-0 left-1/2 transform -translate-x-1/2 w-[60rem] h-[60rem] bg-gradient-to-r from-[#B78E3B]/20 to-[#E2CF7D]/10 rounded-full filter blur-3xl"></div>
     </section>
   );
 };
 
-export default DeliveryFAQ;
+export default SafetySecurity;

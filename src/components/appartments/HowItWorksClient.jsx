@@ -51,14 +51,16 @@ export default function HowItWorksClient() {
             <div
               key={index}
               data-aos="fade-up"
-              data-aos-delay={index * 200} // stagger animations
+              data-aos-delay={index * 200}
               className={`flex flex-col items-center bg-white p-5 rounded-3xl shadow-lg 
                          hover:shadow-[#B78E3B]/70 transition duration-300 w-72 md:w-80
-                         ${index >= 3 ? 'mt-12 lg:mt-6' : 'mt-0'}`} // stagger last 2 cards
+                         ${index >= 3 ? 'mt-12 lg:mt-6' : 'mt-0'}`}
             >
-              <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-tr from-[#B78E3B]/50 to-[#B78E3B] text-white shadow-md">
+              {/* ICON – removed background like your screenshot */}
+              <div className="mb-4 flex items-center justify-center">
                 {step.icon}
               </div>
+
               <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
               <p className="text-black text-sm leading-relaxed">{step.description}</p>
             </div>

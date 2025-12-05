@@ -7,7 +7,7 @@ import { IoLanguageSharp } from "react-icons/io5";
 
 const Navbar = () => {
   // Set user to null if not logged in
-  const user = null; // or { name: "John Doe", avatar: "/user-avatar.jpg" }
+  const user = false; // or { name: "John Doe", avatar: "/user-avatar.jpg" }
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpenDesktop, setServicesOpenDesktop] = useState(false);
@@ -54,7 +54,7 @@ const Navbar = () => {
 
   const servicesList = [
     { label: "Rides / Drivers", path: "/services/rides", icon: <FaCar size={16} /> },
-    { label: "Deliveries", path: "/services/deliveries", icon: <FaBox size={16} /> },
+    { label: "Deliveries", path: "/services/food-delivery", icon: <FaBox size={16} /> },
     { label: "Roadside Assistance", path: "/services/roadside", icon: <FaWrench size={16} /> },
     { label: "Vehicle Rental", path: "/services/rentals", icon: <FaMotorcycle size={16} /> },
     { label: "Apartment Rental", path: "/services/apartments", icon: <FaBuilding size={16} /> },
@@ -181,8 +181,8 @@ const Navbar = () => {
           ) : (
             <>
 
-              <Link to="/signup" className="px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105">Sign Up</Link>
-              <Link to="/login" className="px-5 py-2 border-2 border-[#6F4918] text-white rounded-lg hover:bg-[#6F4918] transition-all duration-200 hover:scale-105">Login</Link>
+              <Link to="/signup" className="px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-md hover:shadow-xl transition-all duration-600 hover:scale-105">Sign Up</Link>
+              <Link to="/login" className="px-5 py-2 border-2 border-[#6F4918] text-white rounded-lg hover:bg-[#6F4918] transition-all duration-900 hover:scale-105">Login</Link>
             </>
           )}
         </div>
@@ -307,7 +307,7 @@ const Navbar = () => {
             <div className="px-6 space-y-3 pt-3">
               <Link
                 to="/signup"
-                className="block text-center px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                className="block text-center px-5 py-2 bg-linear-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
                 Sign Up
               </Link>

@@ -114,7 +114,7 @@ const Home = () => {
           </p>
 
           <Link to={currentSlide.link}>
-            <button className="mt-8 px-8 cursor-pointer py-4 rounded-lg bg-[#B78E3B] text-white text-lg font-semibold hover:bg-[#926f2d] transition shadow-lg">
+            <button className="mt-8 px-5 py-2 rounded-lg bg-[#B78E3B] text-white text-lg font-semibold hover:bg-[#926f2d] transition shadow-lg">
               Explore Now →
             </button>
           </Link>

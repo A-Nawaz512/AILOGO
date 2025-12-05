@@ -1,153 +1,217 @@
-// src/components/about/HeroSection.jsx
-import React, { useEffect } from "react";
-import { FaMapMarkedAlt, FaCar, FaShieldAlt } from "react-icons/fa";
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+   FaCar,
+   FaShieldAlt,
+   FaMotorcycle,
+   FaHome,
+   FaMapMarkedAlt,
+   FaWrench,
+} from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
-   useEffect(() => {
-      // Initialize AOS with custom settings
-      AOS.init({
-         duration: 800,
-         once: true,
-         disable: window.innerWidth < 768, // Disable on mobile devices
-         startEvent: "DOMContentLoaded",
-         offset: 100,
-      });
+   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+   const [currentContentIndex, setCurrentContentIndex] = useState(0);
 
-      // Re-initialize on resize to handle responsive behavior
+   const backgroundImages = [
+      "/rides.jpg",
+      "/delivery.avif",
+      "/rodeside-assistence.avif",
+      "/vehical-rental.webp",
+      "/apartement-rental.jpg",
+   ];
+
+   const contentTexts = [
+      {
+         title: "Effortless Rides",
+         description:
+            "Book a ride anytime, anywhere with our easy-to-use platform. Enjoy safe and comfortable trips. Real-time tracking ensures you never wait long.",
+         icon: <FaCar className="text-[#E2CF7D] text-2xl mb-2" />,
+         iconText: "Quick Rides",
+         iconSubText: "24/7 Availability",
+      },
+      {
+         title: "Fast Deliveries",
+         description:
+            "Send packages or groceries effortlessly across the city. Track your delivery live with updates at every step. Safe, timely, and convenient service for everyone.",
+         icon: <FaMotorcycle className="text-[#E2CF7D] text-2xl mb-2" />,
+         iconText: "Instant Delivery",
+         iconSubText: "Real-time Tracking",
+      },
+      {
+         title: "Roadside Assistance",
+         description:
+            "Stuck on the road? Our experts are just a click away. Fast, reliable, and professional help for any car trouble. Peace of mind wherever you go.",
+         icon: <FaWrench className="text-[#E2CF7D] text-2xl mb-2" />,
+         iconText: "24/7 Support",
+         iconSubText: "Expert Assistance",
+      },
+      {
+         title: "Car Rentals",
+         description:
+            "Rent a car for a few hours or days at affordable rates. Wide selection of vehicles to suit your needs. Hassle-free booking and convenient pick-up/drop-off options.",
+         icon: <FaCar className="text-[#E2CF7D] text-2xl mb-2" />,
+         iconText: "Wide Fleet",
+         iconSubText: "Flexible Plans",
+      },
+      {
+         title: "Comfortable Apartments",
+         description:
+            "Find the perfect apartment for short or long stays. Verified listings with detailed information. Enjoy hassle-free rentals with secure payments.",
+         icon: <FaHome className="text-[#E2CF7D] text-2xl mb-2" />,
+         iconText: "Verified Listings",
+         iconSubText: "Flexible Stays",
+      },
+   ];
+   // Initialize AOS (tablet & desktop only)
+   useEffect(() => {
+      const isDesktopOrTablet = window.innerWidth >= 768;
+
+      if (isDesktopOrTablet) {
+         AOS.init({
+            duration: 800,
+            once: false, // allow repeat animations
+            offset: 100,
+         });
+      }
+
       const handleResize = () => {
          if (window.innerWidth >= 768) {
             AOS.init({
                duration: 800,
-               once: true,
-               disable: false,
-               startEvent: "DOMContentLoaded",
+               once: false,
                offset: 100,
             });
          } else {
-            AOS.refreshHard(); // Disable AOS on mobile
+            AOS.refreshHard();
          }
       };
 
       window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
+
+      const imageInterval = setInterval(() => {
+         setCurrentImageIndex((prev) =>
+            prev === backgroundImages.length - 1 ? 0 : prev + 1
+         );
+      }, 5000);
+
+      const contentInterval = setInterval(() => {
+         setCurrentContentIndex((prev) =>
+            prev === contentTexts.length - 1 ? 0 : prev + 1
+         );
+      }, 5000);
+
+      return () => {
+         clearInterval(imageInterval);
+         clearInterval(contentInterval);
+         window.removeEventListener("resize", handleResize);
+      };
    }, []);
 
+   // Refresh AOS on content change (desktop/tablet only)
+   useEffect(() => {
+      if (window.innerWidth >= 768) {
+         AOS.refresh();
+      }
+   }, [currentContentIndex]);
+
+   const currentContent = contentTexts[currentContentIndex];
+
    return (
-      <section className="relative py-20 px-6 lg:px-8 overflow-hidden min-h-screen">
-         {/* Background image */}
-         <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/company.jpg')" }}
-         >
-            {/* Overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-black/40"></div>
-         </div>
+      <section className="relative py-20 px-6 lg:px-8 overflow-hidden md:min-h-[90vh]">
+         {/* Background images */}
+         {backgroundImages.map((image, index) => (
+            <div
+               key={image}
+               className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+                  index === currentImageIndex ? "opacity-100" : "opacity-0"
+               }`}
+               style={{ backgroundImage: `url('${image}')` }}
+            />
+         ))}
 
-         <div className="max-w-6xl mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-               <div className="animate-fadeIn">
-                  <h1
-                     className="text-5xl md:text-6xl font-bold mb-6"
-                     data-aos="fade-right"
-                     data-aos-delay="100"
-                  >
-                     <span className="text-white">Revolutionizing</span>{" "}
-                     <span className="bg-gradient-to-r from-[#6F4918] via-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
-                        Mobility & Services
-                     </span>
-                  </h1>
-                  <p
-                     className="text-white text-lg mb-8 leading-relaxed"
-                     data-aos="fade-right"
-                     data-aos-delay="200"
-                  >
-                     ALLOGO is Algeria's premier multi-service platform
-                     integrating transportation, rentals, delivery, and
-                     assistance services into one seamless 3D-powered ecosystem.
-                  </p>
+         {/* Overlay */}
+         <div className="absolute inset-0 bg-black/50 transition-opacity duration-1000"></div>
 
-                  <div
-                     className="grid md:grid-cols-3 gap-4 mb-8"
-                     data-aos="fade-up"
-                     data-aos-delay="300"
-                  >
-                     <div className="bg-[#2a2a2a] p-4 rounded-lg border border-white transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#E2CF7D]/30">
-                        <FaCar className="text-[#E2CF7D] text-2xl mb-2" />
-                        <p className="text-gray-200 font-semibold">
-                           6 Services
-                        </p>
-                        <p className="text-gray-400 text-sm">
-                           Integrated Platform
-                        </p>
-                     </div>
-                     <div className="bg-[#2a2a2a] p-4 rounded-lg border border-white transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#E2CF7D]/30">
-                        <FaMapMarkedAlt className="text-[#E2CF7D] text-2xl mb-2" />
-                        <p className="text-gray-200 font-semibold">
-                           3D Live Map
-                        </p>
-                        <p className="text-gray-400 text-sm">
-                           Real-time Tracking
-                        </p>
-                     </div>
-                     <div className="bg-[#2a2a2a] p-4 rounded-lg border border-white transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#E2CF7D]/30">
-                        <FaShieldAlt className="text-[#E2CF7D] text-2xl mb-2" />
-                        <p className="text-gray-200 font-semibold">Secure</p>
-                        <p className="text-gray-400 text-sm">
-                           Trusted Platform
-                        </p>
-                     </div>
+         <div className="max-w-[100%] flex items-center justify-center mx-auto relative z-10">
+            <div className="max-w-7xl  flex items-center justify-center pt-20">
+               <div className="animate-fadeIn w-[70%] mx-auto flex flex-col  justify-center items-center gap-15">
+                  {/* Title */}
+                  <div>
+                     <h1
+                        className="text-4xl text-center md:text-6xl font-bold mb-6 transition-all duration-1000"
+                        data-aos="zoom-in"
+                        data-aos-delay="100"
+                        key={currentContentIndex}
+                     >
+                        <span className="text-white">
+                           {currentContent.title
+                              .split(" ")
+                              .slice(0, -2)
+                              .join(" ")}
+                        </span>{" "}
+                        <span className="bg-[#926325] bg-clip-text text-transparent">
+                           {currentContent.title.split(" ").slice(-2).join(" ")}
+                        </span>
+                     </h1>
+                     {/* Description */}
+                     <p
+                        className="text-white text-center text-lg mb-8 leading-relaxed transition-all duration-1000"
+                        data-aos="zoom-in"
+                        data-aos-delay="200"
+                        key={`desc-${currentContentIndex}`}
+                     >
+                        {currentContent.description}
+                     </p>
                   </div>
-               </div>
 
-               <div className="flex items-center justify-center">
-                  <div
-                     className="relative bg-gradient-to-br from-[#6F4918] to-[#E2CF7D] w-fit p-1 rounded-2xl transition-transform duration-500 hover:rotate-1 md:hover:rotate-2"
-                     data-aos="fade-left"
-                     data-aos-delay="400"
-                  >
-                     <div className="bg-[#202020] rounded-2xl p-12">
-                        <h3 className="text-2xl font-bold text-gray-100 mb-4">
-                           Core Features
-                        </h3>
-                        <ul className="space-y-4">
-                           <li className="flex items-center">
-                              <div className="w-2 h-2 bg-[#E2CF7D] rounded-full mr-3"></div>
-                              <span className="text-gray-300">
-                                 Real-time 3D mapping with MapLibre
-                              </span>
-                           </li>
-                           <li className="flex items-center">
-                              <div className="w-2 h-2 bg-[#E2CF7D] rounded-full mr-3"></div>
-                              <span className="text-gray-300">
-                                 Multi-service commission system (5-9%)
-                              </span>
-                           </li>
-                           <li className="flex items-center">
-                              <div className="w-2 h-2 bg-[#E2CF7D] rounded-full mr-3"></div>
-                              <span className="text-gray-300">
-                                 Loyalty & credit points system
-                              </span>
-                           </li>
-                           <li className="flex items-center">
-                              <div className="w-2 h-2 bg-[#E2CF7D] rounded-full mr-3"></div>
-                              <span className="text-gray-300">
-                                 Complete admin control panel
-                              </span>
-                           </li>
-                           <li className="flex items-center">
-                              <div className="w-2 h-2 bg-[#E2CF7D] rounded-full mr-3"></div>
-                              <span className="text-gray-300">
-                                 Cross-platform (Web, Android, iOS)
-                              </span>
-                           </li>
-                        </ul>
-                     </div>
+                  <div>
+                     <button >
+                        <Link className="border-2 border-white py-3 hover:bg-white hover:text-[#7A5522] transition-all duration-500 px-4 rounded-full text-white"  to={"/contact"} >Contact Us For Details</Link>
+                     </button>
+                  </div>
+
+                  {/* Dots */}
+                  <div className="hidden md:flex  space-x-3 mb-8">
+                     {contentTexts.map((_, index) => (
+                        <button
+                           key={index}
+                           onClick={() => {
+                              setCurrentContentIndex(index);
+                              setCurrentImageIndex(index);
+                           }}
+                           className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                              index === currentContentIndex
+                                 ? "bg-[#E2CF7D] w-8"
+                                 : "bg-white/50"
+                           }`}
+                           aria-label={`Go to slide ${index + 1}`}
+                        />
+                     ))}
                   </div>
                </div>
             </div>
          </div>
+
+         {/* ✅ Corrected JSX style block */}
+         <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 1s ease-out;
+        }
+      `}</style>
       </section>
    );
 };

@@ -81,7 +81,7 @@ const RidesFeatures = () => {
                 key={f.title}
                 data-aos="fade-up"
                 data-aos-delay={70 * i}
-                className="relative rounded-3xl bg-white shadow-[0_18px_50px_rgba(0,0,0,0.06)] border border-white/70 hover:border-[#E2CF7D] transition-transform duration-600 hover:-translate-y-1 hover:bg-[#FFF9EE] overflow-hidden"
+                className="relative rounded-3xl bg-white shadow-[0_18px_50px_rgba(0,0,0,0.06)] border border-white/70 hover:border-[#E2CF7D] transition-transform duration-800 hover:-translate-y-1 hover:bg-[#FFF9EE] overflow-hidden"
               >
                 <div className="h-1 bg-gradient-to-r from-[#6F4918] via-[#B78E3B] to-[#E2CF7D]" />
                 <div className="p-5 sm:p-6 flex gap-3">

@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/fooddelivery/Navbar';
 import Hero from '../components/FoodDelivery/Hero';
 import DeliveryServices from '../components/FoodDelivery/DeliveryServices';
 import ZoneCoverage from '../components/FoodDelivery/ZoneCoverage';
@@ -10,7 +9,6 @@ import ProviderPaymentUnlock from '../components/FoodDelivery/ProviderPaymentUnl
 function FoodDeliveryPage() {
   return (
     <div className="">
-      <Navbar/>
       <Hero />
       <DeliveryServices />
       <ZoneCoverage />
