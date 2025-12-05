@@ -9,10 +9,6 @@ import { HowItWorks } from "../components/homePageComponents/HowItWorks";
 import { ForPartners } from "../components/homePageComponents/ForPartners";
 import { FAQSection } from "../components/homePageComponents/FAQSection";
 
-
-
-
-
 function HomePage() {
    return (
       <div className="">

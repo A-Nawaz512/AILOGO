@@ -34,77 +34,88 @@ export const FAQSection = () => {
   ];
 
   return (
-    <div className="bg-white py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="bg-white py-16 px-4">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-stretch">
 
-        {/* Header */}
+        {/* LEFT — FAQ LIST */}
+        <div className="flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-left mb-8"
+          >
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
+              Frequently Asked <span className="text-[#B78E3B]">Questions</span>
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Everything you need to know about ALLOGO services.
+            </p>
+          </motion.div>
+
+          <div className="space-y-4 flex-1">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow hover:shadow-lg transition-shadow"
+              >
+                <button
+                  className="w-full group cursor-pointer px-5 py-2 text-left flex items-center justify-between hover: bg-gradient-to-r from-[#b3a35a] to-[#6F4918] transition-colors"
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="sm:w-12 w-8 sm:h-12 h-8 rounded-full flex items-center justify-center  bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] group-hover:bg-[#d3c48c] transition-all">
+                      <faq.icon className="w-4 sm:w-6 h-4 sm:h-6 text-[white]" />
+                    </div>
+                    <span className="font-semibold text-gray-50 sm:text-lg group-hover:text-white transition-all">
+                      {faq.question}
+                    </span>
+                  </div>
+                  <span className="text-2xl font-light text-[#f7f5f1] group-hover:text-white transition-all">
+                    {openIndex === index ? "−" : "+"}
+                  </span>
+                </button>
+
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden bg-white"
+                    >
+                      <div className="px-6 pb-5 pt-2 pl-16">
+                        <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT — IMAGE (Same height as left side) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-10"
+          className="h-full flex"
         >
-          <div className="flex justify-center items-center mb-3">
-            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
-            <h2 className="text-xl md:text-4xl font-bold text-gray-800">
-              Frequently Asked <span style={{ color: "#B78E3B" }}>Questions</span>
-            </h2>
-            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
-          </div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Everything you need to know about ALLOGO services.
-          </p>
+          <img
+            src="https://images.pexels.com/photos/681331/pexels-photo-681331.jpeg"
+            alt="Allogo FAQ Illustration"
+            className="rounded-2xl shadow-lg w-full h-full object-cover hover:translate-y-1 transition-all duration-300"
+          />
         </motion.div>
 
-        {/* FAQ List */}
-        <div className=" w-full sm:w-[60%] mx-auto space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white border  border-gray-200 rounded-2xl overflow-hidden shadow hover:shadow-lg transition-shadow"
-            >
-              <button
-                className="w-full group cursor-pointer px-6 py-5 text-left flex items-center justify-between hover:bg-[#B78E3B] transition-colors"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              >
-                <div className="flex  items-center gap-4">
-                  <div className="sm:w-12 w-8 sm:h-12 h-8 rounded-full flex items-center justify-center group-hover:bg-[#d3c48c] transition-all ease-in delay-75 bg-[#B78E3B]/20">
-                    <faq.icon className="w-4 transition-all ease-in delay-75 sm:w-6 h-4  sm:h-6 text-[#543918]" />
-                  </div>
-                  <span className="font-semibold transition-all ease-in delay-75 group-hover:text-white text-gray-800 sm:text-lg">
-                    {faq.question}
-                  </span>
-                </div>
-                <span className="text-2xl font-light transition-all ease-in delay-75 group-hover:text-white text-[#B78E3B]">
-                  {openIndex === index ? "−" : "+"}
-                </span>
-              </button>
-
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden bg-[#ffffff]"
-                  >
-                    <div className="px-6 pb-5 pt-2 pl-16">
-                      <p className="text-gray-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </div>
   );

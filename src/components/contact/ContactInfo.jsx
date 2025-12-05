@@ -83,31 +83,48 @@ function ContactInfo() {
       </div>
 
       <div className="space-y-4">
-       {contactItems.map((item, idx) => (
-  <div
-    key={idx}
-    className={`group p-4 rounded-xl border border-gray-200 hover:border-transparent hover:bg-[#3b3b37] transition-all duration-300 delay-${idx * 50} cursor-pointer`}
-    data-aos="fade-up"
-    data-aos-delay={idx * 50}
-  >
-    <div className="flex items-start gap-4">
-      {/* Icon Column */}
-      <div className="p-3 rounded-lg bg-gray-100 group-hover:bg-gradient-to-r group-hover:from-[#6F4918] group-hover:to-[#E2CF7D] transition-all duration-300 delay-75 flex items-center justify-center">
-        <div className="group-hover:text-white text-[#D08700] transition-colors duration-300 delay-150">
-          {item.icon}
-        </div>
-      </div>
+        {contactItems.map((item, idx) => (
+          <div
+            key={idx}
+            className={`group p-4 rounded-xl border border-gray-200 hover:border-transparent hover:bg-[#3b3b37] transition-all duration-100 cursor-pointer`}
+            data-aos="fade-up"
+            data-aos-delay={idx * 50}
+          >
+            <div className="flex items-start gap-4">
+              {/* Icon Column */}
+              <div className="p-3 rounded-lg  bg-gradient-to-r from-[#6F4918] to-[#e3d07d] group-hover:bg-gradient-to-r group-hover:from-[#E2CF7D] group-hover:to-[#6F4918] transition-all duration-300 flex items-center justify-center">
+                <div
+                  className="text-[#faf9f7] group-hover:text-white transition-colors duration-300"
+                  style={{ transitionDelay: "0ms" }} // Icon animates first
+                >
+                  {item.icon}
+                </div>
+              </div>
 
-      {/* Text Column */}
-      <div className="flex-1">
-        <h3 className="text-gray-700 group-hover:text-white font-semibold mb-1 transition-colors duration-300 delay-150">{item.title}</h3>
-        <p className="text-gray-800 group-hover:text-white font-medium text-lg mb-1 transition-colors duration-300 delay-150">{item.content}</p>
-        <p className="text-sm text-gray-500 group-hover:text-gray-300 transition-colors duration-300 delay-150">{item.sub}</p>
-      </div>
-    </div>
-  </div>
-))}
-
+              {/* Text Column */}
+              <div className="flex-1">
+                <h3
+                  className="text-gray-700 group-hover:text-white font-semibold mb-1 transition-colors duration-300"
+                  style={{ transitionDelay: "100ms" }} // Title animates next
+                >
+                  {item.title}
+                </h3>
+                <p
+                  className="text-gray-800 group-hover:text-white font-medium text-lg mb-1 transition-colors duration-300"
+                  style={{ transitionDelay: "200ms" }} // Content animates after title
+                >
+                  {item.content}
+                </p>
+                <p
+                  className="text-sm text-gray-500 group-hover:text-gray-300 transition-colors duration-300"
+                  style={{ transitionDelay: "300ms" }} // Sub text animates last
+                >
+                  {item.sub}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div
@@ -118,7 +135,7 @@ function ContactInfo() {
         <h4 className="text-gray-800 font-semibold mb-4 flex items-center gap-2">
           <span className="text-red-500">🚨</span> Emergency Support
         </h4>
-        <button className="w-full py-4 bg-red-100 text-red-700 font-semibold rounded-xl transition-all duration-300 hover:scale-105">
+        <button className="w-full py-4 bg-white shadow-2xl text-red-700 font-semibold rounded-xl transition-all duration-300 hover:scale-105">
           Emergency Roadside Assistance
         </button>
       </div>

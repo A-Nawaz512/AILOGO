@@ -3,9 +3,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// 🔹 LOCAL IMAGES (put these in src/assets and adjust names if needed)
-import driverStrip from "../../assets/driver-strip.jpg";   // soft bg behind timeline
-import driverHero from "../../assets/driver-hero.jpg";     // main driver image
+import driverStrip from "../../assets/driver-strip.jpg";
+import driverHero from "../../assets/driver-hero.jpg";
 
 const steps = [
   {
@@ -47,14 +46,12 @@ const ProviderJourney = () => {
 
   return (
     <section className="relative bg-white overflow-hidden">
-      {/* soft bg glows */}
       <div className="pointer-events-none absolute inset-0 opacity-40">
         <div className="absolute -top-24 right-[-4rem] w-64 h-64 bg-[#E2CF7D]/35 blur-3xl rounded-full" />
         <div className="absolute bottom-[-3rem] left-[-4rem] w-64 h-64 bg-[#6F4918]/20 blur-3xl rounded-full" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        {/* heading */}
         <div className="text-center mb-12" data-aos="fade-up">
           <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-[18px] font-bold bg-[#F5F0E4] text-[#6F4918]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B78E3B]" />
@@ -71,14 +68,12 @@ const ProviderJourney = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
-          {/* LEFT: timeline with soft image strip */}
+          
           <div className="w-full lg:w-2/3 relative" data-aos="fade-right">
-            {/* light image strip behind timeline (desktop only) */}
             <div
               className="hidden lg:block absolute inset-y-6 left-0 right-10 rounded-[32px] bg-cover bg-center opacity-10"
               style={{ backgroundImage: `url(${driverStrip})` }}
             />
-            {/* vertical line on desktop */}
             <div className="hidden lg:block absolute left-5 top-3 bottom-3 w-px bg-gradient-to-b from-[#E2CF7D]/10 via-[#B78E3B]/35 to-[#6F4918]/20" />
 
             <div className="space-y-5 sm:space-y-6 relative">
@@ -87,9 +82,8 @@ const ProviderJourney = () => {
                   key={step.title}
                   data-aos="fade-up"
                   data-aos-delay={60 * i}
-                  className="relative flex gap-4 rounded-3xl bg-white/90 backdrop-blur border border-[#F1E7D1] shadow-[0_14px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_60px_rgba(0,0,0,0.1)] transition-transform hover:-translate-y-1"
+                  className="relative flex gap-4 max-w-[90%] ml-4 mx-auto rounded-3xl bg-white/90 backdrop-blur border border-[#F1E7D1] shadow-[0_14px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_60px_rgba(0,0,0,0.1)] transition-transform hover:-translate-y-1"
                 >
-                  {/* number bubble */}
                   <div className="flex flex-col items-center pt-5 pl-4">
                     <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-xs font-semibold text-black shadow-md">
                       {i + 1}
@@ -99,7 +93,6 @@ const ProviderJourney = () => {
                     )}
                   </div>
 
-                  {/* text content */}
                   <div className="py-4 pr-4 sm:py-5 sm:pr-5 flex-1">
                     <p className="text-[11px] uppercase tracking-wide text-[#B78E3B]">
                       {step.short}
@@ -119,9 +112,7 @@ const ProviderJourney = () => {
             </div>
           </div>
 
-          {/* RIGHT: driver image + highlight cards */}
           <div className="w-full lg:w-1/3 space-y-5" data-aos="fade-left">
-            {/* main driver image */}
             <div className="relative rounded-3xl overflow-hidden shadow-[0_18px_60px_rgba(0,0,0,0.25)] group">
               <div
                 className="h-40 sm:h-52 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-105"
@@ -139,7 +130,6 @@ const ProviderJourney = () => {
               </div>
             </div>
 
-            {/* why drive card */}
             <div className="rounded-3xl bg-gradient-to-br from-[#9e7033] via-[#b99242] to-[#deca71] text-white p-5 sm:p-6 shadow-[0_18px_60px_rgba(0,0,0,0.25)]">
               <h3 className="text-lg sm:text-xl font-semibold mb-2">
                 Why drive with ALLOGO?
@@ -156,7 +146,6 @@ const ProviderJourney = () => {
               </ul>
             </div>
 
-            {/* validation card */}
             <div className="rounded-3xl bg-[#0b0b0b] text-white p-5 sm:p-6 border border-[#2b2214] shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
               <h4 className="text-sm sm:text-base font-semibold mb-2">
                 Controller validation = trust.
@@ -175,7 +164,6 @@ const ProviderJourney = () => {
           </div>
         </div>
 
-        {/* bottom note */}
         <p
           className="mt-10 text-[11px] sm:text-xs text-gray-500 text-center"
           data-aos="fade-up"

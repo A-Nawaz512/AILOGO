@@ -5,148 +5,117 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const OurStory = () => {
-   useEffect(() => {
-      // Initialize AOS with custom settings
-      AOS.init({
-         duration: 800,
-         once: true,
-         disable: window.innerWidth < 768, // Disable on mobile devices
-         startEvent: "DOMContentLoaded",
-         offset: 100,
-      });
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      disable: window.innerWidth < 768,
+      startEvent: "DOMContentLoaded",
+      offset: 100,
+    });
 
-      // Re-initialize on resize to handle responsive behavior
-      const handleResize = () => {
-         if (window.innerWidth >= 768) {
-            AOS.init({
-               duration: 800,
-               once: true,
-               disable: false,
-               startEvent: "DOMContentLoaded",
-               offset: 100,
-            });
-         } else {
-            AOS.refreshHard(); // Disable AOS on mobile
-         }
-      };
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        AOS.init({
+          duration: 800,
+          once: true,
+          disable: false,
+          startEvent: "DOMContentLoaded",
+          offset: 100,
+        });
+      } else {
+        AOS.refreshHard();
+      }
+    };
 
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-   }, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-   return (
-      <section className="min-h-screen pt-20 px-6 lg:px-8 bg-white">
-         <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-               <h2
-                  className="text-4xl  md:text-5xl font-bold mb-6 flex items-center justify-center gap-6"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-               >
-                  <div className="pb-3">
-                     <span className="text-[#2a2a2a]">Our</span>{" "}
-                     <span className="text-[#B78E3B]">Story</span>
+  const cards = [
+    {
+      title: "The Beginning",
+      icon: <FaRocket />,
+      description:
+        "Started with a simple idea: create a unified platform that solves multiple daily needs.",
+      image: "/simple1.jpg",
+    },
+    {
+      title: "UC Design",
+      icon: <FaUsers />,
+      description:
+        "Clean interfaces and discreet registration with powerful features.",
+      image: "/design.jpg",
+    },
+    {
+      title: "Local Focus",
+      icon: <FaGlobeAfrica />,
+      description:
+        "Tailored for Algerian cities with inter-wilaya and intra-wilaya services.",
+      image: "/world.jpg",
+    },
+  ];
+
+  return (
+    <section className="min-h-screen pt-12 px-6 lg:px-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center items-center mb-2">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl text-[#1E2939] font-bold">
+              Our<span style={{ color: "#B78E3B" }}> Story</span>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
+          <p
+            className="text-gray-800 text-lg max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Born from the vision to create Algeria's most comprehensive service
+            platform, our journey began with a commitment to bridge the gap
+            between traditional services and digital convenience.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {cards.map((card, idx) => (
+            <div
+              key={idx}
+              className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
+              data-aos="fade-up"
+              data-aos-delay={300 + idx * 100}
+            >
+              {/* Background image */}
+              <div className="relative h-52 overflow-hidden  ease-in-out group-hover:scale-105 transition-transform duration-500">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              </div>
+
+              {/* Content Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent rounded-b-3xl">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="bg-gradient-to-br from-[#6F4918] to-[#E2CF7D] w-12 h-12 flex items-center justify-center rounded-full text-white text-2xl transition-transform duration-500 group-hover:scale-110">
+                    {card.icon}
                   </div>
-               </h2>
-               <p
-                  className="text-gray-800 text-lg max-w-3xl mx-auto"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-               >
-                  Born from the vision to create Algeria's most comprehensive
-                  service platform, our journey began with a commitment to
-                  bridge the gap between traditional services and digital
-                  convenience. We recognized the growing need for a unified
-                  ecosystem that caters specifically to the unique dynamics of
-                  Algerian daily life—combining reliability, accessibility, and
-                  local relevance into one seamless experience.
-               </p>
+                  <h3 className="text-xl font-bold text-white transition-transform duration-500 group-hover:translate-x-1">
+                    {card.title}
+                  </h3>
+                </div>
+                <p className="text-gray-200">{card.description}</p>
+              </div>
             </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-               {/* First Box with /simple.jpg */}
-               <div className="relative rounded-xl border-white border-2 hover:border-[#D4BE71] transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-                  <div data-aos="fade-up" data-aos-delay="300" className="h-full w-full p-5">
-                     <div
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                        style={{ backgroundImage: "url('/simple1.jpg')" }}
-                     >
-                        <div className="absolute inset-0 bg-black/70"></div>
-                     </div>
-                     <div className="relative z-10">
-                        <div className="flex items-center justify-between">
-                           <h3 className="text-2xl font-bold text-[#B78E3B]">
-                              The Beginning
-                           </h3>
-                           <div className="flex items-center pt-2">
-                              <FaRocket className="text-[#B78E3B] text-2xl " />
-                           </div>
-                        </div>
-                        <p className="text-gray-300 mt-6 ">
-                           Started with a simple idea: create a unified platform
-                           that solves multiple daily needs with Algerian users
-                           in mind.
-                        </p>
-                     </div>
-                  </div>
-               </div>
-
-               {/* Second Box with /design.jpg */}
-               <div className="relative rounded-xl border-2 border-white hover:border-[#D4BE71] transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-                  <div data-aos="fade-up" data-aos-delay="400" className="h-full w-full p-5">
-                     <div
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                        style={{ backgroundImage: "url('/design.jpg')" }}
-                     >
-                        <div className="absolute inset-0 bg-black/70"></div>
-                     </div>
-                     <div className="relative z-10">
-                        <div className="flex items-center justify-between">
-                           <h3 className="text-2xl font-bold text-[#B78E3B]">
-                              UC Design
-                           </h3>
-                           <div className="flex items-center pt-1">
-                              <FaUsers className="text-[#B78E3B] text-2xl" />
-                           </div>
-                        </div>
-                        <p className="text-gray-300 mt-6 ">
-                           Clean interfaces and discreet service provider
-                           registration to maintain simplicity while offering
-                           powerful features.
-                        </p>
-                     </div>
-                  </div>
-               </div>
-
-               {/* Third Box with /world.jpg */}
-               <div className="relative rounded-xl border-white border-2  hover:border-[#c7b269] transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-                  <div data-aos="fade-up" data-aos-delay="500" className="h-full w-full p-5">
-                     <div
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                        style={{ backgroundImage: "url('/world.jpg')" }}
-                     >
-                        <div className="absolute inset-0 bg-black/70"></div>
-                     </div>
-                     <div className="relative z-10">
-                        <div className="flex items-center justify-between">
-                           <h3 className="text-2xl font-bold text-[#B78E3B]">
-                              Local Focus
-                           </h3>
-                           <div className="flex items-center pt-1">
-                              <FaGlobeAfrica className="text-[#B78E3B] text-2xl" />
-                           </div>
-                        </div>
-                        <p className="text-gray-300 mt-6 ">
-                           Tailored specifically for Algerian cities with
-                           inter-wilaya and intra-wilaya services.
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-   );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default OurStory;

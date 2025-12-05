@@ -29,35 +29,35 @@ function ContactForm() {
         <div className="grid md:grid-cols-2 gap-6">
           <div data-aos="fade-up">
             <label className="block text-sm font-medium pb-1 text-gray-700">Full Name *</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Enter your full name" className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F5B45D]"/>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Enter your full name" className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#a37a45]"/>
           </div>
           <div data-aos="fade-up" data-aos-delay="50">
             <label className="block text-sm font-medium pb-1 text-gray-700">Phone Number *</label>
-            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+213 XXX XX XX XX" className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F5B45D]"/>
+            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+213 XXX XX XX XX" className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#a37a45]"/>
           </div>
         </div>
 
         <div data-aos="fade-up" data-aos-delay="100">
           <label className="block text-sm font-medium pb-1 text-gray-700">Email Address *</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="you@example.com" className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F5B45D]"/>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="you@example.com" className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#a37a45]"/>
         </div>
 
         <div data-aos="fade-up" data-aos-delay="150">
           <label className="block text-sm font-medium pb-1 text-gray-700">Service Interested In</label>
-          <select name="service" value={formData.service} onChange={handleChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#F5B45D]">
-            <option value="">Select a service</option>
+          <select name="service" value={formData.service} onChange={handleChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#a37a45]">
+            <option className='bg-[#a37a45] text-zinc-50 rounded' value="">Select a service</option>
             {services.map((s, idx) => <option key={idx} value={s}>{s}</option>)}
           </select>
         </div>
 
         <div data-aos="fade-up" data-aos-delay="200">
           <label className="block text-sm font-medium pb-1 text-gray-700">Subject</label>
-          <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="Brief description of your inquiry" className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F5B45D]"/>
+          <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="Brief description of your inquiry" className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#a37a45]"/>
         </div>
 
         <div data-aos="fade-up" data-aos-delay="250">
           <label className="block text-sm font-medium pb-1 text-gray-700">Message *</label>
-          <textarea name="message" value={formData.message} onChange={handleChange} required rows="4" placeholder="Please provide details about your request..." className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F5B45D] resize-none"/>
+          <textarea name="message" value={formData.message} onChange={handleChange} required rows="4" placeholder="Please provide details about your request..." className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#a37a45] resize-none"/>
         </div>
 
         {/* Submit Button */}

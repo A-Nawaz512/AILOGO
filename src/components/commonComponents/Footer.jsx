@@ -47,9 +47,9 @@ const Footer = () => {
 
   return (
     <div className="bg-white">
-      <footer className="bg-black text-white relative overflow-hidden border-t-5 border-[#CEAA36]">
+      <footer className="bg-black text-white relative overflow-hidden border-t-5 border-[#734D1C]">
         {/* LIGHT GOLD GRADIENT TOP BORDER */}
-        <div className="w-full bg-gradient-to-r from-[#734D1C] via-[#BCA25B] to-[#734D1C]"></div>
+        <div className="w-full bg-gradient-to-r from-[#734D1C] via-[#BCA25B]"></div>
 
         <div className="relative px-8 py-15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
           {/* Brand */}
@@ -63,14 +63,14 @@ const Footer = () => {
               All-in-one platform for Rides, Rentals, Food Delivery, Apartments
               & Roadside Assistance.
             </p>
-            <p className="text-[#CEAA36] text-sm font-semibold animate-pulse">
-              ★ Premium Services – 24/7 Available
+            <p className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent text-sm font-semibold animate-pulse">
+              ★ Premium Services - 24/7 Available
             </p>
           </div>
 
           {/* Quick Links */}
           <div data-aos="fade-right" data-aos-delay="150">
-            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#CEAA36] border-b border-[#CEAA36]/30 pb-2">
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent border-b border-[#CEAA36]/30 pb-2">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -93,7 +93,7 @@ const Footer = () => {
 
           {/* Services */}
           <div data-aos="fade-down" data-aos-delay="300">
-            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#CEAA36] border-b border-[#CEAA36]/30 pb-2">
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent border-b border-[#CEAA36]/30 pb-2">
               Services
             </h3>
             <ul className="space-y-3">
@@ -116,7 +116,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div data-aos="fade-left" data-aos-delay="450" className="space-y-4">
-            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-[#CEAA36] border-b border-[#CEAA36]/30 pb-2">
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent border-b border-[#CEAA36]/30 pb-2">
               Contact
             </h3>
 
@@ -168,7 +168,7 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/60 text-md">
               © {currentYear}{" "}
-              <span className="text-[#CEAA36] font-semibold animate-pulse">
+              <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent font-semibold animate-pulse">
                 ALLOGO
               </span>{" "}
               — All Rights Reserved

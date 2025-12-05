@@ -1,5 +1,5 @@
 import React from "react";
-import { Car, Bike, Home, Truck, Utensils, Wrench, Users } from "lucide-react";
+import { Car, Bike, Home, Truck, Utensils, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const MapShowcase = () => {
@@ -13,64 +13,49 @@ export const MapShowcase = () => {
   ];
 
   return (
-    <div className="bg-white px-4 ">
+    <div className="bg-white px-4">
       <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-8">
-          <div className="flex justify-center items-center">
+            <div className="flex text-[#1E2939] justify-center items-center mb-2">
             <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
-            <h2 className="text-lg md:text-4xl font-bold text-gray-800">
-              Real Time 3D Service <span style={{ color: "#B78E3B" }}>Tracking</span>
+            <h2 className="text-2xl md:text-4xl font-bold">
+              Real Time<span style={{ color: '#B78E3B' }}> 3D Service Tracking</span>
             </h2>
             <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Track rides, deliveries, rentals, and roadside assistance live in 3D with secure, free, and transparent MapLibre visualization</p>
+            Track rides, deliveries, rentals, and roadside assistance live in 3D with secure, free, and transparent MapLibre visualization
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Features List */}
           <div>
-            <h3 className="text-2xl font-bold mb-6" style={{ color: "#543918" }}>
+            <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
               Live Service Tracking
             </h3>
 
             <div className="space-y-4 mb-4">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full mt-2" style={{ backgroundColor: "#B78E3B" }}></div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">Real-time 3D Visualization</h4>
-                  <p className="text-gray-600 text-sm">All rides, deliveries, rentals, and roadside services shown live on map with gentle animation.</p>
+              {[
+                { title: "Real-time 3D Visualization", desc: "All rides, deliveries, rentals, and roadside services shown live on map with gentle animation." },
+                { title: "Free Map Solution", desc: "Open-source MapLibre 3D, no Google Maps fees." },
+                { title: "Verified Providers", desc: "All drivers, delivery personnel, and owners validated by ALLOGO controller." },
+                { title: "Credits & Points System", desc: "Providers and users earn points and credits; points can be used or transferred to providers." },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full mt-2" style={{ backgroundColor: "#B78E3B" }}></div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800">{item.title}</h4>
+                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full mt-2" style={{ backgroundColor: "#B78E3B" }}></div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">Free Map Solution</h4>
-                  <p className="text-gray-600 text-sm">Open-source MapLibre 3D, no Google Maps fees.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full mt-2" style={{ backgroundColor: "#B78E3B" }}></div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">Verified Providers</h4>
-                  <p className="text-gray-600 text-sm">All drivers, delivery personnel, and owners validated by ALLOGO controller.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full mt-2" style={{ backgroundColor: "#B78E3B" }}></div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">Credits & Points System</h4>
-                  <p className="text-gray-600 text-sm">Providers and users earn points and credits; points can be used or transferred to providers.</p>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Service Legend */}
             <div className="border border-gray-200 p-3 rounded-lg">
-              <h4 className="font-semibold mb-3" style={{ color: "#543918" }}>Service Colors</h4>
+              <h4 className="font-semibold mb-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">Service Colors</h4>
               <div className="grid grid-cols-2 gap-2">
                 {services.map((service) => (
                   <div key={service.id} className="flex items-center gap-2">
@@ -80,12 +65,11 @@ export const MapShowcase = () => {
                 ))}
               </div>
             </div>
-
           </div>
+
           {/* Map Visualization */}
           <div className="relative">
             <div className="bg-gray-900 rounded-xl overflow-hidden border-2 border-[#B78E3B]/30 h-[400px] relative">
-
               {/* Grid Lines */}
               <div className="absolute inset-0 opacity-10">
                 {Array.from({ length: 10 }).map((_, i) => (
@@ -140,10 +124,7 @@ export const MapShowcase = () => {
               </div>
             </div>
           </div>
-
-
         </div>
-
       </div>
     </div>
   );
