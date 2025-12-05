@@ -7,7 +7,7 @@ import { IoLanguageSharp } from "react-icons/io5";
 
 const Navbar = () => {
   // Set user to null if not logged in
-  const user = true; // or { name: "John Doe", avatar: "/user-avatar.jpg" }
+  const user = false; // or { name: "John Doe", avatar: "/user-avatar.jpg" }
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpenDesktop, setServicesOpenDesktop] = useState(false);
