@@ -26,17 +26,17 @@ export const ForPartners = () => {
   ];
 
   return (
-    <div className="bg-white py-4 px-4">
+    <div className="bg-white py-3 px-4">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex justify-center items-center">
-            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
-              Partner <span style={{ color: "#B78E3B" }}>Benefits</span>
+            <div className="h-px mt-2 w-12  bg-gradient-to-r from-transparent to-[#6F4918] mr-4"></div>
+            <h2 className="text-2xl text-[#1E2939] md:text-4xl font-bold ">
+              Partner <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">Benefits</span>
             </h2>
-            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#6F4918] ml-4"></div>
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Incentives, rewards, and real-time tracking for all ALLOGO providers
@@ -50,16 +50,17 @@ export const ForPartners = () => {
             return (
               <div
                 key={index}
-                className="flex gap-4 p-6 bg-white rounded-xl shadow hover:shadow-lg transition-transform transform border border-[#b78e3b94] hover:border-[#B78E3B] hover:-translate-y-1"
+                className="flex gap-4 p-6 bg-white rounded-xl shadow hover:shadow-lg transition-transform transform border border-[#b78e3b94] hover:border-[#6F4918] hover:-translate-y-1"
               >
                 <div
-                  className="p-4 rounded-lg sm:w-12 w-12 sm:h-12 h-12 flex items-center justify-center"
-                  style={{ backgroundColor: "rgba(183,142,59,0.1)" }}
+                  className="p-4 rounded-lg sm:w-12 w-12 sm:h-12 h-12 flex items-center justify-center bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]"
                 >
-                  <Icon className="h-4 sm:w-6 w-4 sm:h-6 text-[#543918]" />
+                  <Icon className="h-4 sm:w-6 w-4 sm:h-6 text-[white]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-800 mb-1">{benefit.title}</h4>
+                  <h4 className="font-bold text-gray-800 mb-1 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
+                    {benefit.title}
+                  </h4>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </div>
               </div>
