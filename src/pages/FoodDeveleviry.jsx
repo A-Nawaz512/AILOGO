@@ -6,6 +6,7 @@ import SmartRouting from '../components/FoodDelivery/SmartRouting';
 import PaymentSystem from '../components/FoodDelivery/PaymentSystem';
 import ChatIntegration from '../components/FoodDelivery/ChatIntegration';
 import ProviderPaymentUnlock from '../components/FoodDelivery/ProviderPaymentUnlock';
+import TrackingStatus from '../components/FoodDelivery/TrackingStatus'
 function FoodDeliveryPage() {
   return (
     <div className="">
@@ -14,6 +15,7 @@ function FoodDeliveryPage() {
       <ZoneCoverage />
       <SmartRouting />
       <PaymentSystem />
+      <TrackingStatus/>
       <ChatIntegration />
       <ProviderPaymentUnlock/>
     </div>

@@ -52,22 +52,18 @@ const DeliveryServices = () => {
   const activeGradient = "from-[#6F4918] to-[#E2CF7D]";
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="services" className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="relative text-4xl md:text-5xl font-bold text-black mb-4 flex items-center justify-center">
-            <span className="absolute left-0 top-1/2 w-24 h-0.5 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] opacity-60 -translate-y-1/2"></span>
-            <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent px-6">
-              Delivery Services
-            </span>
-            <span className="absolute right-0 top-1/2 w-24 h-0.5 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] opacity-60 -translate-y-1/2"></span>
-          </h2>
 
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-            From food to pharmaceuticals, we handle all your delivery needs with precision and care.
-          </p>
+        {/* Updated Header */}
+        <div className="text-center mb-16 relative">
+         <div className="flex  justify-center items-center mb-2">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+              Our<span style={{ color: '#B78E3B' }}> Services</span>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
         </div>
 
         {/* Service Cards */}
@@ -104,14 +100,14 @@ const DeliveryServices = () => {
           ))}
         </div>
 
-        {/* NEW Bottom Mini Navigation */}
+        {/* Bottom Mini Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="flex justify-center mb-12"
         >
-          <div className="bg-white shadow-lg border border-gray-200 px-5 py-3 rounded-full flex space-x-6">
+          <div className="bg-white shadow-lg border border-gray-200 px-5 py-2 rounded-full flex space-x-6">
             {Object.entries(services).map(([key, service]) => (
               <button
                 key={key}
@@ -167,7 +163,7 @@ const DeliveryServices = () => {
 
               <button
                 className="
-                relative inline-block px-10 py-3 font-semibold rounded-full
+                relative inline-block px-10 py-2 font-semibold rounded-xl
                 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] 
                 text-white shadow-md shadow-black/40
                 hover:shadow-lg hover:shadow-[#6F4918]/60
@@ -192,19 +188,18 @@ const DeliveryServices = () => {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-200">
                 <img
                   src={services[activeService].image}
                   alt={services[activeService].title}
                   className="w-full h-80 object-cover"
                 />
 
-                {/* Floating Overlay */}
                 <div
                   className="
                     absolute bottom-4 left-1/2 -translate-x-1/2
                     bg-white/80 backdrop-blur-md
-                    px-6 py-4 rounded-2xl shadow-lg border border-white
+                    px-5 py-2 rounded-2xl shadow-lg border border-white
                     w-[85%]
                   "
                 >

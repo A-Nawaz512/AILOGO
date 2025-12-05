@@ -43,13 +43,14 @@ export default function KeyBenefits() {
 
   return (
     <section className="py-2 bg-white text-black">
-      <div className="container mx-auto px-6 text-center">
-        <h2
-          data-aos="fade-down"
-          className="text-3xl font-bold mb-12 text-[#B78E3B]"
-        >
-          Key Features
-        </h2>
+      <div className="container mx-auto px-5 py-2 text-center">
+        <div className="flex  justify-center items-center mb-6 ">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-3xl font-bold">
+              Key{""} <span style={{ color: '#B78E3B' }}> Benefits </span>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
           {features.map((feature, index) => (

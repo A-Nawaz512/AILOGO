@@ -71,20 +71,20 @@ const SmartRouting = () => {
   return (
     <section
       id="routing"
-      className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 text-gray-900"
+      className="py-8 px-5 sm:px-5 lg:px-8 bg-gray-50 text-gray-900"
     >
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full mb-4">
-            <Navigation className="w-8 h-8 text-gray-50" />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Smart{" "}
-            <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
+     <div className="flex  justify-center items-center mb-2">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+            Smart{" "} <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
               Delivery Routing
             </span>
-          </h2>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Efficient multi-stop routing across zones with real-time
             optimization and delivery assignment.
@@ -103,7 +103,7 @@ const SmartRouting = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: idx * 0.2, duration: 0.6 }}
-          className="bg-white rounded-3xl p-8 flex flex-col items-center text-center cursor-pointer transition-transform duration-300 shadow-lg hover:shadow-2xl"
+          className="bg-white rounded-xl p-8 flex flex-col items-center text-center cursor-pointer transition-transform duration-50 shadow-lg hover:shadow-2xl"
         >
           <div className="text-6xl mb-4">{service.icon}</div>
           <h3 className="text-2xl font-bold mb-2 text-gray-800">{service.title}</h3>
@@ -112,13 +112,13 @@ const SmartRouting = () => {
           <ul className="mb-4 space-y-2">
             {service.features.map((feature, i) => (
               <li key={i} className="flex items-center gap-2 text-gray-700 text-sm">
-                <span className="w-2 h-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full"></span>
+                <span className="w-2 h-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-xl"></span>
                 {feature}
               </li>
             ))}
           </ul>
 
-          <button className="mt-auto inline-block px-6 py-2 rounded-full bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white font-semibold hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg">
+          <button className="mt-auto inline-block px-5 py-2 rounded-xl bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white font-semibold hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg">
             Order Now
           </button>
         </motion.div>
@@ -134,7 +134,7 @@ const SmartRouting = () => {
               <button
                 onClick={addStop}
                 disabled={route.length >= 7}
-                className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-gray-50 px-6 py-2 rounded-full hover:shadow-lg transition disabled:opacity-40"
+                className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-gray-50 px-5 py-2 rounded-xl hover:shadow-lg transition disabled:opacity-40"
               >
                 Add Stop
               </button>
@@ -152,7 +152,7 @@ const SmartRouting = () => {
                   className="flex items-center mb-8 ml-4"
                 >
                   <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-md border border-gray-200 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]`}
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center z-10 shadow-md border border-gray-200 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D]`}
                   >
                     {index === 0 ? (
                       <Target className="w-6 h-6 text-gray-50" />
@@ -190,7 +190,7 @@ const SmartRouting = () => {
             </div>
 
             {/* SUMMARY */}
-            <div className="mt-8 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+            <div className="mt-8 px-5 py-2 bg-gray-50 border border-gray-200 rounded-xl">
               <div className="flex justify-between">
                 <div>
                   <p className="text-sm text-gray-500">Total Stops</p>
@@ -216,7 +216,7 @@ const SmartRouting = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md"
+              className="bg-white px-5 py-2 rounded-xl border border-gray-200 hover:shadow-[#6F4918] to-[#E2CF7D] transition-transform decoration-300  shadow-md"
             >
               <h4 className="text-xl font-semibold mb-2">Delivery Types</h4>
               <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -230,7 +230,7 @@ const SmartRouting = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md"
+              className="bg-white px-5 py-2 rounded-2xl border border-gray-200  hover:shadow-[#6F4918] to-[#E2CF7D] transition-transform decoration-300 shadow-md"
             >
               <h4 className="text-xl font-semibold mb-2">Zones</h4>
               <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -244,7 +244,7 @@ const SmartRouting = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md"
+              className="bg-white px-5 py-3 rounded-2xl border border-gray-200  hover:shadow-[#6F4918] to-[#E2CF7D] transition-transform decoration-300 shadow-md"
             >
               <div className="flex items-start space-x-4">
                 <div className="p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-lg">
@@ -267,13 +267,13 @@ const SmartRouting = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
           id="commission"
-          className="mx-auto max-w-2xl mt-10 p-8 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-3xl shadow-lg text-white"
+          className="mx-auto max-w-2xl mt-10 px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-xl shadow-lg text-white"
         >
           <h3 className="text-3xl font-bold mb-6">Commission & Payment</h3>
 
           <div className="space-y-4">
-            <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
-              <span className="p-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full">
+            <div className="flex items-center gap-4 px-5 py-2 bg-white rounded-xl hover:bg-gray-100 transition">
+              <span className="px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-xl">
                 💰
               </span>
               <div>
@@ -284,8 +284,8 @@ const SmartRouting = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
-              <span className="p-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full">
+            <div className="flex items-center gap-4 px-5 py-2 bg-white rounded-xl hover:bg-gray-100 transition">
+              <span className="px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-xl">
                 💳
               </span>
               <div>
@@ -294,8 +294,8 @@ const SmartRouting = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-gray-100 transition">
-              <span className="p-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full">
+            <div className="flex items-center gap-4 px-5 py-2 bg-white rounded-xl hover:bg-gray-100 transition">
+              <span className="px-5 py-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-xl">
                 🛡️
               </span>
               <div>
@@ -307,7 +307,7 @@ const SmartRouting = () => {
             </div>
           </div>
 
-          <div className="mt-6 flex justify-between text-black items-center p-4 bg-white/50 rounded-xl">
+          <div className="mt-6 flex justify-between text-black items-center px-5 py-2 bg-white/50 rounded-xl">
             <span className="text-lg font-medium">Commission Rate</span>
             <span className="text-4xl  font-bold">5%</span>
           </div>

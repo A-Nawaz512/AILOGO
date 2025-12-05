@@ -38,13 +38,14 @@ export default function HowItWorksClient() {
 
   return (
     <section className="py-20 bg-gray-50 text-black">
-      <div className="container mx-auto px-6 text-center">
-        <h2
-          data-aos="fade-down"
-          className="text-3xl md:text-4xl font-bold mb-16 text-[#B78E3B]"
-        >
-          Client Journey (Tenants)
-        </h2>
+      <div className="container mx-auto px-5 py-2 text-center">
+        <div className="flex  justify-center items-center mb-12">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-3xl font-bold">
+               Client {""} <span style={{ color: '#B78E3B' }}>Journey (Tenants)</span>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
 
         <div className="relative flex flex-wrap justify-center gap-8 lg:gap-12">
           {steps.map((step, index) => (
@@ -52,7 +53,7 @@ export default function HowItWorksClient() {
               key={index}
               data-aos="fade-up"
               data-aos-delay={index * 200}
-              className={`flex flex-col items-center bg-white p-5 rounded-3xl shadow-lg 
+              className={`flex flex-col items-center bg-white px-5 py-2 rounded-3xl shadow-lg 
                          hover:shadow-[#B78E3B]/70 transition duration-300 w-72 md:w-80
                          ${index >= 3 ? 'mt-12 lg:mt-6' : 'mt-0'}`}
             >

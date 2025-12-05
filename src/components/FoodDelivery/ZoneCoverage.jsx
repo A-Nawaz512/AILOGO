@@ -85,19 +85,19 @@ const ZoneCoverage = () => {
   };
 
   return (
-    <section id="zones" className="py-6 px-4 sm:px-6 lg:px-8 bg-white text-black relative">
+    <section id="zones" className="py-5 px-2 sm:px-6 lg:px-8 bg-white text-black relative">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full mb-4">
-            <Globe className="w-8 h-8 text-white" />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Comprehensive{" "}
-            <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
+           <div className="flex  justify-center items-center mb-2">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+             Comprehensive{" "} <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
               Zone Coverage
             </span>
-          </h2>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
             Seamless delivery network across all zones with intelligent routing and real-time tracking
           </p>
@@ -112,7 +112,7 @@ const ZoneCoverage = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-3xl p-6 shadow-xl border border-gray-200"
+              className="bg-white rounded-xl p-5 shadow-xl border border-gray-200"
             >
               <h3 className="text-2xl font-bold mb-6">Select Zone Type</h3>
               <div className="space-y-4">
@@ -120,7 +120,7 @@ const ZoneCoverage = () => {
                   <button
                     key={zone.id}
                     onClick={() => setSelectedZone(zone.id)}
-                    className={`w-full p-4 rounded-xl border-2 transition-all duration-300 transform cursor-pointer ${
+                    className={`w-full px-5 py-2 rounded-xl border-2 transition-all duration-300 transform cursor-pointer ${
                       selectedZone === zone.id
                         ? `border-transparent bg-gradient-to-r ${zone.color} text-white shadow-lg scale-105`
                         : "border-gray-300 hover:border-[#6F4918] hover:bg-gray-50 text-[#6F4918]"
@@ -168,7 +168,7 @@ const ZoneCoverage = () => {
             </motion.div>
 
             {/* Zone Performance */}
-            <div className={`bg-gradient-to-r ${currentZone.color} rounded-3xl p-6 shadow-xl`}>
+            <div className={`bg-gradient-to-r ${currentZone.color} rounded-3xl p-5 shadow-xl`}>
               <h3 className="text-2xl font-bold mb-6 text-white">Zone Performance</h3>
               <div className="grid grid-cols-2 gap-6 text-white">
                 {[
@@ -189,7 +189,7 @@ const ZoneCoverage = () => {
           {/* Right Column - Map & CTA */}
           <div className="space-y-8">
             {/* Map Card */}
-            <div className="bg-white rounded-3xl p-6 shadow-xl border border-gray-200 h-full relative">
+            <div className="bg-white rounded-3xl p-5 shadow-xl border border-gray-200 h-full relative">
               <h3 className="text-2xl font-bold mb-4">Zone Network Map</h3>
               <p className="text-gray-700 mb-4">Interactive coverage visualization</p>
               <div className="relative h-96 bg-gray-100 rounded-2xl border-2 border-gray-200">
@@ -247,7 +247,7 @@ const ZoneCoverage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="bg-gradient-to-r from-[#4A3A26] to-[#A88C54] rounded-3xl p-8 text-center shadow-xl mt-8 space-y-6"
+                className="bg-gradient-to-r from-[#4A3A26] to-[#A88C54] rounded-3xl p-5 text-center shadow-xl mt-8 space-y-6"
               >
                 <h3 className="text-2xl md:text-3xl font-bold text-white">Ready to Deliver?</h3>
                 <p className="text-white/90 text-lg md:text-xl max-w-xl mx-auto">
@@ -256,7 +256,7 @@ const ZoneCoverage = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
-                    className="px-6 py-3 rounded-full font-semibold tracking-wide text-white
+                    className="px-5 py-2 rounded-xl font-semibold tracking-wide text-white
                                bg-[linear-gradient(135deg,#4A3A26,#6F4918,#A88C54)]
                                shadow-lg shadow-black/25
                                transition-all duration-300 ease-out
@@ -266,7 +266,7 @@ const ZoneCoverage = () => {
                     Become a Provider
                   </button>
                   <button
-                    className="px-6 py-3 rounded-full font-semibold tracking-wide
+                    className="px-5 py-2 rounded-xl font-semibold tracking-wide
                                border border-[#6F4918] text-[#3C2C1A]
                                bg-white/5 backdrop-blur-sm
                                shadow-md shadow-black/10

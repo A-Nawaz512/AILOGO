@@ -33,7 +33,7 @@ const ProviderPaymentUnlock = () => {
   return (
     <section
       id="provider-payment-unlock"
-      className="relative py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 text-gray-900 overflow-hidden"
+      className="relative py-8 px-4 sm:px-6 lg:px-8 bg-gray-50 text-gray-900 overflow-hidden"
     >
       <div className="absolute inset-0">
         <div className="bg-[#FAFBFC] w-full h-full pointer-events-none"></div>
@@ -42,12 +42,13 @@ const ProviderPaymentUnlock = () => {
       <div className="relative max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20" data-aos="fade-up">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Provider{" "}
-            <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
-              Requirements
-            </span>
-          </h2>
+         <div className="flex  justify-center items-center mb-2">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+               Provider{" "}<span style={{ color: '#B78E3B' }}> Requirements</span>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
           <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             To ensure secure and efficient delivery assignments, providers must
             verify a payment card.
@@ -56,11 +57,11 @@ const ProviderPaymentUnlock = () => {
 
         {/* Requirement Card */}
         <div
-          className="bg-white border border-gray-200 rounded-4xl shadow-2xl p-12 flex flex-col items-center text-center space-y-8 transition-transform transform hover:-translate-y-2 hover:shadow-3xl duration-300"
-          data-aos="zoom-in"
+          className="bg-white border border-gray-200 rounded-4xl shadow-2xl px-5 py-2 flex flex-col items-center text-center space-y-8 transition-transform transform hover:-translate-y-2 hover:shadow-3xl duration-800"
+          data-aos="zoom-out"
         >
-          <div className="p-6 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full inline-flex items-center justify-center shadow-lg">
-            <CreditCard className="w-12 h-12 text-white animate-pulse" />
+          <div className="px-5 py-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-xl inline-flex items-center justify-center shadow-lg">
+            <CreditCard className="w-8 h-8 text-white animate-pulse" />
           </div>
 
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -77,7 +78,7 @@ const ProviderPaymentUnlock = () => {
             {features.map(({ icon: Icon, text, color }, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-4 p-4 bg-gray-100 rounded-2xl hover:bg-gray-200  ease-in-out transform hover:translate-y-1 transition duration-1000"
+                className="flex items-center gap-4 px-5 py-3 bg-gray-100 rounded-2xl hover:bg-gray-200  ease-in-out transform hover:translate-y-1 transition duration-1000"
                 data-aos="fade-up"
                 data-aos-delay={idx * 100}
               >
@@ -89,7 +90,7 @@ const ProviderPaymentUnlock = () => {
 
           {/* CTA */}
           <button
-            className="mt-12 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white px-5 py-2 rounded-full font-semibold text-lg shadow-lg hover:shadow-2xl transition transform hover:scale-105 duration-300"
+            className="mt-12 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white px-5 py-2 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition transform hover:scale-105 duration-300"
             onClick={() => setShowModal(true)}
           >
             Verify Your Card
@@ -100,7 +101,7 @@ const ProviderPaymentUnlock = () => {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-3xl shadow-2xl w-11/12 md:w-2/5 p-8 relative animate-fade-in">
+          <div className="bg-white rounded-xl shadow-2xl w-11/12 md:w-2/5 px-5 py-2 relative animate-fade-in">
             <button
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
               onClick={() => setShowModal(false)}
@@ -114,14 +115,14 @@ const ProviderPaymentUnlock = () => {
             </p>
             <button
               className="
-    relative inline-block px-6 py-3 rounded-full font-semibold text-white 
+    relative inline-block px-5 py-2 rounded-full font-semibold text-white 
     bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] 
     shadow-lg 
     overflow-hidden
     transition-all duration-300 ease-out
     transform hover:scale-105 hover:shadow-2xl
     before:absolute before:inset-0 before:bg-white before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-10
-    after:absolute after:inset-0 after:rounded-full after:ring-0 after:ring-[#E2CF7D] after:ring-offset-0 after:transition-all hover:after:ring-4
+    after:absolute after:inset-0 after:rounded-xl after:ring-0 after:ring-[#E2CF7D] after:ring-offset-0 after:transition-all hover:after:ring-4
   "
               onClick={() => alert("Verification logic goes here!")}
             >

@@ -34,12 +34,13 @@ export default function CommissionAndPayout() {
   return (
     <section className="py-16 bg-white text-black">
       <div className="container mx-auto px-5">
-        <h2
-          data-aos="fade-down"
-          className="text-3xl font-bold text-center mb-12 text-[#B78E3B]"
-        >
-          Commission, Payment & Dispute Management
-        </h2>
+        <div className="flex  justify-center items-center mb-8">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+              Commission {""} <span style={{ color: '#B78E3B' }}> Payment & Dispute Management</span>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           {FEATURES.map((item, index) => (

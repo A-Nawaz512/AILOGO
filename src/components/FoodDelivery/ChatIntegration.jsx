@@ -51,20 +51,18 @@ const ChatIntegration = () => {
   return (
     <section
       id="communication"
-      className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 text-gray-900"
+      className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-50 text-gray-900"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full mb-4">
-            <MessageCircle className="w-8 h-8 text-white" />
+     <div className="flex  justify-center items-center mb-2">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+                Real-time{" "}<span style={{ color: '#B78E3B' }}> Communication</span>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Real-time{" "}
-            <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
-              Communication
-            </span>
-          </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
             In-app chat, call, or WhatsApp for instant delivery coordination
           </p>
@@ -74,7 +72,7 @@ const ChatIntegration = () => {
           {/* Chat List */}
           <div className="space-y-8">
             <ChatCard>
-              <div className="p-6 border-b border-gray-200">
+              <div className="px-5 py-2 border-b border-gray-200">
                 <h3 className="text-xl font-bold">Chat Channels</h3>
                 <p className="text-gray-500 text-sm">Connected conversations</p>
               </div>
@@ -82,7 +80,7 @@ const ChatIntegration = () => {
                 {chats.map((c) => (
                   <div
                     key={c.id}
-                    className="p-4 hover:bg-gray-100 cursor-pointer flex justify-between items-center"
+                    className="px-5 py-2 hover:bg-gray-100 cursor-pointer flex justify-between items-center"
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full flex items-center justify-center">
@@ -97,13 +95,13 @@ const ChatIntegration = () => {
                       </div>
                     </div>
                     {c.unread && (
-                      <div className="w-2 h-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-xl"></div>
                     )}
                   </div>
                 ))}
               </div>
-              <div className="p-4 border-t border-gray-200">
-                <button className="w-full bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white py-3 rounded-xl font-semibold hover:opacity-90">
+              <div className="px-5 py-2 border-t border-gray-200">
+                <button className="w-full bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white px-5 py-2 rounded-xl font-semibold hover:opacity-90">
                   New Conversation
                 </button>
               </div>
@@ -111,9 +109,9 @@ const ChatIntegration = () => {
 
             {/* WhatsApp Integration */}
             {/* WhatsApp Integration */}
-            <div className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-2xl p-6 text-white shadow-xl">
+            <div className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-xl px-5 py-2 text-white shadow-xl">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="p-2 bg-white/20 rounded-lg">
+                <div className="px-5 py-2 bg-white/20 rounded-xl">
                   {/* Official WhatsApp Icon */}
                   <SiWhatsapp className="w-5 h-5 text-[#25D366]" />
                 </div>
@@ -127,7 +125,7 @@ const ChatIntegration = () => {
               {/* Modern WhatsApp Button */}
               <button
                 className="
-      w-full py-3 rounded-xl font-semibold text-white
+      w-full px-5 py-2 rounded-xl font-semibold text-white
       bg-[#25D366]
       shadow-lg shadow-black/20
       transition-all duration-300
@@ -146,7 +144,7 @@ const ChatIntegration = () => {
           <div className="lg:col-span-2">
             <ChatCard>
               {/* Header */}
-              <div className="p-6 border-b border-gray-200 flex justify-between items-center">
+              <div className="px-5 py-2 border-b border-gray-200 flex justify-between items-center">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] rounded-full flex items-center justify-center">
                     <HelpCircle className="w-6 h-6 text-white" />
@@ -166,13 +164,13 @@ const ChatIntegration = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Phone className="w-5 h-5 text-gray-500 p-2 hover:bg-gray-100 rounded-lg" />
-                  <Video className="w-5 h-5 text-gray-500 p-2 hover:bg-gray-100 rounded-lg" />
+                  <Phone className="w-5 h-5 text-gray-500 px-5 py-2 hover:bg-gray-100 rounded-xl" />
+                  <Video className="w-5 h-5 text-gray-500 px-5 py-2 hover:bg-gray-100 rounded-xl" />
                 </div>
               </div>
 
               {/* Messages */}
-              <div className="flex-1 p-6 overflow-y-auto space-y-6">
+              <div className="flex-1 px-5 py-2 overflow-y-auto space-y-6">
                 {messages.map((m) => (
                   <div
                     key={m.id}
@@ -181,7 +179,7 @@ const ChatIntegration = () => {
                     }`}
                   >
                     <div
-                      className={`max-w-xs lg:max-w-md p-4 rounded-2xl ${
+                      className={`max-w-xs lg:max-w-md px-5 py-2 rounded-xl ${
                         m.sender === "user"
                           ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-tr-none"
                           : "bg-gray-100 text-gray-900 border border-gray-200 rounded-tl-none"
@@ -207,13 +205,13 @@ const ChatIntegration = () => {
 
               {/* Input */}
               <div className="p-6 border-t border-gray-200 flex items-center space-x-4">
-                <Paperclip className="w-5 h-5 text-gray-500 p-3 hover:bg-gray-100 rounded-xl" />
+                <Paperclip className="w-5 h-5 text-gray-500 px-5 py-2 hover:bg-gray-100 rounded-xl" />
                 <input
                   type="text"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-1 bg-white border border-gray-200 text-gray-900 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#F5B45D] focus:border-transparent"
+                  className="flex-1 bg-white border border-gray-200 text-gray-900 rounded-xl px-5 py-2 focus:outline-none focus:ring-2 focus:ring-[#B78E3B] focus:border-transparent"
                 />
                 <Send className="w-5 h-5 p-3 bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white rounded-xl hover:opacity-90" />
               </div>

@@ -112,7 +112,7 @@ const Header = () => {
         exit={{ opacity: 0, y: -30 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+        <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-6">
           {before}
           <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
             {slide.highlight}
@@ -132,7 +132,7 @@ const Header = () => {
               className={`${
                 idx === 0
                   ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white"
-                  : "border-2 border-[#B78E3B] text-[#B78E3B]"
+                  : "border-2 border-[#B78E3B] text-[#B78E3B] hover:bg-[#B78E3B] hover:text-white"
               } font-semibold px-5 py-2 rounded-xl hover:scale-105 transition-all shadow-lg`}
             >
               {cta.text}

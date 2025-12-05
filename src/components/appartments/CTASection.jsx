@@ -12,12 +12,13 @@ export default function CTASection() {
     <section className="py-20 bg-[#f8f6f1]">
       <div className="container mx-auto px-6 text-center">
         {/* Heading */}
-        <h2
-          data-aos="fade-down"
-          className="text-3xl md:text-4xl font-bold text-[#B78E3B] mb-6"
-        >
-          Ready to Explore ALLOGO?
-        </h2>
+       <div className="flex  justify-center items-center mb-4">
+            <div className="h-px mt-2 w-12 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+              Ready {""} <span style={{ color: '#B78E3B' }}>to Explore ALLOGO?</span>
+            </h2>
+            <div className="h-px mt-2 w-12 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
 
         <p
           data-aos="fade-up"
