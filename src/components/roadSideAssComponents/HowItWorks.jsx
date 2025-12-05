@@ -11,156 +11,84 @@ import { GiPathDistance } from "react-icons/gi";
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <FaMapMarkerAlt className="text-4xl" />,
+      icon: <FaMapMarkerAlt className="text-[#B78E3B] text-3xl" />,
       title: "Set Location",
       description: "Pin your exact location on the map or use current GPS",
-      color: "bg-blue-100 text-blue-600",
-      number: "01",
     },
     {
-      icon: <GiPathDistance className="text-4xl" />,
+      icon: <GiPathDistance className="text-[#B78E3B] text-3xl" />,
       title: "Choose Service",
       description:
         "Select from towing, mechanic, battery, fuel, or tire service",
-      color: "bg-green-100 text-green-600",
-      number: "02",
     },
     {
-      icon: <FaCar className="text-4xl" />,
+      icon: <FaCar className="text-[#B78E3B] text-3xl" />,
       title: "View Providers",
       description: "See available service providers with ratings and ETA",
-      color: "bg-purple-100 text-purple-600",
-      number: "03",
     },
     {
-      icon: <FaTools className="text-4xl" />,
+      icon: <FaTools className="text-[#B78E3B] text-3xl" />,
       title: "Get Help",
       description: "Provider arrives and performs the required service",
-      color: "bg-orange-100 text-orange-600",
-      number: "04",
     },
     {
-      icon: <FaCreditCard className="text-4xl" />,
+      icon: <FaCreditCard className="text-[#B78E3B] text-3xl" />,
       title: "Secure Payment",
       description: "Pay cash or card directly in the app",
-      color: "bg-teal-100 text-teal-600",
-      number: "05",
     },
     {
-      icon: <FaStar className="text-4xl" />,
+      icon: <FaStar className="text-[#B78E3B] text-3xl" />,
       title: "Rate Service",
       description: "Rate your experience and help improve the community",
-      color: "bg-yellow-100 text-yellow-600",
-      number: "06",
     },
   ];
 
   return (
-    <section
-      className="py-15 md:py-20 relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url('https://images.unsplash.com/photo-1519861531473-920034658307?auto=format&fit=crop&w=2070&q=80')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      data-aos="fade-up"
-    >
+    <section className="py-5 bg-gray-50">
       <div className="container mx-auto px-4">
-        
-        {/* TITLE */}
-        <div data-aos="zoom-in" className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
-            Cute & Smooth{" "}
-            <span className="text-[#CEAA36]">How It Works</span>
-          </h2>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center items-center mb-4">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#B78E3B] mr-4"></div>
+            <h2 className="text-2xl md:text-4xl font-bold text-center">
+      Cute & Smooth
+      <span className="text-[#B78E3B]"> How It Works</span>
+    </h2>
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#B78E3B] ml-4"></div>
+          </div>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            6 adorable steps with animated icons and soft transitions ✨
+            6 easy steps to get roadside assistance quickly and efficiently.
           </p>
         </div>
 
-        {/* STEPS GRID */}
+        {/* Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {steps.map((step, index) => (
+          {steps.map((step, idx) => (
             <div
-              key={index}
-              data-aos="fade-up"
-              data-aos-delay={index * 120}
-              className="relative group"
+              key={idx}
+              className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 relative overflow-hidden 
+                         hover:shadow-[0_20px_40px_rgba(183,142,59,0.4)] hover:scale-105 
+                         transition-transform transition-shadow duration-300"
             >
-              <div
-                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200 
-                transition-all duration-500 group-hover:-translate-y-2 
-                group-hover:shadow-2xl group-hover:border-[#CEAA36]
-                relative overflow-hidden"
-              >
-                
-                {/* Glow Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-30 
-                bg-gradient-to-r from-[#CEAA36] to-yellow-400 blur-xl transition-all duration-700"></div>
-
-                <div className="relative flex items-start">
-                  
-                  {/* ICON with cute animation */}
-                  <div
-                    data-aos="zoom-in"
-                    className={`shrink-0 w-16 h-16 rounded-full ${step.color}
-                    flex items-center justify-center mr-4 transform 
-                    transition-all duration-500 group-hover:scale-110 
-                    group-hover:rotate-6`}
-                  >
-                    {step.icon}
-                  </div>
-
-                  {/* TEXT */}
-                  <div className="relative">
-                    <div
-                      data-aos="fade-down"
-                      className="text-4xl font-extrabold text-gray-300 absolute -top-2 right-3 opacity-70 tracking-wide 
-                      group-hover:text-[#CEAA36] transition-all duration-500"
-                    >
-                      {step.number}
-                    </div>
-
-                    <h3
-                      data-aos="fade-right"
-                      className="text-xl font-bold text-gray-800 mb-3"
-                    >
-                      {step.title}
-                    </h3>
-
-                    <p
-                      data-aos="fade-left"
-                      className="text-gray-600"
-                    >
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Cute arrow connector */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-5 transform -translate-y-1/2">
-                    <div
-                      data-aos="zoom-in"
-                      className="w-8 h-0.5 bg-gradient-to-r from-[#CEAA36] to-yellow-400"
-                    ></div>
-                    <div className="w-0.5 h-8 bg-gradient-to-b from-[#CEAA36] to-yellow-400 ml-3.5"></div>
-                  </div>
-                )}
+              {/* Icon */}
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#FFF4E0] mb-6 mx-auto">
+                {step.icon}
               </div>
+
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800 text-center mb-3">
+                {step.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-600 text-center">{step.description}</p>
             </div>
           ))}
         </div>
 
         {/* Bottom Banner */}
         <div className="mt-14 text-center">
-          <div
-            data-aos="zoom-in"
-            className="inline-flex items-center justify-center 
-            bg-gradient-to-r from-[#CEAA36] to-yellow-500 
-            text-white px-7 md:px-10 py-4 rounded-full text-lg shadow-xl 
-            font-bold hover:scale-101 transition-all duration-700  text-sm md:text-lg"
-          >
+          <div className="inline-flex items-center justify-center bg-gradient-to-r from-[#CEAA36] to-[#937b2c] text-white px-8 md:px-8 py-4 rounded-xl text-lg shadow-xl font-bold">
             <FaTools className="mr-3" />
             Average Response Time: 15-20 Minutes
           </div>

@@ -1,229 +1,173 @@
-// src/components/Header.jsx
 import React, { useEffect, useState } from "react";
-import { FaCheck } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 // LOCAL IMAGES
-import mechanic from "../../assets/rm1.avif";
-import towing from "../../assets/rt2.avif";
-import battery from "../../assets/rb3.avif";
-import tires from "../../assets/rt4.avif";
-import fueldelivery from "../../assets/rfd5.avif";
+import mechanic from "../../assets/rm1.jpg";
+import towing from "../../assets/rt2.jpg";
+import battery from "../../assets/rb3.jpg";
+import tires from "../../assets/rt4.jpg";
+import fueldelivery from "../../assets/rd6.jpg";
+import newslide from "../../assets/rfd5.jpg";
+import lastslide from "../../assets/rdm7.jpg";
 
-const HeroSection = () => {
+const Header = () => {
   const slides = [
     {
-      type: "Zones",
-      text: "Explore service availability across different areas",
+      title: "Instant",
       subText:
-        "Browse through city zones, neighborhoods, and villa communities to find tailored services near you.",
+        "Get immediate roadside support anywhere in the city—mechanics, towing, battery boost, flat tire replacement, and fuel delivery.",
       image: mechanic,
-      cta1: { text: "View Zones", link: "/zones" },
-      cta2: { text: "Service Areas", link: "/areas" },
-      badge: "City · Neighborhoods · Villas",
+      highlight: "Roadside Assistance",
+      cta1: { text: "Request Help", link: "/roadside-help" },
+      cta2: { text: "View Services", link: "/roadside-services" },
     },
     {
-      type: "Deliveries",
-      text: "Fast and reliable delivery services",
+      title: "24/7 Reliable",
       subText:
-        "Send parcels, documents, and small items quickly with real-time tracking and verified riders.",
+        "Professional towing service available anytime. Move broken-down vehicles safely within the city or to another zone.",
       image: towing,
-      cta1: { text: "Send a Delivery", link: "/deliveries" },
-      cta2: { text: "Become a Courier", link: "/couriers" },
-      badge: "Pickup · Drop-off · Express",
+      highlight: "Towing Service",
+      cta1: { text: "Call Tow Truck", link: "/towing" },
+      cta2: { text: "Learn More", link: "/towing-info" },
     },
     {
-      type: "Communication",
-      text: "Stay connected with drivers through chat or calls",
+      title: "On-Spot",
       subText:
-        "Use in-app messaging, voice calls, or WhatsApp for quick and convenient communication during your trip.",
+        "Dead battery? Flat tire? Our verified providers offer quick battery boosts, tire replacement, and essential on-spot repairs.",
       image: battery,
-      cta1: { text: "Open Chat", link: "/chat" },
-      cta2: { text: "Call or WhatsApp", link: "/contact" },
-      badge: "Chat · Call · WhatsApp",
+      highlight: "Mechanic Support",
+      cta1: { text: "Get Mechanic", link: "/mechanic" },
+      cta2: { text: "Explore Options", link: "/roadside-options" },
     },
     {
-      type: "Commission",
-      text: "Only 5% commission on every completed ride",
+      title: "Fuel Delivery",
       subText:
-        "ALLOGO keeps it simple and fair — drivers keep 95% earnings with no hidden fees or surprises.",
+        "Ran out of fuel? Request instant fuel delivery wherever you are. Fast, safe, and affordable.",
       image: tires,
-      cta1: { text: "Learn More", link: "/commission" },
-      cta2: { text: "Driver Earnings", link: "/drivers/earnings" },
-      badge: "ALLOGO · 5% Commission",
+      highlight: "Fuel Service",
+      cta1: { text: "Request Fuel", link: "/fuel" },
+      cta2: { text: "Service Details", link: "/fuel-info" },
     },
     {
-      type: "Payment",
-      text: "Flexible payment options for all customers",
+      title: "In-App Chat & WhatsApp",
       subText:
-        "Pay your fare conveniently using cash or card — whichever works best for you.",
+        "Instant communication via in-app chat, phone call, or WhatsApp. Stay fully connected with your assigned provider.",
       image: fueldelivery,
-      cta1: { text: "View Payment Methods", link: "/payments" },
-      cta2: { text: "Add Card", link: "/account/payments" },
-      badge: "Cash · Card",
+      highlight: "Communication",
+      cta1: { text: "Try Demo", link: "/demo" },
+      cta2: { text: "Contact Support", link: "/contact" },
+    },
+    {
+      title: "Only 5% Commission",
+      subText:
+        "Affordable pricing with secure cash or card payments. Providers must verify card to unlock new roadside missions.",
+      image: newslide,
+      highlight: "Commission",
+      cta1: { text: "Sign Up", link: "/signup" },
+      cta2: { text: "Pricing", link: "/pricing" },
+    },
+    {
+      title: "Fast & Verified",
+      subText:
+        "Our roadside experts are fully verified and arrive fast to help you anywhere in the city.",
+      image: lastslide,
+      highlight: "Verified Providers",
+      cta1: { text: "Meet Providers", link: "/providers" },
+      cta2: { text: "Learn More", link: "/providers-info" },
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 800, once: true });
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(
-      () => setCurrentIndex((prev) => (prev + 1) % slides.length),
-      5000
-    );
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const currentSlide = slides[currentIndex];
-
-  // word highlighting
-  const highlightWord =
-    currentSlide.type === "Rides"
-      ? "ride"
-      : currentSlide.type === "Moto"
-      ? "moto"
-      : "drivers";
-
-  const lower = currentSlide.text.toLowerCase();
-  const hwLower = highlightWord.toLowerCase();
-  const idx = lower.indexOf(hwLower);
-  const before = idx !== -1 ? currentSlide.text.slice(0, idx) : currentSlide.text;
-  const match =
-    idx !== -1 ? currentSlide.text.slice(idx, idx + highlightWord.length) : "";
+  const slide = slides[currentIndex];
+  const highlightIndex = slide.title.indexOf(slide.highlight);
+  const before =
+    highlightIndex >= 0 ? slide.title.slice(0, highlightIndex) : slide.title;
   const after =
-    idx !== -1 ? currentSlide.text.slice(idx + highlightWord.length) : "";
+    highlightIndex >= 0
+      ? slide.title.slice(highlightIndex + slide.highlight.length)
+      : "";
 
   return (
-    <div className="min-h-screen text-white relative overflow-x-hidden bg-black">
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        
-        {/* Background images */}
-        <div className="absolute inset-0 w-full h-full">
-          {slides.map((slide, i) => (
-            <div
-              key={i}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out ${
-                i === currentIndex ? "opacity-100" : "opacity-0"
-              }`}
-              style={{ backgroundImage: `url(${slide.image})` }}
-            />
-          ))}
-        </div>
+    <header className="relative min-h-screen text-white overflow-hidden bg-black">
+      <section className="relative min-h-screen flex items-center justify-center">
 
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/70 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/80" />
+        {/* Background Slides */}
+        <AnimatePresence mode="wait">
+          {slides.map((s, i) =>
+            i === currentIndex ? (
+              <motion.div
+                key={i}
+                className="absolute inset-0 bg-cover bg-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                style={{ backgroundImage: `url(${s.image})` }}
+              />
+            ) : null
+          )}
+        </AnimatePresence>
 
-        {/* CONTENT */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-6 py-24 flex flex-col justify-between gap-10">
-          <div>
-            {/* top badge */}
-            <div data-aos="fade-down" className="flex justify-start mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-[11px] font-semibold bg-white/10 text-[#E2CF7D] backdrop-blur">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E2CF7D]" />
-                Roadside Assistance / ALLOGO
-              </span>
-            </div>
+        {/* 🔥 Strong black overlay (clean, no gray) */}
+        <div className="absolute inset-0 bg-black/60"></div>
 
-            {/* main hero block */}
-            <div data-aos="fade-up" className="max-w-3xl space-y-5">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-                {idx !== -1 ? (
-                  <>
-                    <span className="text-white">{before}</span>
-                    <span className="text-[#f7b35a]">{match}</span>
-                    <span className="text-white">{after}</span>
-                  </>
-                ) : (
-                  <span className="text-white">{currentSlide.text}</span>
-                )}
+        {/* Content */}
+        <div className="relative z-20 text-center px-5 max-w-3xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            >
+              <h1 className="text-3xl md:text-6xl font-extrabold leading-tight mb-6">
+                {before}
+                <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
+                  {slide.highlight}
+                </span>
+                {after}
               </h1>
 
-              <div>
-                <span className="inline-flex px-3 py-1 rounded-full text-[11px] font-semibold bg-black/50 text-[#E2CF7D]">
-                  {currentSlide.badge}
-                </span>
-              </div>
-
-              <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-                {currentSlide.subText}
+              <p className="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                {slide.subText}
               </p>
 
-              {/* feature chips */}
-              <div className="flex flex-wrap gap-3 text-[11px] md:text-xs text-gray-200">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-[#E2CF7D]" />
-                  Live GPS tracking (OpenStreetMap)
-                </span>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-[#B78E3B]" />
-                  Real-time price negotiation
-                </span>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-white" />
-                  Cash / Card · 7% commission
-                </span>
+              <div className="flex justify-center gap-4 mt-6">
+                {[slide.cta1, slide.cta2].map((cta, idx) => (
+                  <a
+                    key={idx}
+                    href={cta.link}
+                    className={`${
+                      idx === 0
+                        ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white"
+                        : "border-2 border-[#B78E3B] text-[#B78E3B]"
+                    } font-semibold px-5 py-2 rounded-xl hover:scale-105 transition-all shadow-lg`}
+                  >
+                    {cta.text}
+                  </a>
+                ))}
               </div>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-4 pt-4" data-aos="zoom-in" data-aos-delay="150">
-                <a
-                  href={currentSlide.cta1.link}
-                  className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-[#1a1207] font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition text-sm md:text-base"
-                >
-                  {currentSlide.cta1.text}
-                </a>
-                <a
-                  href={currentSlide.cta2.link}
-                  className="border border-[#E2CF7D] text-[#E2CF7D] font-semibold px-6 py-3 rounded-full bg-white/5 hover:bg-[#B78E3B] hover:text-black transition hover:-translate-y-0.5 text-sm md:text-base"
-                >
-                  {currentSlide.cta2.text}
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* bottom indicators */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentIndex(i)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    i === currentIndex
-                      ? "bg-[#E2CF7D] w-5"
-                      : "bg-white/35 hover:bg-white/70"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-4 text-[11px] text-gray-300">
-              <span className="flex items-center gap-1">
-                <span className="text-[#E2CF7D] text-sm">★</span> Rated drivers
-              </span>
-            <span className="flex items-center gap-1 text-sm  ">
-  <FaCheck className="text-[#E2CF7D]" />
-  Controller validation
-</span>
-              <span className="flex items-center gap-1">
-                <span className="text-[#E2CF7D] text-sm">⬤</span> Order for someone else
-              </span>
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
-
-        {/* bottom fade */}
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black via-black/90 to-transparent" />
       </section>
-    </div>
+    </header>
   );
 };
 
-export default HeroSection;
+export default Header;
