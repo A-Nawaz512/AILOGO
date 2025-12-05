@@ -9,9 +9,6 @@ import {
   FaChevronDown,
   FaTools,
   FaCarCrash,
-  FaBurn,
-  FaTirePressureWarning,
-  FaGasPump,
 } from "react-icons/fa";
 
 export default function BecomeRoadSide() {
@@ -134,89 +131,90 @@ export default function BecomeRoadSide() {
           </div>
 
           {/* Roadside Service Type */}
-          <div className="relative">
-            <label className="font-semibold text-md text-[#B78E3B] mb-1">
-              Roadside Service Type
-            </label>
-            <FaTools className="absolute left-3 top-[40px] text-[#B78E3B]" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="relative">
+              <label className="font-semibold text-md text-[#B78E3B] mb-1">
+                Roadside Service Type
+              </label>
+              <FaTools className="absolute left-3 top-[40px] text-[#B78E3B]" />
 
-            <div
-              className={`${dropdownClass} pl-10`}
-              onClick={() => setRoadsideOpen(!roadsideOpen)}
-            >
-              <span className={form.roadsideType ? "text-black" : "text-gray-500"}>
-                {form.roadsideType || "Select roadside service"}
-              </span>
-              <FaChevronDown className="text-[#B78E3B]" />
+              <div
+                className={`${dropdownClass} pl-10`}
+                onClick={() => setRoadsideOpen(!roadsideOpen)}
+              >
+                <span className={form.roadsideType ? "text-black" : "text-gray-500"}>
+                  {form.roadsideType || "Select roadside service"}
+                </span>
+                <FaChevronDown className="text-[#B78E3B]" />
+              </div>
+
+              {roadsideOpen && (
+                <ul className={optionsClass}>
+                  <li
+                    className={optionItemClass}
+                    onClick={() => {
+                      setForm({ ...form, roadsideType: "Mechanic" });
+                      setRoadsideOpen(false);
+                    }}
+                  >
+                    Mechanic
+                  </li>
+                  <li
+                    className={optionItemClass}
+                    onClick={() => {
+                      setForm({ ...form, roadsideType: "Towing" });
+                      setRoadsideOpen(false);
+                    }}
+                  >
+                    Towing
+                  </li>
+                  <li
+                    className={optionItemClass}
+                    onClick={() => {
+                      setForm({ ...form, roadsideType: "Battery Boost" });
+                      setRoadsideOpen(false);
+                    }}
+                  >
+                    Battery Boost
+                  </li>
+                  <li
+                    className={optionItemClass}
+                    onClick={() => {
+                      setForm({ ...form, roadsideType: "Tire Change" });
+                      setRoadsideOpen(false);
+                    }}
+                  >
+                    Tire Change
+                  </li>
+                  <li
+                    className={optionItemClass}
+                    onClick={() => {
+                      setForm({ ...form, roadsideType: "Fuel Delivery" });
+                      setRoadsideOpen(false);
+                    }}
+                  >
+                    Fuel Delivery
+                  </li>
+                </ul>
+              )}
             </div>
 
-            {roadsideOpen && (
-              <ul className={optionsClass}>
-                <li
-                  className={optionItemClass}
-                  onClick={() => {
-                    setForm({ ...form, roadsideType: "Mechanic" });
-                    setRoadsideOpen(false);
-                  }}
-                >
-                  Mechanic
-                </li>
-                <li
-                  className={optionItemClass}
-                  onClick={() => {
-                    setForm({ ...form, roadsideType: "Towing" });
-                    setRoadsideOpen(false);
-                  }}
-                >
-                  Towing
-                </li>
-                <li
-                  className={optionItemClass}
-                  onClick={() => {
-                    setForm({ ...form, roadsideType: "Battery Boost" });
-                    setRoadsideOpen(false);
-                  }}
-                >
-                  Battery Boost
-                </li>
-                <li
-                  className={optionItemClass}
-                  onClick={() => {
-                    setForm({ ...form, roadsideType: "Tire Change" });
-                    setRoadsideOpen(false);
-                  }}
-                >
-                  Tire Change
-                </li>
-                <li
-                  className={optionItemClass}
-                  onClick={() => {
-                    setForm({ ...form, roadsideType: "Fuel Delivery" });
-                    setRoadsideOpen(false);
-                  }}
-                >
-                  Fuel Delivery
-                </li>
-              </ul>
-            )}
+            {/* Service Zone */}
+            <div className="relative">
+              <label className="font-semibold text-md text-[#B78E3B] mb-1">
+                Service Zone / Area
+              </label>
+              <FaCarCrash className="absolute left-3 top-[40px] text-[#B78E3B]" />
+
+              <input
+                name="serviceZone"
+                value={form.serviceZone}
+                onChange={handleChange}
+                placeholder="Enter service zone / city"
+                className={inputClass}
+              />
+            </div>
           </div>
-
-          {/* Service Zone */}
-          <div className="relative">
-            <label className="font-semibold text-md text-[#B78E3B] mb-1">
-              Service Zone / Area
-            </label>
-            <FaCarCrash className="absolute left-3 top-[40px] text-[#B78E3B]" />
-
-            <input
-              name="serviceZone"
-              value={form.serviceZone}
-              onChange={handleChange}
-              placeholder="Enter service zone / city"
-              className={inputClass}
-            />
-          </div>
-
           {/* Documents */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="relative">

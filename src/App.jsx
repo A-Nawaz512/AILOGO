@@ -18,12 +18,10 @@ import FoodDelivery from "./pages/FoodDeveleviry";
 import BecomeDriver from "./components/Providers/BecomeDriver";
 import BecomeDelivery from "./components/Providers/BecomeDelivery";
 import BecomeRoadSide from "./components/Providers/BecomeRoadSide";
+import ListVehicle from "./components/Providers/BecomeListVehicle";
+import BecomeListApartment from "./components/Providers/BecomeListApartment";
 
 
-
-// -------------------
-// Main Layout (with Navbar + Footer)
-// -------------------
 const MainLayout = () => (
   <div className="lg:mx-auto lg:max-w-[1536px]">
     <Navbar />
@@ -32,9 +30,6 @@ const MainLayout = () => (
   </div>
 );
 
-// -------------------
-// Auth Layout (NO Navbar, NO Footer)
-// -------------------
 const AuthLayout = () => (
   <div className="lg:mx-auto lg:max-w-[1536px]">
     <Outlet />
@@ -43,28 +38,6 @@ const AuthLayout = () => (
 
 
 const router = createBrowserRouter([
-  {
-    element: <MainLayout />,
-    children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/about", element: <AboutPage /> },
-      { path: "/contact", element: <ContactPage /> },
-
-      { path: "/services/rides", element: <RidesPage /> },
-      { path: "/services/roadside", element: <RoadSideAss /> },
-      { path: "/services/deliveries", element: <Deliveries /> },
-      { path: "/services/food-delivery", element: <FoodDelivery /> },
-      { path: "/services/rentals", element: <Rental /> },
-      { path: "/services/apartments", element: <Appartment /> },
-
-      { path: "/bookride", element: <BookRide /> },
-      { path: "/becomedriver", element: <BecomeDriver /> },
-    ],
-  },
-
-  // -------------------
-  // Auth routes here (NO Navbar)
-  // -------------------
   {
     element: <AuthLayout />,
     children: [
@@ -88,6 +61,8 @@ const router = createBrowserRouter([
          { path: "/provider/driver", element: <BecomeDriver /> }, 
          { path: "/provider/delivery", element: <BecomeDelivery /> }, 
          { path: "/provider/roadside", element: <BecomeRoadSide /> }, 
+         { path: "/provider/list-vehicle", element: <ListVehicle /> }, 
+         { path: "/provider/list-apartment", element: <BecomeListApartment /> }, 
 
       ],
    },
