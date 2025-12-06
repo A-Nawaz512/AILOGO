@@ -17,7 +17,7 @@ const Header = () => {
     },
 
     // ---- Added Services ----
-    
+
     {
       title: "Pharmacy Delivery",
       subText:
@@ -87,63 +87,81 @@ const Header = () => {
 
   const slide = slides[currentIndex];
   const highlightIndex = slide.title.indexOf(slide.highlight);
-  const before = highlightIndex >= 0 ? slide.title.slice(0, highlightIndex) : slide.title;
-  const after = highlightIndex >= 0 ? slide.title.slice(highlightIndex + slide.highlight.length) : "";
+  const before =
+    highlightIndex >= 0 ? slide.title.slice(0, highlightIndex) : slide.title;
+  const after =
+    highlightIndex >= 0
+      ? slide.title.slice(highlightIndex + slide.highlight.length)
+      : "";
 
   return (
-    <header className="relative min-h-screen bg-[#0D0D0D] text-white overflow-hidden">
-     <section className="relative min-h-screen flex items-center justify-center">
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms]"
-    style={{ backgroundImage: `url(${slide.image})` }}
-  ></div>
+    <header className="relative  bg-[#0D0D0D] text-white overflow-hidden">
+      <section className="relative  h-[86vh] flex items-center justify-center">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms]"
+          style={{ backgroundImage: `url(${slide.image})` }}
+        ></div>
 
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/30"></div>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/30"></div>
 
-  {/* Content */}
-  <div className="relative z-20 text-center px-5 max-w-3xl mx-auto">
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={currentIndex}
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -30 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-6">
-          {before}
-          <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
-            {slide.highlight}
-          </span>
-          {after}
-        </h1>
-
-        <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-          {slide.subText}
-        </p>
-
-        <div className="flex justify-center gap-4 mt-6">
-          {[slide.cta1, slide.cta2].map((cta, idx) => (
-            <a
-              key={idx}
-              href={cta.link}
-              className={`${
-                idx === 0
-                  ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white"
-                  : "border-2 border-[#B78E3B] text-[#B78E3B] hover:bg-[#B78E3B] hover:text-white"
-              } font-semibold px-5 py-2 rounded-xl hover:scale-105 transition-all shadow-lg`}
+        {/* Content */}
+        <div className="relative z-20 text-center px-5 max-w-3xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.8 }}
             >
-              {cta.text}
-            </a>
+              <h1 className="text-4xl md:text-4xl font-extrabold leading-tight mb-6">
+                {before}
+                <span className="bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent">
+                  {slide.highlight}
+                </span>
+                {after}
+              </h1>
+
+              <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                {slide.subText}
+              </p>
+
+              <div className="flex justify-center gap-4 mt-6">
+                {[slide.cta1, slide.cta2].map((cta, idx) => (
+                  <a
+                    key={idx}
+                    href={cta.link}
+                    className={`${
+                      idx === 0
+                        ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] text-white"
+                        : "border-2 border-[#B78E3B] text-[#B78E3B] hover:bg-[#B78E3B] hover:text-white"
+                    } font-semibold px-5 py-2 rounded-xl hover:scale-105 transition-all shadow-lg`}
+                  >
+                    {cta.text}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Bottom Navigation (Not Fixed) */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={`transition-all cursor-pointer h-3 rounded-full ${
+                currentIndex === i
+                  ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] w-8"
+                  : "bg-white/40 w-3"
+              }`}
+            ></button>
           ))}
         </div>
-      </motion.div>
-    </AnimatePresence>
-  </div>
-</section>
-
+      </section>
     </header>
   );
 };

@@ -181,7 +181,7 @@ const HeroSection = () => {
                   }}
                   className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
                     index === currentContentIndex
-                      ? "bg-[#6F4918] w-8"
+                      ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] w-8"
                       : "bg-white/50"
                   }`}
                 />

@@ -12,6 +12,7 @@ const ApartmentHero = () => {
     {
       type: "Apartment",
       text: "Apartment Rentals",
+      gradientWord: "Apartment", // word to gradient
       subText: "Book verified apartments with secure online payment.",
       image: img1,
       cta1: { text: "Find an Apartment", link: "/apartments" },
@@ -20,6 +21,7 @@ const ApartmentHero = () => {
     {
       type: "Apartment",
       text: "Luxury Apartments",
+      gradientWord: "Luxury",
       subText: "Verified listings, secure payments, and trusted owners.",
       image: img2,
       cta1: { text: "Explore Apartments", link: "/apartments" },
@@ -28,6 +30,7 @@ const ApartmentHero = () => {
     {
       type: "Apartment",
       text: "Affordable Rentals",
+      gradientWord: "Affordable",
       subText: "Safe and verified apartments at the best prices.",
       image: img3,
       cta1: { text: "Book Now", link: "/apartments" },
@@ -36,6 +39,7 @@ const ApartmentHero = () => {
     {
       type: "Apartment",
       text: "Modern Living",
+      gradientWord: "Modern",
       subText: "Comfortable apartments with verified amenities.",
       image: img4,
       cta1: { text: "Find an Apartment", link: "/apartments" },
@@ -60,8 +64,7 @@ const ApartmentHero = () => {
 
   return (
     <div className="min-h-screen text-white relative overflow-x-hidden">
-      <section className="relative flex items-center justify-center h-[90vh] overflow-hidden">
-        
+      <section className="relative flex items-center justify-center h-[88vh] overflow-hidden">
         {/* Background Images */}
         <div className="absolute inset-0 w-full h-full">
           {slides.map((slide, index) => (
@@ -83,8 +86,23 @@ const ApartmentHero = () => {
           className="relative z-10 text-center px-2 md:px-5 max-w-full md:max-w-3xl mx-auto -mt-1"
           data-aos="fade-up"
         >
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-6 text-white">
-            {currentSlide.text}
+          {/* Title with one word gradient */}
+          <h1 className="text-4xl md:text-4xl font-extrabold leading-tight mb-6">
+            {currentSlide.text.split(" ").map((word, i) => {
+              const isGradient = word === currentSlide.gradientWord;
+              return (
+                <span
+                  key={i}
+                  className={
+                    isGradient
+                      ? " text-white"
+                      : "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] bg-clip-text text-transparent"
+                  }
+                >
+                  {word}{" "}
+                </span>
+              );
+            })}
           </h1>
 
           <p className="text-lg md:text-2xl text-gray-200 mb-8 leading-relaxed">
@@ -107,7 +125,22 @@ const ApartmentHero = () => {
           </div>
         </div>
 
-      
+        {/* Bottom Navigation Dots */}
+        <div className="absolute bottom-6  left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={`transition-all cursor-pointer h-3 rounded-full ${
+                currentIndex === i
+                  ? "bg-gradient-to-r from-[#6F4918] to-[#E2CF7D] w-8"
+                  : "bg-white/40 w-3"
+              }`}
+            ></button>
+          ))}
+        </div>
+
+        {/* Bottom Gradient Overlay */}
         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/90 to-transparent"></div>
       </section>
     </div>
